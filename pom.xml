@@ -6,7 +6,75 @@
 
     <groupId>cz.muni.fi.pa138.cvGeneration</groupId>
     <artifactId>PB138-CvGeneration</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>CvGeneration-Service</module>
+        <module>CvGeneration-Web</module>
+        <module>CvGeneration-API</module>
+    </modules>
 
-    
+    <name>CvGeneration</name>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${project.source}</source>
+                        <target>${project.target}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <properties>
+        <!-- project -->
+        <project.source>1.8</project.source>
+        <project.target>1.8</project.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- plugin -->
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+
+        <!-- DB -->
+        <exist.version>3.0.RC1</exist.version>
+
+        <!-- spring -->
+        <spring.version>4.2.6.RELEASE</spring.version>
+
+        <!-- test -->
+        <junit.version>4.12</junit.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.exist-db</groupId>
+            <artifactId>exist-core</artifactId>
+            <version>${exist.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>exist</id>
+            <url>https://raw.github.com/eXist-db/mvn-repo/master/</url>
+        </repository>
+    </repositories>
 </project>
