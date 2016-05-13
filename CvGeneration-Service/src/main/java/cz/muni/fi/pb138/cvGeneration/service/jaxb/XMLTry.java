@@ -3,6 +3,7 @@ package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
 import cz.muni.fi.pb138.cvGeneration.persistence.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.persistence.entity.item.*;
+import org.xmldb.api.base.XMLDBException;
 
 
 import java.io.File;
@@ -21,7 +22,7 @@ import java.util.List;
 public class XMLTry {
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, XMLDBException {
 
 
 
@@ -124,11 +125,14 @@ public class XMLTry {
         person.setPersonalInfo(personalInfo);
 
 
-        XMLConverter.createXML(person);
+        XMLConverter converter = new XMLConverter();
 
-        String nameOfFile = person.getPersonalInfo().getFirstName() + person.getPasswordHash();
-        File file = new File("C:\\projects\\" + nameOfFile +".xml");
-        XMLConverter.createPerson(file);
+        String name = converter.createXML(person);
+        System.out.println(name);
+
+        Person person1 = converter.createPerson(name);
+        System.out.println(person1);
+
 
     }
 

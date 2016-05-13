@@ -55,5 +55,32 @@ public class Education {
         this.schoolName = schoolName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Education)) return false;
 
+        Education education = (Education) o;
+
+        if (getDateStart() != null ? !getDateStart().equals(education.getDateStart()) : education.getDateStart() != null)
+            return false;
+        if (getDateEnd() != null ? !getDateEnd().equals(education.getDateEnd()) : education.getDateEnd() != null)
+            return false;
+        if (getDegree() != null ? !getDegree().equals(education.getDegree()) : education.getDegree() != null)
+            return false;
+        if (getSchoolName() != null ? !getSchoolName().equals(education.getSchoolName()) : education.getSchoolName() != null)
+            return false;
+        return format != null ? format.equals(education.format) : education.format == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getDateStart() != null ? getDateStart().hashCode() : 0;
+        result = 31 * result + (getDateEnd() != null ? getDateEnd().hashCode() : 0);
+        result = 31 * result + (getDegree() != null ? getDegree().hashCode() : 0);
+        result = 31 * result + (getSchoolName() != null ? getSchoolName().hashCode() : 0);
+        result = 31 * result + (format != null ? format.hashCode() : 0);
+        return result;
+    }
 }
