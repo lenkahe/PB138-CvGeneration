@@ -8,7 +8,9 @@ import cz.muni.fi.pb138.cvGeneration.service.entity.item.Skills;
 import java.util.List;
 
 /**
- * Created by User on 12.5.2016.
+ * Personal information
+ *
+ * @author Lenka Heldova
  */
 public class Person {
     private String pretitle;
@@ -23,10 +25,10 @@ public class Person {
     private List<String> emails;
     private List<String> certificates;
     private List<String> hobbies;
-    private Employments employments;
-    private Education education;
-    private Languages languages;
-    private Skills skills;
+    private List<Employments> employments;
+    private List<Education> education;
+    private List<Languages> languages;
+    private List<Skills> skills;
 
     public String getPretitle() {
         return pretitle;
@@ -124,35 +126,35 @@ public class Person {
         this.hobbies = hobbies;
     }
 
-    public Employments getEmployments() {
+    public List<Employments> getEmployments() {
         return employments;
     }
 
-    public void setEmployments(Employments employments) {
+    public void setEmployments(List<Employments> employments) {
         this.employments = employments;
     }
 
-    public Education getEducation() {
+    public List<Education> getEducation() {
         return education;
     }
 
-    public void setEducation(Education education) {
+    public void setEducation(List<Education> education) {
         this.education = education;
     }
 
-    public Languages getLanguages() {
+    public List<Languages> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(Languages languages) {
+    public void setLanguages(List<Languages> languages) {
         this.languages = languages;
     }
 
-    public Skills getSkills() {
+    public List<Skills> getSkills() {
         return skills;
     }
 
-    public void setSkills(Skills skills) {
+    public void setSkills(List<Skills> skills) {
         this.skills = skills;
     }
 }
