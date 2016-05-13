@@ -1,8 +1,13 @@
 package cz.muni.fi.pb138.cvGeneration.service.entity.item;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Created by lenkahe on 12.5.2016.
  */
+
+@XmlType(propOrder={"language", "level"})
 public class Languages {
     private String language;
     private String level;

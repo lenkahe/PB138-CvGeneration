@@ -1,10 +1,11 @@
 package cz.muni.fi.pb138.cvGeneration.service.entity;
 
-import cz.muni.fi.pb138.cvGeneration.service.entity.item.Education;
-import cz.muni.fi.pb138.cvGeneration.service.entity.item.Employments;
-import cz.muni.fi.pb138.cvGeneration.service.entity.item.Languages;
-import cz.muni.fi.pb138.cvGeneration.service.entity.item.Skills;
+import cz.muni.fi.pb138.cvGeneration.service.entity.item.*;
+import org.apache.xerces.impl.dtd.XMLElementDecl;
 
+import javax.xml.bind.annotation.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -12,17 +13,14 @@ import java.util.List;
  *
  * @author Lenka Heldova
  */
+
+@XmlRootElement
+@XmlType(propOrder={"personalInfo","passwordHash", "employments","education",
+        "languages", "skills", "certificates", "hobbies"})
 public class Person {
-    private String pretitle;
-    private String firstName;
-    private String lastName;
-    private String postTitle;
-    private String street;
-    private String city;
-    private String postalCode;
+
+    private PersonalInfo personalInfo;
     private String passwordHash;
-    private List<String> phones;
-    private List<String> emails;
     private List<String> certificates;
     private List<String> hobbies;
     private List<Employments> employments;
@@ -30,90 +28,26 @@ public class Person {
     private List<Languages> languages;
     private List<Skills> skills;
 
-    public String getPretitle() {
-        return pretitle;
-    }
-
-    public void setPretitle(String pretitle) {
-        this.pretitle = pretitle;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPostTitle() {
-        return postTitle;
-    }
-
-    public void setPostTitle(String postTitle) {
-        this.postTitle = postTitle;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
+    public static DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 
     public String getPasswordHash() {
         return passwordHash;
     }
 
+    @XmlAttribute
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
 
-    public List<String> getPhones() {
-        return phones;
-    }
 
-    public void setPhones(List<String> phones) {
-        this.phones = phones;
-    }
 
-    public List<String> getEmails() {
-        return emails;
-    }
-
-    public void setEmails(List<String> emails) {
-        this.emails = emails;
-    }
 
     public List<String> getCertificates() {
         return certificates;
     }
 
+    @XmlElementWrapper
+    @XmlElement(name = "certificate")
     public void setCertificates(List<String> certificates) {
         this.certificates = certificates;
     }
@@ -122,6 +56,8 @@ public class Person {
         return hobbies;
     }
 
+    @XmlElementWrapper
+    @XmlElement(name = "hobby")
     public void setHobbies(List<String> hobbies) {
         this.hobbies = hobbies;
     }
@@ -130,6 +66,8 @@ public class Person {
         return employments;
     }
 
+    @XmlElementWrapper
+    @XmlElement(name = "employment")
     public void setEmployments(List<Employments> employments) {
         this.employments = employments;
     }
@@ -138,6 +76,8 @@ public class Person {
         return education;
     }
 
+    @XmlElementWrapper
+    @XmlElement(name = "employment")
     public void setEducation(List<Education> education) {
         this.education = education;
     }
@@ -146,6 +86,8 @@ public class Person {
         return languages;
     }
 
+    @XmlElementWrapper
+    @XmlElement(name = "language")
     public void setLanguages(List<Languages> languages) {
         this.languages = languages;
     }
@@ -154,7 +96,23 @@ public class Person {
         return skills;
     }
 
+    @XmlElementWrapper
+    @XmlElement(name = "skill")
     public void setSkills(List<Skills> skills) {
         this.skills = skills;
+    }
+
+
+    public PersonalInfo getPersonalInfo() {
+        return personalInfo;
+    }
+
+    public void setPersonalInfo(PersonalInfo personalInfo) {
+        this.personalInfo = personalInfo;
+    }
+
+    @Override
+    public String toString() {
+        return personalInfo.toString() + employments.toString();
     }
 }

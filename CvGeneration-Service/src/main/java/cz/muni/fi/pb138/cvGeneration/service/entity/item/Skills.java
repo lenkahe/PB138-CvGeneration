@@ -1,11 +1,16 @@
 package cz.muni.fi.pb138.cvGeneration.service.entity.item;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * Created by lenkahe on 12.5.2016.
  */
+@XmlType(propOrder={"skillName", "level"})
 public class Skills {
     private String skillName;
     private String level;
+
 
     public String getSkillName() {
         return skillName;

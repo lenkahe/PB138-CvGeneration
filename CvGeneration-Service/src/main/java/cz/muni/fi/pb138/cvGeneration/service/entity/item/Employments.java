@@ -1,10 +1,18 @@
 package cz.muni.fi.pb138.cvGeneration.service.entity.item;
 
+import cz.muni.fi.pb138.cvGeneration.service.jaxb.DateAdapter;
+
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.util.Date;
+
+import static cz.muni.fi.pb138.cvGeneration.service.entity.Person.format;
 
 /**
  * Created by lenkahe on 12.5.2016.
  */
+@XmlType(propOrder={"company", "position", "dateStart", "dateEnd", "description"})
 public class Employments {
     private Date dateStart;
     private Date dateEnd;
@@ -12,10 +20,13 @@ public class Employments {
     private String position;
     private String description;
 
+
+
     public Date getDateStart() {
         return dateStart;
     }
 
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public void setDateStart(Date dateStart) {
         this.dateStart = dateStart;
     }
@@ -24,6 +35,7 @@ public class Employments {
         return dateEnd;
     }
 
+    @XmlJavaTypeAdapter(DateAdapter.class)
     public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
     }
@@ -77,5 +89,10 @@ public class Employments {
         result = 31 * result + (getPosition() != null ? getPosition().hashCode() : 0);
         result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return company + " " + format.format(dateStart)  + "-" + format.format(dateEnd);
     }
 }
