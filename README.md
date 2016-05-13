@@ -2,4 +2,5 @@
 Project to course PB138 at Masaryk University implementing web application for CV generation in Java programming language.
 
 [Wiki](https://github.com/lenkahe/PB138-CvGeneration/wiki)
-[Documentation](https://github.com/lenkahe/PB138-CvGeneration/documentation)
+
+[Documentation](https://github.com/lenkahe/PB138-CvGeneration/wiki/Documentation)
