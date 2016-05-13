@@ -20,28 +20,28 @@ import javax.sql.DataSource;
  */
 @Configuration
 @ComponentScan(basePackages = "cz.muni.fi.pb138.cvGeneration")
-@EnableTransactionManagement
-@EnableJpaRepositories
+//@EnableTransactionManagement
+//@EnableJpaRepositories
 public class DaoConfiguration {
-    @Bean
-    public JpaTransactionManager transactionManager() {
-        return new JpaTransactionManager(entityManagerFactory().getObject());
-    }
-
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean =
-                new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(this.dataSource());
-        entityManagerFactoryBean.setPersistenceProvider(new HibernatePersistenceProvider());
-        return entityManagerFactoryBean;
-    }
-
-    @Bean
-    public DataSource dataSource() {
-        final EmbeddedDatabaseBuilder databaseBuilder = new EmbeddedDatabaseBuilder();
-        databaseBuilder.setType(EmbeddedDatabaseType.DERBY);
-        return databaseBuilder.build();
-    }
+//    @Bean
+//    public JpaTransactionManager transactionManager() {
+//        return new JpaTransactionManager(entityManagerFactory().getObject());
+//    }
+//
+//    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+//        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean =
+//                new LocalContainerEntityManagerFactoryBean();
+//        entityManagerFactoryBean.setDataSource(this.dataSource());
+//        entityManagerFactoryBean.setPersistenceProvider(new HibernatePersistenceProvider());
+//        return entityManagerFactoryBean;
+//    }
+//
+//    @Bean
+//    public DataSource dataSource() {
+//        final EmbeddedDatabaseBuilder databaseBuilder = new EmbeddedDatabaseBuilder();
+//        databaseBuilder.setType(EmbeddedDatabaseType.DERBY);
+//        return databaseBuilder.build();
+//    }
 
 }
