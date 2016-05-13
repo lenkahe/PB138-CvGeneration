@@ -1,7 +1,6 @@
-package cz.muni.fi.pb138.cvGeneration.service.entity;
+package cz.muni.fi.pb138.cvGeneration.persistence.entity;
 
-import cz.muni.fi.pb138.cvGeneration.service.entity.item.*;
-import org.apache.xerces.impl.dtd.XMLElementDecl;
+import cz.muni.fi.pb138.cvGeneration.persistence.entity.item.*;
 
 import javax.xml.bind.annotation.*;
 import java.text.DateFormat;

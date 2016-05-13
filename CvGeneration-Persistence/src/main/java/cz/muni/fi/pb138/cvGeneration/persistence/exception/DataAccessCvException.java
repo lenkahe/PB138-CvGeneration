@@ -1,4 +1,4 @@
-package cz.muni.fi.pb138.cvGeneration.service.exception;
+package cz.muni.fi.pb138.cvGeneration.persistence.exception;
 
 import org.springframework.dao.DataAccessException;
 

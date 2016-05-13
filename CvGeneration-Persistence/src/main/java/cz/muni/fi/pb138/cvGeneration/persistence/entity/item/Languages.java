@@ -1,6 +1,5 @@
-package cz.muni.fi.pb138.cvGeneration.service.entity.item;
+package cz.muni.fi.pb138.cvGeneration.persistence.entity.item;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 /**

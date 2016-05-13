@@ -1,13 +1,15 @@
-package cz.muni.fi.pb138.cvGeneration.service.entity.item;
+package cz.muni.fi.pb138.cvGeneration.persistence.entity.item;
 
-import cz.muni.fi.pb138.cvGeneration.service.jaxb.DateAdapter;
+
+
+import cz.muni.fi.pb138.cvGeneration.persistence.entity.DateAdapter;
 
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import java.util.Date;
 
-import static cz.muni.fi.pb138.cvGeneration.service.entity.Person.format;
+import static cz.muni.fi.pb138.cvGeneration.persistence.entity.Person.format;
 
 /**
  * Created by lenkahe on 12.5.2016.

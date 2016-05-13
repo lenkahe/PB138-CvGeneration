@@ -1,6 +1,6 @@
-package cz.muni.fi.pb138.cvGeneration.service.dao;
+package cz.muni.fi.pb138.cvGeneration.persistence.dao;
 
-import cz.muni.fi.pb138.cvGeneration.service.exception.DataAccessCvException;
+import cz.muni.fi.pb138.cvGeneration.persistence.exception.DataAccessCvException;
 import org.exist.xmldb.EXistResource;
 import org.springframework.stereotype.Component;
 import org.xmldb.api.DatabaseManager;
@@ -63,6 +63,24 @@ public class CvDaoImpl implements CvDao {
         }
     }
 
+    @Override
+    public void deleteResource(String fileName) {
+        initDatabase();
+        Collection collection = null;
+        XMLResource resource = null;
+
+        try {
+            collection = DatabaseManager.getCollection(URI);
+
+            resource = (XMLResource) collection.getResource(fileName);
+            collection.removeResource(resource);
+
+        } catch (XMLDBException e) {
+            throw new DataAccessCvException("Exception was thrown while getting resource", e);
+        } finally {
+            cleanUp(resource, collection);
+        }
+    }
 
 
     private void initDatabase() {

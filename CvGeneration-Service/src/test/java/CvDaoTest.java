@@ -1,5 +1,5 @@
-import cz.muni.fi.pb138.cvGeneration.service.dao.CvDao;
-import cz.muni.fi.pb138.cvGeneration.service.dao.DaoConfiguration;
+import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDao;
+import cz.muni.fi.pb138.cvGeneration.persistence.dao.DaoConfiguration;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;

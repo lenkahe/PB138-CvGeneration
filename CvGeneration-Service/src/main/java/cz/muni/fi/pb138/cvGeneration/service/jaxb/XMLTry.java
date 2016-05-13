@@ -1,7 +1,8 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
-import cz.muni.fi.pb138.cvGeneration.service.entity.Person;
-import cz.muni.fi.pb138.cvGeneration.service.entity.item.*;
+import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
+import cz.muni.fi.pb138.cvGeneration.persistence.entity.Person;
+import cz.muni.fi.pb138.cvGeneration.persistence.entity.item.*;
 
 
 import java.io.File;
@@ -22,7 +23,7 @@ public class XMLTry {
 
     public static void main(String[] args) throws ParseException {
 
-        //CvDaoImpl dao = new CvDaoImpl();
+
 
         DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
         DateFormat formatyear = new SimpleDateFormat("yyyy");

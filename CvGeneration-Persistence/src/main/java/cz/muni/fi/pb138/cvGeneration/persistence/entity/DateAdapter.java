@@ -1,4 +1,4 @@
-package cz.muni.fi.pb138.cvGeneration.service.jaxb;
+package cz.muni.fi.pb138.cvGeneration.persistence.entity;
 
 
 import java.text.SimpleDateFormat;

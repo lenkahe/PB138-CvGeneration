@@ -1,8 +1,7 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
-
-import cz.muni.fi.pb138.cvGeneration.service.dao.CvDaoImpl;
-import cz.muni.fi.pb138.cvGeneration.service.entity.Person;
+import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
+import cz.muni.fi.pb138.cvGeneration.persistence.entity.Person;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -42,7 +41,7 @@ public class XMLConverter {
             jaxbMarshaller.marshal(person, System.out);
 
 
-            //cvDao.saveResource(file);
+            cvDao.saveResource(file);
 
         } catch (JAXBException e) {
             e.printStackTrace();

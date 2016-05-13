@@ -1,4 +1,4 @@
-package cz.muni.fi.pb138.cvGeneration.service.dao;
+package cz.muni.fi.pb138.cvGeneration.persistence.dao;
 
 import org.xmldb.api.modules.XMLResource;
 
@@ -13,10 +13,10 @@ public interface CvDao {
 
     /**
      * Returns xml from the database.
-     * @param name file name
+     * @param fileName file name
      * @return
      */
-    XMLResource getResource(String name);
+    XMLResource getResource(String fileName);
 
     /**
      * Saves resource to the database.
@@ -25,5 +25,10 @@ public interface CvDao {
      */
     XMLResource saveResource(File name);
 
+    /**
+     * Deletes resource from the database.
+     * @param fileName
+     */
+    void deleteResource(String fileName);
 
 }
