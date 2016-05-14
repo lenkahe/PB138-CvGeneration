@@ -8,4 +8,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="cz.muni.fi.pb138.cvGeneration.web.utils.ClientWebUrl" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:redirect url="<%=ClientWebUrl.LOGIN>"/>
+<c:redirect url="<%=ClientWebUrl.LOGIN=%>"/>

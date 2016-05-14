@@ -15,5 +15,8 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <bean name="userDao" class="cz.muni.fi.pb138.cvGeneration.persistence.dao.UserDaoImpl">
+
+    </bean>
 
 </beans>

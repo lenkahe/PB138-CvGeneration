@@ -8,9 +8,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <%@include file="meta.html"%>
+    <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
+
+    <div class="container">
+
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Registration</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="User Name" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" >Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" >Confirm Password</label>
+                <input type="password" id="inputPassword2" class="form-control" placeholder="Password" required>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        </form>
+
+    </div> <!-- /container -->
 
 </body>
 </html>

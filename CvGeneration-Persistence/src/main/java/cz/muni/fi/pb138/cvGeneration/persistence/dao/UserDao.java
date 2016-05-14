@@ -12,4 +12,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao extends JpaRepository<User, String> {
 
+    /**
+     * Authenticates user.
+     * @param username
+     * @param password
+     * @return
+     */
+    boolean isValidUser(String username, String password);
+
 }
