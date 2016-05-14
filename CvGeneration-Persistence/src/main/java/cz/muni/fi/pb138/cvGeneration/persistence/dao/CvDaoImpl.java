@@ -51,7 +51,7 @@ public class CvDaoImpl implements CvDao {
             collection = DatabaseManager.getCollection(URI);
 
             // create new XMLResource; an id will be assigned to the new resource
-            resource = (XMLResource)collection.createResource(null, "XMLResource");
+            resource = (XMLResource)collection.createResource(file.getName(), "XMLResource");
 
             resource.setContent(file);
             collection.storeResource(resource);

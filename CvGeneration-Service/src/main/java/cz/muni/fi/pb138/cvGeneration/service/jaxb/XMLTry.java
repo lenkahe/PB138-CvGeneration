@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Temporery class used for testing XMLConverter
+ * Temporary class used for testing XMLConverter
  *
  * Created by galbavyj on 13.05.2016.
  */
@@ -27,7 +27,7 @@ public class XMLTry {
 
 
         DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-        DateFormat formatyear = new SimpleDateFormat("yyyy");
+        DateFormat formatYear = new SimpleDateFormat("yyyy");
 
 
         Employments emp1 = new Employments();
@@ -52,12 +52,12 @@ public class XMLTry {
 
 
         edu2.setSchoolName("FI MUNI");
-        edu2.setDateStart(formatyear.parse("2011"));
+        edu2.setDateStart(formatYear.parse("2011"));
         edu2.setDegree("1");
 
         edu1.setSchoolName("SOŠ Spišská Nová Ves");
-        edu1.setDateStart(formatyear.parse("1994"));
-        edu1.setDateEnd(formatyear.parse("2000"));
+        edu1.setDateStart(formatYear.parse("1994"));
+        edu1.setDateEnd(formatYear.parse("2000"));
 
         lang1.setLanguage("English");
         lang1.setLevel("advanced");

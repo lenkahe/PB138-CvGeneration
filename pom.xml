@@ -29,6 +29,11 @@
                         <target>${project.target}</target>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>${tomcat7-maven.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -42,6 +47,7 @@
 
         <!-- plugin -->
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <tomcat7-maven.version>2.2</tomcat7-maven.version>
 
         <!-- DB -->
         <exist.version>3.0.RC1</exist.version>
@@ -71,6 +77,11 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>xml-apis</groupId>
+                <artifactId>xml-apis</artifactId>
+                <version>1.4.01</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -80,4 +91,6 @@
             <url>https://raw.github.com/eXist-db/mvn-repo/master/</url>
         </repository>
     </repositories>
+
+
 </project>
