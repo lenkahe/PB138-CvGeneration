@@ -22,7 +22,7 @@
         </param-value>
     </context-param>
 
-<!--
+
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
@@ -31,9 +31,7 @@
 
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
-        <servlet-class>
-            org.springframework.web.servlet.DispatcherServlet
-        </servlet-class>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -42,5 +40,5 @@
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
--->
+
 </web-app>
