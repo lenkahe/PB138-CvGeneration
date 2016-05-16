@@ -15,18 +15,13 @@
     </jsp-config>
 -->
 
-<!--    <context-param>
+    <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>
-            /WEB-INF/spring-context.xml
-        </param-value>
-    </context-param>-->
-
+        <param-value>WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+    </context-param>
 
     <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
     <servlet>
@@ -40,5 +35,9 @@
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
 
 </web-app>
