@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ *  person.xsd - Validation schema for xml file containing
+ *  data of one user in root element CV
+ *
+ *  @author galbavyj
+-->
+
+<xsd:schema version="1.0"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified">
+
+    <xsd:element name="person">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="personalInfo" type="personalInfoType"/>
+                <xsd:element name="employments" minOccurs="0"  type="employmentsType"/>
+                <xsd:element name="education" minOccurs="0"  type="educationType"/>
+                <xsd:element name="languages" minOccurs="0"  type="languagesType"/>
+                <xsd:element name="skills" minOccurs="0"  type="skillsType"/>
+                <xsd:element name="certificates" minOccurs="0"  type="certificatesType"/>
+                <xsd:element name="hobbies" minOccurs="0"  type="hobbiesType"/>
+            </xsd:sequence>
+            <xsd:attribute name="passwordHash" use="required" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:complexType name="personalInfoType">
+        <xsd:sequence>
+            <xsd:element name="preTitle" minOccurs="0" type="titleType"/>
+            <xsd:element name="firstName" type="xsd:string"/>
+            <xsd:element name="lastName"  type="xsd:string"/>
+            <xsd:element name="postTitle" minOccurs="0" type="titleType"/>
+            <xsd:element name="address" type="addressType"/>
+            <xsd:element name="phones" type="phonesType"/>
+            <xsd:element name="emails" type="emailsType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="addressType">
+        <xsd:sequence>
+            <xsd:element name="street" type="xsd:string"/>
+            <xsd:element name="city" type="xsd:string"/>
+            <xsd:element name="postalCode" type="postalType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="emailsType">
+        <xsd:sequence>
+            <xsd:element name="email" maxOccurs="3" type="emailType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="phonesType">
+        <xsd:sequence>
+            <xsd:element name="phone" maxOccurs="3" type="phoneType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="employmentsType">
+        <xsd:sequence>
+            <xsd:element name="employment" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="company" type="xsd:string"/>
+                        <xsd:element name="position" type="xsd:string"/>
+                        <xsd:element name="dateStart" type="dateType"/>
+                        <xsd:element name="dateEnd" minOccurs="0" type="dateType"/>
+                        <xsd:element name="description" minOccurs="0" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="educationType">
+        <xsd:sequence>
+            <xsd:element name="school" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="schoolName" type="xsd:string"/>
+                        <xsd:element name="degree" type="xsd:int"/>
+                        <xsd:element name="dateStart" type="dateType"/>
+                        <xsd:element name="dateEnd" minOccurs="0" type="dateType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="languagesType">
+        <xsd:sequence>
+            <xsd:element name="language" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="languageName" type="xsd:string"/>
+                        <xsd:element name="level" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="skillsType">
+        <xsd:sequence>
+            <xsd:element name="skill" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="skillName" type="xsd:string"/>
+                        <xsd:element name="level" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="certificatesType">
+        <xsd:sequence>
+            <xsd:element name="certificate" maxOccurs="unbounded" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="hobbiesType">
+        <xsd:sequence>
+            <xsd:element name="hobby" maxOccurs="unbounded" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:simpleType name="emailType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\S+@\S+\.\S+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="titleType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="([a-zA-Z]+\.?\s*)*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="postalType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{3}[ ]?[0-9]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="phoneType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\+?(\(?[0-9]+)([\(\) 0-9]*)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+    <!--EMP @ from, to type-->
+    <xsd:simpleType name="dateType">
+        <xsd:restriction base="xsd:string">
+            <!--<xsd:pattern value="(((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)){0,1}"/> -->
+            <xsd:pattern value="[0-3][0-9]\.[0|1][0-9]\.[1|2][9|0][0-9][0-9]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!--LANG @ level type-->
+    <xsd:simpleType name="typeLangLevel">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(native speaker|basic|intermediate|advanced)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!--SK @ level type-->
+    <xsd:simpleType name="typeLevel">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(basic|intermediate|advanced)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

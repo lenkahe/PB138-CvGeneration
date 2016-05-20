@@ -2,6 +2,7 @@ package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
 import cz.muni.fi.pb138.cvGeneration.persistence.entity.Person;
+import cz.muni.fi.pb138.cvGeneration.persistence.exception.DataAccessCvException;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
@@ -32,7 +33,8 @@ public class XMLConverter {
     public String createXML(Person person) throws XMLDBException {
 
         CvDaoImpl cvDao = new CvDaoImpl();
-        File file = new File(System.getProperty("user.dir") + "\\person.xml");
+        String fileName = person.getPersonalInfo().getLastName() + person.getPasswordHash() + ".xml";
+        File file = new File(System.getProperty("user.dir") + "\\" + fileName);
 
         try {
 
@@ -43,17 +45,20 @@ public class XMLConverter {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             jaxbMarshaller.marshal(person, file);
-            jaxbMarshaller.marshal(person, System.out);
+            //jaxbMarshaller.marshal(person, System.out);
 
 
         } catch (JAXBException e) {
             e.printStackTrace();
         }
 
-        String name = cvDao.saveResource(file).getDocumentId();
+        PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
+        personSchemaValidator.validate(file);
+
+        cvDao.saveResource(file);
         file.delete();
 
-        return name;
+        return fileName;
 
     }
 
@@ -67,9 +72,12 @@ public class XMLConverter {
 
         CvDaoImpl cvDao = new CvDaoImpl();
         XMLResource res = cvDao.getResource(name);
+
+        if(res == null) throw new DataAccessCvException("No resource with this name.");
+
         Person person = null;
 
-        File file = new File(System.getProperty("user.dir") + "\\person.xml");
+        File file = new File(System.getProperty("user.dir") + "\\" + name);
 
 
         try {
@@ -81,6 +89,8 @@ public class XMLConverter {
             e.printStackTrace();
         }
 
+        PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
+        personSchemaValidator.validate(file);
 
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Person.class);

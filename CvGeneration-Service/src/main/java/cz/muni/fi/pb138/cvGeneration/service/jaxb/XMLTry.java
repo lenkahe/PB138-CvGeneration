@@ -1,12 +1,10 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
-import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
 import cz.muni.fi.pb138.cvGeneration.persistence.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.persistence.entity.item.*;
 import org.xmldb.api.base.XMLDBException;
 
 
-import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +39,7 @@ public class XMLTry {
         Address address = new Address();
 
         List<Employments> employments = new ArrayList<>();
-        List<Education> educations = new ArrayList<>();
+        List<Education> education = new ArrayList<>();
         List<Languages> languages = new ArrayList<>();
         List<Skills> skills = new ArrayList<>();
         List<String> mails = new ArrayList<>();
@@ -58,11 +56,12 @@ public class XMLTry {
         edu1.setSchoolName("SOŠ Spišská Nová Ves");
         edu1.setDateStart(formatYear.parse("1994"));
         edu1.setDateEnd(formatYear.parse("2000"));
+        edu1.setDegree("3");
 
-        lang1.setLanguage("English");
+        lang1.setLanguageName("English");
         lang1.setLevel("advanced");
 
-        lang2.setLanguage("Slovak");
+        lang2.setLanguageName("Slovak");
         lang2.setLevel("native");
 
         sk1.setSkillName("XML");
@@ -97,15 +96,15 @@ public class XMLTry {
         certificates.add("CBA");
         hobbies.add("eating");
         hobbies.add("sleeping");
-        educations.add(edu1);
-        educations.add(edu2);
+        education.add(edu1);
+        education.add(edu2);
         languages.add(lang1);
         languages.add(lang2);
         skills.add(sk1);
         skills.add(sk2);
 
         Person person = new Person();
-        personalInfo.setPretitle("Ing.");
+        personalInfo.setPreTitle("Ing.");
         personalInfo.setFirstName("Jozef");
         personalInfo.setLastName("Blažko");
         personalInfo.setPostTitle("Ph.D.");
@@ -119,7 +118,7 @@ public class XMLTry {
         person.setHobbies(hobbies);
         person.setCertificates(certificates);
         person.setEmployments(employments);
-        person.setEducation(educations);
+        person.setEducation(education);
         person.setLanguages(languages);
         person.setSkills(skills);
         person.setPersonalInfo(personalInfo);
@@ -128,11 +127,10 @@ public class XMLTry {
         XMLConverter converter = new XMLConverter();
 
         String name = converter.createXML(person);
-        System.out.println(name);
+        //System.out.println(name);
 
         Person person1 = converter.createPerson(name);
-        System.out.println(person1);
-
+        //System.out.println(person1);
 
     }
 

@@ -76,7 +76,7 @@ public class Person {
     }
 
     @XmlElementWrapper
-    @XmlElement(name = "employment")
+    @XmlElement(name = "school")
     public void setEducation(List<Education> education) {
         this.education = education;
     }

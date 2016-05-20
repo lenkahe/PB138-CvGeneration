@@ -9,10 +9,10 @@ import java.util.List;
  * Created by galbavyj on 13.05.2016.
  */
 
-@XmlType(propOrder={"pretitle", "firstName", "lastName", "postTitle", "address","phones", "emails"})
+@XmlType(propOrder={"preTitle", "firstName", "lastName", "postTitle", "address","phones", "emails"})
 public class PersonalInfo {
 
-    private String pretitle;
+    private String preTitle;
     private String firstName;
     private String lastName;
     private String postTitle;
@@ -20,14 +20,14 @@ public class PersonalInfo {
     private List<String> phones;
     private List<String> emails;
 
-    public String getPretitle() {
-        return pretitle;
+    public String getPreTitle() {
+        return preTitle;
     }
 
 
     @XmlElement
-    public void setPretitle(String pretitle) {
-        this.pretitle = pretitle;
+    public void setPreTitle(String preTitle) {
+        this.preTitle = preTitle;
     }
 
     public String getFirstName() {
@@ -86,7 +86,7 @@ public class PersonalInfo {
 
     @Override
     public String toString() {
-        return pretitle + firstName + " " + lastName + postTitle + "\n" +
+        return preTitle + firstName + " " + lastName + postTitle + "\n" +
                 address.toString() + "\n" +
                 phones + emails + "\n";
     }

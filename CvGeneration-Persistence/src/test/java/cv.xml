@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <person passwordHash="86vgd4168sa4sdsdf646">
     <personalInfo>
-        <pretitle>Ing.</pretitle>
+        <preTitle>Ing.</preTitle>
         <firstName>Jozef</firstName>
         <lastName>Blažko</lastName>
         <postTitle>Ph.D.</postTitle>
@@ -48,14 +48,14 @@
         </employment>
     </education>
     <languages>
-        <language>
-            <language>English</language>
+        <languageName>
+            <languageName>English</languageName>
             <level>advanced</level>
-        </language>
-        <language>
-            <language>Slovak</language>
+        </languageName>
+        <languageName>
+            <languageName>Slovak</languageName>
             <level>native</level>
-        </language>
+        </languageName>
     </languages>
     <skills>
         <skill>

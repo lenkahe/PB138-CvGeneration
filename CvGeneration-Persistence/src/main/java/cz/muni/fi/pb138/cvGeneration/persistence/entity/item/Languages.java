@@ -6,17 +6,17 @@ import javax.xml.bind.annotation.XmlType;
  * Created by lenkahe on 12.5.2016.
  */
 
-@XmlType(propOrder={"language", "level"})
+@XmlType(propOrder={"languageName", "level"})
 public class Languages {
-    private String language;
+    private String languageName;
     private String level;
 
-    public String getLanguage() {
-        return language;
+    public String getLanguageName() {
+        return languageName;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguageName(String languageName) {
+        this.languageName = languageName;
     }
 
     public String getLevel() {
@@ -34,7 +34,7 @@ public class Languages {
 
         Languages languages = (Languages) o;
 
-        if (getLanguage() != null ? !getLanguage().equals(languages.getLanguage()) : languages.getLanguage() != null)
+        if (getLanguageName() != null ? !getLanguageName().equals(languages.getLanguageName()) : languages.getLanguageName() != null)
             return false;
         return getLevel() != null ? getLevel().equals(languages.getLevel()) : languages.getLevel() == null;
 
@@ -42,7 +42,7 @@ public class Languages {
 
     @Override
     public int hashCode() {
-        int result = getLanguage() != null ? getLanguage().hashCode() : 0;
+        int result = getLanguageName() != null ? getLanguageName().hashCode() : 0;
         result = 31 * result + (getLevel() != null ? getLevel().hashCode() : 0);
         return result;
     }
