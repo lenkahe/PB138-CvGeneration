@@ -223,6 +223,22 @@
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
+            <xsl:text> \\ </xsl:text>
+        </xsl:if>
+
+        <xsl:if test="hobbies">
+            <xsl:text>
+
+{\hrulefill \large \bfseries Ostatní informace\hrulefill}
+
+\vspace{0.2cm}
+{\bfseries Záliby:} </xsl:text>
+            <xsl:for-each select="hobbies/hobby">
+                <xsl:value-of select="text()"/>
+                <xsl:if test="position() != last()">
+                    <xsl:text>, </xsl:text>
+                </xsl:if>
+            </xsl:for-each>
         </xsl:if>
 
 
