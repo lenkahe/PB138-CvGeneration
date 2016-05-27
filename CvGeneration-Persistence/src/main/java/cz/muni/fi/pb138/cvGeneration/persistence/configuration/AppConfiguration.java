@@ -1,4 +1,4 @@
-package cz.muni.fi.pb138.cvGeneration.persistence.dao;
+package cz.muni.fi.pb138.cvGeneration.persistence.configuration;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;
@@ -19,10 +19,10 @@ import javax.sql.DataSource;
  * @author Lenka Heldova
  */
 @Configuration
-@ComponentScan(basePackages = "cz.muni.fi.pb138.cvGeneration.persistence")
+@ComponentScan(basePackages = "cz.muni.fi.pb138.cvGeneration")
 @EnableTransactionManagement
-@EnableJpaRepositories
-public class DaoConfiguration {
+@EnableJpaRepositories("cz.muni.fi.pb138.cvGeneration.persistence")
+public class AppConfiguration {
     @Bean
     public JpaTransactionManager transactionManager() {
         return new JpaTransactionManager(entityManagerFactory().getObject());

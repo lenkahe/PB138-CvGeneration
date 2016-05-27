@@ -1,5 +1,5 @@
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDao;
-import cz.muni.fi.pb138.cvGeneration.persistence.dao.DaoConfiguration;
+import cz.muni.fi.pb138.cvGeneration.persistence.configuration.AppConfiguration;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,7 @@ import java.util.Scanner;
  * @author Pavel Jezek
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = DaoConfiguration.class)
+@ContextConfiguration(classes = AppConfiguration.class)
 public class CvDaoTest {
 
     @Autowired

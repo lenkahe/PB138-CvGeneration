@@ -1,4 +1,4 @@
-import cz.muni.fi.pb138.cvGeneration.persistence.dao.DaoConfiguration;
+import cz.muni.fi.pb138.cvGeneration.persistence.configuration.AppConfiguration;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.UserDao;
 import cz.muni.fi.pb138.cvGeneration.persistence.entity.User;
 import org.junit.Assert;
@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = DaoConfiguration.class)
+@ContextConfiguration(classes = AppConfiguration.class)
 @Transactional
 public class UserDaoTest {
 
