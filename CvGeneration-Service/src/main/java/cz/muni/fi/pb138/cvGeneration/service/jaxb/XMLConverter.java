@@ -47,16 +47,16 @@ public class XMLConverter {
             jaxbMarshaller.marshal(person, file);
             //jaxbMarshaller.marshal(person, System.out);
 
+            PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
+            if (personSchemaValidator.validate(file))
+                cvDao.saveResource(file);
 
         } catch (JAXBException e) {
             e.printStackTrace();
+        } finally {
+            file.delete();
+
         }
-
-        PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
-        personSchemaValidator.validate(file);
-
-        cvDao.saveResource(file);
-        file.delete();
 
         return fileName;
 

@@ -52,11 +52,13 @@ public class XMLTry {
         edu2.setSchoolName("FI MUNI");
         edu2.setDateStart(formatYear.parse("2011"));
         edu2.setDegree("1");
+        edu2.setFieldOfStudy("Niečo dobrého");
 
         edu1.setSchoolName("SOŠ Spišská Nová Ves");
         edu1.setDateStart(formatYear.parse("1994"));
         edu1.setDateEnd(formatYear.parse("2000"));
         edu1.setDegree("3");
+        edu1.setFieldOfStudy("aplikovaná záhradkárčina");
 
         lang1.setLanguageName("English");
         lang1.setLevel("advanced");
