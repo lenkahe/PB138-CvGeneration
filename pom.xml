@@ -34,6 +34,15 @@
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>${tomcat7-maven.version}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire.version}</version>
+                    <configuration>
+                        <reuseForks>false</reuseForks>
+                        <forkCount>1</forkCount>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -46,6 +55,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- plugin -->
+        <maven-surefire.version>2.16</maven-surefire.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <tomcat7-maven.version>2.2</tomcat7-maven.version>
 
