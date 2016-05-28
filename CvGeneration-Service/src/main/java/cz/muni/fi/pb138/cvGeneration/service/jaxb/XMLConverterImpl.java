@@ -20,7 +20,6 @@ import java.io.IOException;
  *
  * Created by galbavyj on 13.05.2016.
  */
-@Component
 public class XmlConverterImpl implements XmlConverter{
 
     @Override
