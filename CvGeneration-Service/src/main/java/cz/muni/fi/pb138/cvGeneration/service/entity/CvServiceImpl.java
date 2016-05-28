@@ -51,10 +51,13 @@ public class CvServiceImpl implements CvService{
         File xmlFile = converter.createXML(person);
         File texFile = xmlToTexconv.convertToTex(xmlFile);
 
-        String pdfFilePath = texToPdfconv.createPDF(texFile);
+        String texName = texFile.getName();
+        System.out.println(texName);
 
-        if (!xmlFile.delete()) System.err.print("File " + xmlFile.getName() + " can not be delete.");
-        if (!texFile.delete()) System.err.print("File " + texFile.getName() + " can not be delete.");
+        String pdfFilePath = texToPdfconv.createPDF(new File(texName.replace(".tex","")));
+
+        if (!xmlFile.delete()) System.err.print("File " + xmlFile.getName() + " can not be deleted.");
+        //if (!texFile.delete()) System.err.print("File " + texFile.getName() + " can not be deleted.");
 
         return new File(pdfFilePath);
     }

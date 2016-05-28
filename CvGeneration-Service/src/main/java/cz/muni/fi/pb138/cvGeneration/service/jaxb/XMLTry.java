@@ -189,22 +189,26 @@ public class XMLTry {
         XmlToTexConverter xmlToTexconv = new XmlToTexConverterImpl();
 
 
-        service.saveCvInformation(p2,user1);
-        service.saveCvInformation(person, user2);
+        //File lat = new File("projekt");
 
-        System.out.println(service.getCvInformation(user1));
-        System.out.println(service.getCvInformation(user2));
+        System.out.println(service.createPdf(p2));
 
-        service.createPdf(p2);
+        //service.saveCvInformation(p2,user1);
+        //service.saveCvInformation(person, user2);
 
-        /*
-        File xmlFile = converter.createXML(person);
+        //System.out.println(service.getCvInformation(user1));
+        //System.out.println(service.getCvInformation(user2));
 
-        String pdfFilePath = texToPdfconv.createPDF(xmlToTexconv.convertToTex(xmlFile));
-        xmlFile.delete();
+        //service.createPdf(p2);
 
-        System.out.println(pdfFilePath);
-        */
+        //String pdfFilePath = texToPdfconv.createPDF(lat);
+        //File xmlFile = converter.createXML(person);
+
+        //String pdfFilePath = texToPdfconv.createPDF(xmlToTexconv.convertToTex(xmlFile));
+        //xmlFile.delete();
+
+        //System.out.println(pdfFilePath);
+
         //converter.createXML(p2);
         //converter.createXML(person);
         //System.out.println(name);

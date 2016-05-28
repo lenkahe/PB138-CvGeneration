@@ -26,7 +26,7 @@ public class XmlConverterImpl implements XmlConverter{
     public File createXML(Person person){
 
 
-        String fileName = person.getPersonalInfo().getLastName() + person.hashCode() + ".xml";
+        String fileName = Math.abs(person.hashCode()) + "";
         File file = new File(System.getProperty("user.dir") + "\\" + fileName);
 
         try {
@@ -85,7 +85,7 @@ public class XmlConverterImpl implements XmlConverter{
         } catch (JAXBException e) {
             System.err.println("Can not create Person from XML file due to error: " + e.getMessage());
         } finally {
-            file.delete();
+            if (!file.delete()) System.err.print("File " + file.getName() + " can not be deleted.");
         }
 
         return person;
