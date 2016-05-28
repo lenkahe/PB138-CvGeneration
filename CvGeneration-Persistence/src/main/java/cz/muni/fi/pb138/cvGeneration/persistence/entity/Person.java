@@ -14,30 +14,17 @@ import java.util.List;
  */
 
 @XmlRootElement
-@XmlType(propOrder={"personalInfo","passwordHash", "employments","education",
+@XmlType(propOrder={"personalInfo", "employments","education",
         "languages", "skills", "certificates", "hobbies"})
 public class Person {
 
     private PersonalInfo personalInfo;
-    private String passwordHash;
     private List<String> certificates;
     private List<String> hobbies;
     private List<Employments> employments;
     private List<Education> education;
     private List<Languages> languages;
     private List<Skills> skills;
-
-    public static DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    @XmlAttribute
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
-
 
 
 
@@ -113,5 +100,40 @@ public class Person {
     @Override
     public String toString() {
         return personalInfo.toString() + employments.toString();
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+
+        Person person = (Person) o;
+
+        if (!getPersonalInfo().equals(person.getPersonalInfo())) return false;
+        if (getCertificates() != null ? !getCertificates().equals(person.getCertificates()) : person.getCertificates() != null)
+            return false;
+        if (getHobbies() != null ? !getHobbies().equals(person.getHobbies()) : person.getHobbies() != null)
+            return false;
+        if (getEmployments() != null ? !getEmployments().equals(person.getEmployments()) : person.getEmployments() != null)
+            return false;
+        if (getEducation() != null ? !getEducation().equals(person.getEducation()) : person.getEducation() != null)
+            return false;
+        if (getLanguages() != null ? !getLanguages().equals(person.getLanguages()) : person.getLanguages() != null)
+            return false;
+        return getSkills() != null ? getSkills().equals(person.getSkills()) : person.getSkills() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getPersonalInfo().hashCode();
+        result = 31 * result + (getCertificates() != null ? getCertificates().hashCode() : 0);
+        result = 31 * result + (getHobbies() != null ? getHobbies().hashCode() : 0);
+        result = 31 * result + (getEmployments() != null ? getEmployments().hashCode() : 0);
+        result = 31 * result + (getEducation() != null ? getEducation().hashCode() : 0);
+        result = 31 * result + (getLanguages() != null ? getLanguages().hashCode() : 0);
+        result = 31 * result + (getSkills() != null ? getSkills().hashCode() : 0);
+        return result;
     }
 }

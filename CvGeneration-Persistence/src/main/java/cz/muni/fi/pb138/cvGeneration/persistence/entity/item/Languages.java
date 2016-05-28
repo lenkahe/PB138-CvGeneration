@@ -11,6 +11,14 @@ public class Languages {
     private String languageName;
     private String level;
 
+    public Languages(String languageName, String level) {
+        this.level = level;
+        this.languageName = languageName;
+    }
+
+    public Languages() {
+    }
+
     public String getLanguageName() {
         return languageName;
     }

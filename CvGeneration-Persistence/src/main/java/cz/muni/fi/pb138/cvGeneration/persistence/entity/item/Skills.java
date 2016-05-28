@@ -10,6 +10,13 @@ public class Skills {
     private String skillName;
     private String level;
 
+    public Skills(String skillName, String level) {
+        this.skillName = skillName;
+        this.level = level;
+    }
+
+    public Skills() {
+    }
 
     public String getSkillName() {
         return skillName;

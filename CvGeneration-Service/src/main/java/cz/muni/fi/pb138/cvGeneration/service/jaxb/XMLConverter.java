@@ -33,7 +33,7 @@ public class XMLConverter {
     public String createXML(Person person) throws XMLDBException {
 
         CvDaoImpl cvDao = new CvDaoImpl();
-        String fileName = person.getPersonalInfo().getLastName() + person.getPasswordHash() + ".xml";
+        String fileName = person.getPersonalInfo().getLastName() + person.hashCode() + ".xml";
         File file = new File(System.getProperty("user.dir") + "\\" + fileName);
 
         try {

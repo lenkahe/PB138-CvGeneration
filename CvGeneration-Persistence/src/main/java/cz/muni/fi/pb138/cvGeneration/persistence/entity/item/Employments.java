@@ -7,22 +7,33 @@ import cz.muni.fi.pb138.cvGeneration.persistence.entity.DateAdapter;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static cz.muni.fi.pb138.cvGeneration.persistence.entity.Person.format;
 
 /**
  * Created by lenkahe on 12.5.2016.
  */
 @XmlType(propOrder={"company", "position", "dateStart", "dateEnd", "description"})
 public class Employments {
+
+    private String company;
     private Date dateStart;
     private Date dateEnd;
-    private String company;
     private String position;
     private String description;
 
+    public Employments(String company, String position, Date dateStart, Date dateEnd, String description) {
+        this.dateStart = dateStart;
+        if (dateEnd != null) this.dateEnd = dateEnd;
+        this.company = company;
+        this.position = position;
+        if (description != null) this.description = description;
+    }
+    SimpleDateFormat format = new SimpleDateFormat("d.M.yyyy");
 
+    public Employments() {
+    }
 
     public Date getDateStart() {
         return dateStart;

@@ -21,7 +21,6 @@
                 <xsd:element name="certificates" minOccurs="0"  type="certificatesType"/>
                 <xsd:element name="hobbies" minOccurs="0"  type="hobbiesType"/>
             </xsd:sequence>
-            <xsd:attribute name="passwordHash" use="required" type="xsd:string"/>
         </xsd:complexType>
     </xsd:element>
     
@@ -80,7 +79,7 @@
                     <xsd:sequence>
                         <xsd:element name="schoolName" type="xsd:string"/>
                         <xsd:element name="fieldOfStudy" type="xsd:string"/>
-                        <xsd:element name="degree" type="xsd:int"/>
+                        <xsd:element name="grade" minOccurs="0" type="xsd:int"/>
                         <xsd:element name="dateStart" type="dateType"/>
                         <xsd:element name="dateEnd" minOccurs="0" type="dateType"/>
                     </xsd:sequence>

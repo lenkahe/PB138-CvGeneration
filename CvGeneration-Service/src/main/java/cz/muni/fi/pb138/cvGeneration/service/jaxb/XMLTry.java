@@ -24,7 +24,7 @@ public class XMLTry {
 
 
 
-        DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat format = new SimpleDateFormat("d.M.yyyy");
         DateFormat formatYear = new SimpleDateFormat("yyyy");
 
 
@@ -51,13 +51,13 @@ public class XMLTry {
 
         edu2.setSchoolName("FI MUNI");
         edu2.setDateStart(formatYear.parse("2011"));
-        edu2.setDegree("1");
+        edu2.setGrade("1");
         edu2.setFieldOfStudy("Niečo dobrého");
 
         edu1.setSchoolName("SOŠ Spišská Nová Ves");
         edu1.setDateStart(formatYear.parse("1994"));
         edu1.setDateEnd(formatYear.parse("2000"));
-        edu1.setDegree("3");
+        edu1.setGrade("3");
         edu1.setFieldOfStudy("aplikovaná záhradkárčina");
 
         lang1.setLanguageName("English");
@@ -96,6 +96,8 @@ public class XMLTry {
         phones.add("+42191153578");
         certificates.add("ABC");
         certificates.add("CBA");
+        certificates.add("Shhbc");
+        certificates.add("Lečo");
         hobbies.add("eating");
         hobbies.add("sleeping");
         education.add(edu1);
@@ -116,7 +118,6 @@ public class XMLTry {
         address.setCity("Brno");
         address.setPostalCode("97405");
         personalInfo.setAddress(address);
-        person.setPasswordHash("86vgd4168sa4sdsdf646");
         person.setHobbies(hobbies);
         person.setCertificates(certificates);
         person.setEmployments(employments);
@@ -125,13 +126,57 @@ public class XMLTry {
         person.setSkills(skills);
         person.setPersonalInfo(personalInfo);
 
+        Person p2 = new Person();
+        List<String> m2 = new ArrayList<>();
+        List<String> ph2 = new ArrayList<>();
+
+        Education minSchool = new Education("Gymnázium Šurany", "Rybárčenie", "4", format.parse("11.11.2011"), format.parse("12.12.2012"));
+        Employments minEmp = new Employments("Rybník s.r.o.", "Vedúci rybár", format.parse("11.11.2015"), format.parse("15.1.2016"), "Lovenie rýb v zátoke korytnačiek.");
+        Languages minLang = new Languages("English", "basic");
+        Languages lan1 = new Languages("Slovak", "native");
+        Languages lan2 = new Languages("Polish", "advance");
+
+
+
+        List<Employments> minEmps = new ArrayList<>();
+        List<Education> minSchools = new ArrayList<>();
+        List<Languages> minLangs = new ArrayList<>();
+
+
+        List<String> hobs = new ArrayList<>();
+        hobs.add("člnkovanie");
+        hobs.add("rybačka");
+        hobs.add("streľba z harpúny");
+        hobs.add("pitie piva");
+
+
+
+        minEmps.add(minEmp);
+        minSchools.add(minSchool);
+        minLangs.add(minLang);
+        minLangs.add(lan1);
+        minLangs.add(lan2);
+
+
+        m2.add("jano.potocny@gmail.com");
+        ph2.add("+42189465451");
+
+        p2.setPersonalInfo(new PersonalInfo(null,"Jano", "Potočný",null,
+                new Address("Hofmann 21", "Berlin", "970 51"), ph2, m2));
+        p2.setEducation(minSchools);
+        p2.setEmployments(minEmps);
+        p2.setLanguages(minLangs);
+        p2.setHobbies(hobs);
+        p2.setSkills(skills);
+
 
         XMLConverter converter = new XMLConverter();
 
-        String name = converter.createXML(person);
+        String name = converter.createXML(p2);
+        converter.createXML(person);
         //System.out.println(name);
 
-        Person person1 = converter.createPerson(name);
+        //Person person1 = converter.createPerson(name);
         //System.out.println(person1);
 
     }

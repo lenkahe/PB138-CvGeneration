@@ -5,23 +5,30 @@ import cz.muni.fi.pb138.cvGeneration.persistence.entity.DateAdapter;
 
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by lenkahe on 12.5.2016.
  */
-@XmlType(propOrder={"schoolName","fieldOfStudy", "degree", "dateStart", "dateEnd"})
+@XmlType(propOrder={"schoolName","fieldOfStudy", "grade", "dateStart", "dateEnd"})
 public class Education {
 
-    private Date dateStart;
-    private Date dateEnd;
-    private String degree;
     private String schoolName;
     private String fieldOfStudy;
+    private String grade;
+    private Date dateStart;
+    private Date dateEnd;
 
-    DateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+    public Education(String schoolName, String fieldOfStudy, String grade, Date dateStart, Date dateEnd) {
+        this.schoolName = schoolName;
+        this.fieldOfStudy = fieldOfStudy;
+        if (grade != null) this.grade = grade;
+        this.dateStart = dateStart;
+        if (dateEnd != null) this.dateEnd = dateEnd;
+    }
+
+    public Education() {
+    }
 
     public Date getDateStart() {
         return dateStart;
@@ -41,12 +48,12 @@ public class Education {
         this.dateEnd = dateEnd;
     }
 
-    public String getDegree() {
-        return degree;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public String getSchoolName() {
@@ -65,6 +72,7 @@ public class Education {
         this.fieldOfStudy = fieldOfStudy;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,23 +80,21 @@ public class Education {
 
         Education education = (Education) o;
 
-        if (!getDateStart().equals(education.getDateStart())) return false;
-        if (!getDateEnd().equals(education.getDateEnd())) return false;
-        if (!getDegree().equals(education.getDegree())) return false;
         if (!getSchoolName().equals(education.getSchoolName())) return false;
         if (!getFieldOfStudy().equals(education.getFieldOfStudy())) return false;
-        return format.equals(education.format);
+        if (getGrade() != null ? !getGrade().equals(education.getGrade()) : education.getGrade() != null) return false;
+        if (!getDateStart().equals(education.getDateStart())) return false;
+        return getDateEnd() != null ? getDateEnd().equals(education.getDateEnd()) : education.getDateEnd() == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = getDateStart().hashCode();
-        result = 31 * result + getDateEnd().hashCode();
-        result = 31 * result + getDegree().hashCode();
-        result = 31 * result + getSchoolName().hashCode();
+        int result = getSchoolName().hashCode();
         result = 31 * result + getFieldOfStudy().hashCode();
-        result = 31 * result + format.hashCode();
+        result = 31 * result + (getGrade() != null ? getGrade().hashCode() : 0);
+        result = 31 * result + getDateStart().hashCode();
+        result = 31 * result + (getDateEnd() != null ? getDateEnd().hashCode() : 0);
         return result;
     }
 }

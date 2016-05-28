@@ -20,6 +20,22 @@ public class PersonalInfo {
     private List<String> phones;
     private List<String> emails;
 
+
+    public PersonalInfo(String preTitle, String firstName, String lastName, String postTitle,
+                        Address address, List<String> phones, List<String> emails) {
+        if(preTitle != null) this.preTitle = preTitle;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        if(postTitle != null) this.postTitle = postTitle;
+        this.address = address;
+        this.phones = phones;
+        this.emails = emails;
+    }
+
+
+    public PersonalInfo() {
+    }
+
     public String getPreTitle() {
         return preTitle;
     }
@@ -89,5 +105,38 @@ public class PersonalInfo {
         return preTitle + firstName + " " + lastName + postTitle + "\n" +
                 address.toString() + "\n" +
                 phones + emails + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PersonalInfo)) return false;
+
+        PersonalInfo that = (PersonalInfo) o;
+
+        if (getPreTitle() != null ? !getPreTitle().equals(that.getPreTitle()) : that.getPreTitle() != null)
+            return false;
+        if (getFirstName() != null ? !getFirstName().equals(that.getFirstName()) : that.getFirstName() != null)
+            return false;
+        if (getLastName() != null ? !getLastName().equals(that.getLastName()) : that.getLastName() != null)
+            return false;
+        if (getPostTitle() != null ? !getPostTitle().equals(that.getPostTitle()) : that.getPostTitle() != null)
+            return false;
+        if (getAddress() != null ? !getAddress().equals(that.getAddress()) : that.getAddress() != null) return false;
+        if (getPhones() != null ? !getPhones().equals(that.getPhones()) : that.getPhones() != null) return false;
+        return getEmails() != null ? getEmails().equals(that.getEmails()) : that.getEmails() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getPreTitle() != null ? getPreTitle().hashCode() : 0;
+        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
+        result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
+        result = 31 * result + (getPostTitle() != null ? getPostTitle().hashCode() : 0);
+        result = 31 * result + (getAddress() != null ? getAddress().hashCode() : 0);
+        result = 31 * result + (getPhones() != null ? getPhones().hashCode() : 0);
+        result = 31 * result + (getEmails() != null ? getEmails().hashCode() : 0);
+        return result;
     }
 }
