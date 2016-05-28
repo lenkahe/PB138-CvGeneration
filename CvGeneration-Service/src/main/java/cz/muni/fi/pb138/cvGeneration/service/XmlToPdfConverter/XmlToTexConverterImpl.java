@@ -1,4 +1,7 @@
-package cz.muni.fi.pb138.cvGeneration.service.XMLToTexConverter;
+package cz.muni.fi.pb138.cvGeneration.service.XmlToPdfConverter;
+
+import cz.muni.fi.pa138.cvGeneration.api.converter.XmlToTexConverter;
+import org.springframework.stereotype.Component;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -11,10 +14,12 @@ import java.io.File;
 /**
  * @author Pavel Jezek
  */
-public class XmlToTexConverter {
+@Component
+public class XmlToTexConverterImpl implements XmlToTexConverter{
 
-    public static void convertToTex(File xmlFile, File texFile){
-
+    @Override
+    public File convertToTex(File xmlFile){
+        File texFile = new File(xmlFile.getParent() + "\\" + xmlFile.getName() + ".tex");
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer xsltTrans;
         try {
@@ -27,5 +32,6 @@ public class XmlToTexConverter {
         } catch (TransformerException ex) {
             System.err.println("Transformation error: "+ex.getMessage());
         }
+        return texFile;
     }
 }

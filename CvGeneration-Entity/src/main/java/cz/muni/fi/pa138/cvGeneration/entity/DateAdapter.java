@@ -1,4 +1,4 @@
-package cz.muni.fi.pb138.cvGeneration.persistence.entity;
+package cz.muni.fi.pa138.cvGeneration.entity;
 
 
 import java.text.SimpleDateFormat;

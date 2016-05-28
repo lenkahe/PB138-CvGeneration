@@ -1,7 +1,7 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
-import cz.muni.fi.pb138.cvGeneration.persistence.entity.Person;
-import cz.muni.fi.pb138.cvGeneration.persistence.entity.item.*;
+import cz.muni.fi.pa138.cvGeneration.entity.Person;
+import cz.muni.fi.pa138.cvGeneration.entity.item.*;
 import org.xmldb.api.base.XMLDBException;
 
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Temporary class used for testing XMLConverter
+ * Temporary class used for testing XmlConverterImpl
  *
  * Created by galbavyj on 13.05.2016.
  */
@@ -170,7 +170,7 @@ public class XMLTry {
         p2.setSkills(skills);
 
 
-        XMLConverter converter = new XMLConverter();
+        XmlConverterImpl converter = new XmlConverterImpl();
 
         String name = converter.createXML(p2);
         converter.createXML(person);

@@ -13,6 +13,7 @@
         <module>CvGeneration-Web</module>
         <module>CvGeneration-API</module>
         <module>CvGeneration-Persistence</module>
+        <module>CvGeneration-Entity</module>
     </modules>
 
     <name>CvGeneration</name>

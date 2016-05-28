@@ -1,8 +1,10 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
+import cz.muni.fi.pa138.cvGeneration.api.converter.XmlConverter;
+import cz.muni.fi.pa138.cvGeneration.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
-import cz.muni.fi.pb138.cvGeneration.persistence.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.persistence.exception.DataAccessCvException;
+import org.springframework.stereotype.Component;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
@@ -21,16 +23,11 @@ import java.io.IOException;
  *
  * Created by galbavyj on 13.05.2016.
  */
-public class XMLConverter {
+@Component
+public class XmlConverterImpl implements XmlConverter{
 
-    /**
-     *  This method is intended for generating a new xml document
-     *
-     * @param person variable in which is kept all neccessary information about person
-     * @return name of xml file in database
-     *
-     */
-    public String createXML(Person person) throws XMLDBException {
+    @Override
+    public String createXML(Person person) {
 
         CvDaoImpl cvDao = new CvDaoImpl();
         String fileName = person.getPersonalInfo().getLastName() + person.hashCode() + ".xml";
@@ -45,7 +42,6 @@ public class XMLConverter {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             jaxbMarshaller.marshal(person, file);
-            //jaxbMarshaller.marshal(person, System.out);
 
             PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
             if (personSchemaValidator.validate(file))
@@ -62,12 +58,7 @@ public class XMLConverter {
 
     }
 
-    /**
-     * This method is intended for generating a new person from XML
-     *
-     * @param name name of xml file in which is kept all neccessary information about person
-     * @return object Person
-     */
+    @Override
     public Person createPerson(String name){
 
         CvDaoImpl cvDao = new CvDaoImpl();

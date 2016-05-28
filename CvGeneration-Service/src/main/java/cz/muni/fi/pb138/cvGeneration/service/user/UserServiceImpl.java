@@ -1,5 +1,7 @@
 package cz.muni.fi.pb138.cvGeneration.service.user;
 
+import cz.muni.fi.pa138.cvGeneration.api.service.UserService;
+import cz.muni.fi.pa138.cvGeneration.entity.User;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @author Lenka Heldova
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
@@ -18,5 +20,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean isUserValid(String login, String password) {
         return (userDao.findByLoginAndPassword(login,password) != null)? true : false;
+    }
+
+    @Override
+    public User createNewUser(User user) {
+        return userDao.save(user);
     }
 }

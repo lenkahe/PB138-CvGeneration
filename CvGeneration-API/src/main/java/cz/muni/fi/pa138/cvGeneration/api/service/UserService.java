@@ -1,4 +1,6 @@
-package cz.muni.fi.pb138.cvGeneration.service.user;
+package cz.muni.fi.pa138.cvGeneration.api.service;
+
+import cz.muni.fi.pa138.cvGeneration.entity.User;
 
 /**
  * Service for user entity.
@@ -13,4 +15,11 @@ public interface UserService {
      * @param password
      */
     boolean isUserValid(String login, String password );
+
+    /**
+     * Create new user.
+     * @param user
+     * @return
+     */
+    User createNewUser(User user);
 }

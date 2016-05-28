@@ -1,10 +1,8 @@
-package cz.muni.fi.pb138.cvGeneration.persistence.entity;
+package cz.muni.fi.pa138.cvGeneration.entity;
 
-import cz.muni.fi.pb138.cvGeneration.persistence.entity.item.*;
+import cz.muni.fi.pa138.cvGeneration.entity.item.*;
 
 import javax.xml.bind.annotation.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
