@@ -1,4 +1,4 @@
-package cz.muni.fi.pb138.cvGeneration.service.XmlToPdfConverter;
+package cz.muni.fi.pb138.cvGeneration.service.converter;
 
 import cz.muni.fi.pa138.cvGeneration.api.converter.XmlToTexConverter;
 import org.springframework.stereotype.Component;
