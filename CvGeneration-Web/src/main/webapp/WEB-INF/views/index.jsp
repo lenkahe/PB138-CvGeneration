@@ -50,16 +50,17 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form:form role="form" action="login" method="post" class="login-form">
+                            <form:form role="form" action="login" method="post" class="login-form" modelAttribute="loginBean">
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-username">Username</label>
-                                    <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username" required>
+                                    <form:label cssClass="sr-only" for="form-username" path="username">Username</form:label>
+                                    <form:input path="username" type="text" name="form-username" placeholder="Username..." cssClass="form-username form-control" id="form-username" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-password">Password</label>
-                                    <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password" required>
+                                    <form:label path="password" cssClass="sr-only" for="form-password">Password</form:label>
+                                    <form:password path="password" name="form-password" placeholder="Password..." cssClass="form-password form-control" id="form-password" required="required"/>
                                 </div>
                                 <button type="submit" class="btn">Sign in!</button>
+                                <div id="message">${message}</div>
                             </form:form>
                         </div>
                     </div>
@@ -83,20 +84,21 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form:form role="form" action="register" method="post" class="registration-form">
+                            <form:form role="form" action="register" method="post" class="registration-form" modelAttribute="loginBean">
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-username-reg">User name</label>
-                                    <input type="text" name="form-username-reg" placeholder="User name..." class="form-first-name form-control" id="form-username-reg" required>
+                                    <form:label path="username" class="sr-only" for="form-username-reg">User name</form:label>
+                                    <form:input path="username" type="text" name="form-username-reg" placeholder="User name..." class="form-first-name form-control" id="form-username-reg" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-pass1-reg">Password</label>
-                                    <input type="password" name="form-pass1-reg" placeholder="Password..." class="form-password form-control" id="form-pass1-reg" required>
+                                    <form:label path="password" class="sr-only" for="form-pass1-reg">Password</form:label>
+                                    <form:password path="password"  name="form-pass1-reg" placeholder="Password..." class="form-password form-control" id="form-pass1-reg" required="required"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-pass2-reg">Confirm password</label>
                                     <input type="password" name="form-pass2-reg" placeholder="Password..." class="form-password form-control" id="form-pass2-reg" required>
                                 </div>
                                 <button type="submit" class="btn">Sign me up!</button>
+                                <div id="message">${message}</div>
                             </form:form>
                         </div>
                     </div>

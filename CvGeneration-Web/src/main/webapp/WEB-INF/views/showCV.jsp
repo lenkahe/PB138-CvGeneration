@@ -11,6 +11,6 @@
     <%@include file="meta.html"%>
 </head>
 <body>
-
+    Welcome! You are logged in!
 </body>
 </html>
