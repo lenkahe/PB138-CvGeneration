@@ -1,10 +1,18 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
+import cz.muni.fi.pa138.cvGeneration.api.converter.TexToPdfConverter;
+import cz.muni.fi.pa138.cvGeneration.api.converter.XmlToTexConverter;
 import cz.muni.fi.pa138.cvGeneration.entity.Person;
+import cz.muni.fi.pa138.cvGeneration.entity.User;
 import cz.muni.fi.pa138.cvGeneration.entity.item.*;
+import cz.muni.fi.pb138.cvGeneration.service.converter.TexToPdfConverterImpl;
+import cz.muni.fi.pb138.cvGeneration.service.converter.XmlToTexConverterImpl;
+import cz.muni.fi.pb138.cvGeneration.service.entity.CvServiceImpl;
 import org.xmldb.api.base.XMLDBException;
 
 
+import javax.jws.soap.SOAPBinding;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -169,11 +177,36 @@ public class XMLTry {
         p2.setHobbies(hobs);
         p2.setSkills(skills);
 
+        //-----------------------------------------------------------
 
+        User user1 = new User();
+        User user2 = new User();
+
+
+        CvServiceImpl service = new CvServiceImpl();
         XmlConverterImpl converter = new XmlConverterImpl();
+        TexToPdfConverter texToPdfconv = new TexToPdfConverterImpl();
+        XmlToTexConverter xmlToTexconv = new XmlToTexConverterImpl();
 
-        String name = converter.createXML(p2);
-        converter.createXML(person);
+
+        service.saveCvInformation(p2,user1);
+        service.saveCvInformation(person, user2);
+
+        System.out.println(service.getCvInformation(user1));
+        System.out.println(service.getCvInformation(user2));
+
+        service.createPdf(p2);
+
+        /*
+        File xmlFile = converter.createXML(person);
+
+        String pdfFilePath = texToPdfconv.createPDF(xmlToTexconv.convertToTex(xmlFile));
+        xmlFile.delete();
+
+        System.out.println(pdfFilePath);
+        */
+        //converter.createXML(p2);
+        //converter.createXML(person);
         //System.out.println(name);
 
         //Person person1 = converter.createPerson(name);

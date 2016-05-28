@@ -1,6 +1,7 @@
+import cz.muni.fi.pa138.cvGeneration.entity.User;
 import cz.muni.fi.pb138.cvGeneration.persistence.configuration.AppConfiguration;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.UserDao;
-import cz.muni.fi.pb138.cvGeneration.persistence.entity.User;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

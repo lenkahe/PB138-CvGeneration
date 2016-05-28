@@ -14,7 +14,7 @@ public interface CvService {
 
     Person getCvInformation (User user);
 
-    Person saveCvInformation (Person cv);
+    Person saveCvInformation (Person cv, User user);
 
     File createPdf(Person person);
 }

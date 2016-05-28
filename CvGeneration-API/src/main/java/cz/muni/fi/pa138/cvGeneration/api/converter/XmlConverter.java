@@ -2,6 +2,9 @@ package cz.muni.fi.pa138.cvGeneration.api.converter;
 
 import cz.muni.fi.pa138.cvGeneration.entity.Person;
 
+import javax.xml.bind.ValidationException;
+import java.io.File;
+
 /**
  * This class convert Person object to XML file and back.
  *
@@ -18,7 +21,7 @@ public interface XmlConverter {
      * @return name of xml file in database
      *
      */
-    String createXML(Person person);
+    File createXML(Person person) throws ValidationException;
 
 
     /**

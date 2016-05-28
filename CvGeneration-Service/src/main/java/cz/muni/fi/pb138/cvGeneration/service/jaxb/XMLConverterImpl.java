@@ -8,10 +8,7 @@ import org.springframework.stereotype.Component;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -27,9 +24,9 @@ import java.io.IOException;
 public class XmlConverterImpl implements XmlConverter{
 
     @Override
-    public String createXML(Person person) {
+    public File createXML(Person person){
 
-        CvDaoImpl cvDao = new CvDaoImpl();
+
         String fileName = person.getPersonalInfo().getLastName() + person.hashCode() + ".xml";
         File file = new File(System.getProperty("user.dir") + "\\" + fileName);
 
@@ -43,32 +40,28 @@ public class XmlConverterImpl implements XmlConverter{
 
             jaxbMarshaller.marshal(person, file);
 
-            PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
-            if (personSchemaValidator.validate(file))
-                cvDao.saveResource(file);
 
         } catch (JAXBException e) {
-            e.printStackTrace();
-        } finally {
-            file.delete();
-
+            System.err.println("Can not create XML file due to error: " + e.getMessage());
         }
 
-        return fileName;
+        PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
+        personSchemaValidator.validate(file);
 
+        return file;
     }
 
     @Override
-    public Person createPerson(String name){
+    public Person createPerson(String fileName){
 
         CvDaoImpl cvDao = new CvDaoImpl();
-        XMLResource res = cvDao.getResource(name);
+        XMLResource res = cvDao.getResource(fileName);
 
         if(res == null) throw new DataAccessCvException("No resource with this name.");
 
         Person person = null;
 
-        File file = new File(System.getProperty("user.dir") + "\\" + name);
+        File file = new File(System.getProperty("user.dir") + "\\" + fileName);
 
 
         try {
@@ -77,7 +70,7 @@ public class XmlConverterImpl implements XmlConverter{
             writer.flush();
             writer.close();
         } catch (IOException |XMLDBException e) {
-            e.printStackTrace();
+            System.err.println("Problem with writer: " + e.getMessage());
         }
 
         PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
@@ -91,7 +84,7 @@ public class XmlConverterImpl implements XmlConverter{
 
 
         } catch (JAXBException e) {
-            e.printStackTrace();
+            System.err.println("Can not create Person from XML file due to error: " + e.getMessage());
         } finally {
             file.delete();
         }
