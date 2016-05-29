@@ -10,7 +10,7 @@ import java.io.File;
  *
  * @author Lenka Heldova
  */
-public interface XmlConverter {
+public interface JavaToXmlConverter {
 
 
 

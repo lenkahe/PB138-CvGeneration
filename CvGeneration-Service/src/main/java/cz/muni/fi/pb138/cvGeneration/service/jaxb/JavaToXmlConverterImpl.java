@@ -1,6 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
-import cz.muni.fi.pa138.cvGeneration.api.converter.XmlConverter;
+import cz.muni.fi.pa138.cvGeneration.api.converter.JavaToXmlConverter;
 import cz.muni.fi.pa138.cvGeneration.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
 import cz.muni.fi.pb138.cvGeneration.persistence.exception.DataAccessCvException;
@@ -20,7 +20,8 @@ import java.io.IOException;
  *
  * Created by galbavyj on 13.05.2016.
  */
-public class XmlConverterImpl implements XmlConverter{
+@Component
+public class JavaToXmlConverterImpl implements JavaToXmlConverter {
 
     @Override
     public File createXML(Person person){

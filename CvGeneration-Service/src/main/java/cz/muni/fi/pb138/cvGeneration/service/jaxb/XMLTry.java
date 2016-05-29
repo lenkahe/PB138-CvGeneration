@@ -11,8 +11,6 @@ import cz.muni.fi.pb138.cvGeneration.service.entity.CvServiceImpl;
 import org.xmldb.api.base.XMLDBException;
 
 
-import javax.jws.soap.SOAPBinding;
-import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Temporary class used for testing XmlConverterImpl
+ * Temporary class used for testing JavaToXmlConverterImpl
  *
  * Created by galbavyj on 13.05.2016.
  */
@@ -184,7 +182,7 @@ public class XMLTry {
 
 
         CvServiceImpl service = new CvServiceImpl();
-        XmlConverterImpl converter = new XmlConverterImpl();
+        JavaToXmlConverterImpl converter = new JavaToXmlConverterImpl();
         TexToPdfConverter texToPdfconv = new TexToPdfConverterImpl();
         XmlToTexConverter xmlToTexconv = new XmlToTexConverterImpl();
 

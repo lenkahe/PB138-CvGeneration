@@ -1,5 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.service.entity;
 
+import cz.muni.fi.pa138.cvGeneration.api.converter.JavaToXmlConverter;
 import cz.muni.fi.pa138.cvGeneration.api.converter.TexToPdfConverter;
 import cz.muni.fi.pa138.cvGeneration.api.converter.XmlToTexConverter;
 import cz.muni.fi.pa138.cvGeneration.api.service.CvService;
@@ -8,7 +9,9 @@ import cz.muni.fi.pa138.cvGeneration.entity.User;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
 import cz.muni.fi.pb138.cvGeneration.service.converter.TexToPdfConverterImpl;
 import cz.muni.fi.pb138.cvGeneration.service.converter.XmlToTexConverterImpl;
-import cz.muni.fi.pb138.cvGeneration.service.jaxb.XmlConverterImpl;
+import cz.muni.fi.pb138.cvGeneration.service.jaxb.JavaToXmlConverterImpl;
+import org.springframework.stereotype.Component;
+
 import java.io.File;
 
 
@@ -17,9 +20,10 @@ import java.io.File;
  *
  * @author galbavyj
  */
+@Component
 public class CvServiceImpl implements CvService{
 
-    private XmlConverterImpl converter = new XmlConverterImpl();
+    private JavaToXmlConverter converter = new JavaToXmlConverterImpl();
 
     CvDaoImpl cvDao = new CvDaoImpl();
 
