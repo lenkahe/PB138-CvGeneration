@@ -23,8 +23,17 @@ public class Person {
     private List<Education> education;
     private List<Languages> languages;
     private List<Skills> skills;
+    private String userLogin;
 
 
+    public String getUserLogin() {
+        return userLogin;
+    }
+
+    @XmlTransient
+    public void setUserLogin(String userLogin) {
+        this.userLogin = userLogin;
+    }
 
     public List<String> getCertificates() {
         return certificates;

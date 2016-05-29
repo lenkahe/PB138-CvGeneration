@@ -39,9 +39,8 @@ public class CvServiceImpl implements CvService{
         File xmlFile = converter.createXML(cv);
         cvDao.saveResource(xmlFile);
         xmlFile.delete();
-        if (!xmlFile.delete()) System.err.print("File " + xmlFile.getName() + " can not be delete.");
 
-        user.setCvFileName(xmlFile.getName());
+        //user.setCvFileName(xmlFile.getName());
 
         return cv;
     }

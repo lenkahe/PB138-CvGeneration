@@ -180,6 +180,14 @@ public class XMLTry {
         User user1 = new User();
         User user2 = new User();
 
+        user1.setLogin("franto123");
+        user1.setCvFileName(user1.getLogin().hashCode() + ".xml");
+        user2.setLogin("aloha");
+        user2.setCvFileName(user2.getLogin().hashCode() + ".xml");
+        //System.out.println("hash" + );
+
+        person.setUserLogin("franto123");
+        p2.setUserLogin("aloha");
 
         CvServiceImpl service = new CvServiceImpl();
         JavaToXmlConverterImpl converter = new JavaToXmlConverterImpl();
@@ -188,15 +196,16 @@ public class XMLTry {
 
 
         //File lat = new File("projekt");
-        System.out.println(service.createPdf(person));
+        //System.out.println(service.createPdf(person));
 
-        //service.saveCvInformation(p2,user1);
-        //service.saveCvInformation(person, user2);
+        service.saveCvInformation(person,user1);
+        service.saveCvInformation(p2, user2);
 
-        //System.out.println(service.getCvInformation(user1));
-        //System.out.println(service.getCvInformation(user2));
+        System.out.println(service.getCvInformation(user1));
+        System.out.println(service.getCvInformation(user2));
 
-        //service.createPdf(p2);
+        service.createPdf(person);
+        service.createPdf(p2);
 
         //String pdfFilePath = texToPdfconv.createPDF(lat);
         //File xmlFile = converter.createXML(person);

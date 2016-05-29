@@ -27,7 +27,7 @@ public class JavaToXmlConverterImpl implements JavaToXmlConverter {
     public File createXML(Person person){
 
 
-        String fileName = Math.abs(person.hashCode()) + ".xml";
+        String fileName = Math.abs(person.getUserLogin().hashCode()) + ".xml";
         File file = new File(System.getProperty("user.dir") + "\\" + fileName);
 
         try {
