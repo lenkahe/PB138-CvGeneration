@@ -26,7 +26,7 @@ public class XmlConverterImpl implements XmlConverter{
     public File createXML(Person person){
 
 
-        String fileName = Math.abs(person.hashCode()) + "";
+        String fileName = Math.abs(person.hashCode()) + ".xml";
         File file = new File(System.getProperty("user.dir") + "\\" + fileName);
 
         try {

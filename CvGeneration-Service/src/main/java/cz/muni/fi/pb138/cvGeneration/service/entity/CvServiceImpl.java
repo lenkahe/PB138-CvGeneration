@@ -21,6 +21,8 @@ public class CvServiceImpl implements CvService{
 
     private XmlConverterImpl converter = new XmlConverterImpl();
 
+    CvDaoImpl cvDao = new CvDaoImpl();
+
     @Override
     public Person getCvInformation(User user) {
 
@@ -30,10 +32,9 @@ public class CvServiceImpl implements CvService{
     @Override
     public Person saveCvInformation(Person cv, User user) {
 
-        CvDaoImpl cvDao = new CvDaoImpl();
-
         File xmlFile = converter.createXML(cv);
         cvDao.saveResource(xmlFile);
+        xmlFile.delete();
         if (!xmlFile.delete()) System.err.print("File " + xmlFile.getName() + " can not be delete.");
 
         user.setCvFileName(xmlFile.getName());
@@ -49,15 +50,13 @@ public class CvServiceImpl implements CvService{
 
 
         File xmlFile = converter.createXML(person);
+        cvDao.saveResource(xmlFile);
         File texFile = xmlToTexconv.convertToTex(xmlFile);
-
+        xmlFile.delete();
         String texName = texFile.getName();
         System.out.println(texName);
 
         String pdfFilePath = texToPdfconv.createPDF(new File(texName.replace(".tex","")));
-
-        if (!xmlFile.delete()) System.err.print("File " + xmlFile.getName() + " can not be deleted.");
-        //if (!texFile.delete()) System.err.print("File " + texFile.getName() + " can not be deleted.");
 
         return new File(pdfFilePath);
     }

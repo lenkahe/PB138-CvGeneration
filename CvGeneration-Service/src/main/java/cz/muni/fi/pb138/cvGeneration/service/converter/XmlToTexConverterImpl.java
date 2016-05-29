@@ -19,7 +19,7 @@ public class XmlToTexConverterImpl implements XmlToTexConverter{
 
     @Override
     public File convertToTex(File xmlFile){
-        File texFile = new File(xmlFile.getParent() + "\\" + xmlFile.getName() + ".tex");
+        File texFile = new File(xmlFile.getAbsolutePath().replace(".xml",".tex"));
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer xsltTrans;
         try {

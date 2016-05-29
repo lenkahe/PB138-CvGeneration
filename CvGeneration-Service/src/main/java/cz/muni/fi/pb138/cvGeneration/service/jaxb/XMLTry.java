@@ -190,8 +190,7 @@ public class XMLTry {
 
 
         //File lat = new File("projekt");
-
-        System.out.println(service.createPdf(p2));
+        System.out.println(service.createPdf(person));
 
         //service.saveCvInformation(p2,user1);
         //service.saveCvInformation(person, user2);

@@ -61,9 +61,9 @@ public class TexToPdfConverterImpl implements TexToPdfConverter{
 
             //delete intermediate .dvi, .aux, .log, .tex  and .out files
             File dvi = new File(latexFile.getAbsolutePath() + ".dvi");
-            System.out.println(dvi.delete());
+            dvi.delete();
             File aux = new File(latexFile.getAbsolutePath() + ".aux");
-            System.out.println(aux.delete());
+            aux.delete();
             File log = new File(latexFile.getAbsolutePath() + ".log");
             log.delete();
             File out = new File(latexFile.getAbsolutePath() + ".out");
