@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<person>
+    <personalInfo>
+        <firstName>Jano</firstName>
+        <lastName>Potočný</lastName>
+        <address>
+            <street>Hofman 21</street>
+            <city>Berlin</city>
+            <postalCode>970 51</postalCode>
+        </address>
+        <phones>
+            <phone>+42189465451</phone>
+        </phones>
+        <emails>
+            <email>jano.potocny@gmail.com</email>
+        </emails>
+    </personalInfo>
+    <employments>
+        <employment>
+            <company>Rybník s.r.o.</company>
+            <position>Vedúci rybár</position>
+            <dateStart>11.11.2015</dateStart>
+            <dateEnd>15.1.2016</dateEnd>
+            <description>Lovenie rýb v zátoke korytnačiek.</description>
+        </employment>
+    </employments>
+    <education>
+        <school>
+            <schoolName>Gymnázium Šurany</schoolName>
+            <fieldOfStudy>Rybárčenie</fieldOfStudy>
+            <grade>4</grade>
+            <dateStart>11.11.2011</dateStart>
+            <dateEnd>12.12.2012</dateEnd>
+        </school>
+    </education>
+    <languages>
+        <language>
+            <languageName>English</languageName>
+            <level>basic</level>
+        </language>
+        <language>
+            <languageName>Slovak</languageName>
+            <level>native</level>
+        </language>
+        <language>
+            <languageName>Polish</languageName>
+            <level>advance</level>
+        </language>
+    </languages>
+    <skills>
+        <skill>
+            <skillName>XML</skillName>
+            <level>advanced</level>
+        </skill>
+        <skill>
+            <skillName>Windows</skillName>
+            <level>basic</level>
+        </skill>
+    </skills>
+    <hobbies>
+        <hobby>člnkovanie</hobby>
+        <hobby>rybačka</hobby>
+        <hobby>streľba z harpúny</hobby>
+        <hobby>pitie piva</hobby>
+    </hobbies>
+</person>

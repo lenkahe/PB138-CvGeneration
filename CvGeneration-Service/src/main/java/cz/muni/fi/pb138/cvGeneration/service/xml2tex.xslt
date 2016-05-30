@@ -99,6 +99,16 @@
                 <xsl:text>}\\</xsl:text>
                 <xsl:value-of select="schoolName"/>
                 <xsl:text>\\</xsl:text>
+                <xsl:if test="fieldOfStudy">
+                    <xsl:text>Obor: </xsl:text>
+                    <xsl:value-of select="fieldOfStudy"/>
+                    <xsl:text>\\</xsl:text>
+                </xsl:if>
+                <xsl:if test="grade">
+                    <xsl:text>Stupeň: </xsl:text>
+                    <xsl:value-of select="grade"/>
+                    <xsl:text>\\</xsl:text>
+                </xsl:if>
                 <xsl:if test="position() != last()">
                     <xsl:text> \\</xsl:text>
                 </xsl:if>
@@ -129,8 +139,10 @@
                 <xsl:value-of select="company"/>
                 <xsl:text>\\ Pracovní pozice: </xsl:text>
                 <xsl:value-of select="position"/>
-                <xsl:text>\\ Náplň práce: </xsl:text>
-                <xsl:value-of select="description"/>
+                <xsl:if test="description">
+                    <xsl:text>\\ Náplň práce: </xsl:text>
+                    <xsl:value-of select="description"/>
+                </xsl:if>
                 <xsl:text>\\</xsl:text>
                 <xsl:if test="position() != last()">
                     <xsl:text> \\</xsl:text>
@@ -223,10 +235,10 @@
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
-            <xsl:text> \\ </xsl:text>
         </xsl:if>
 
         <xsl:if test="hobbies">
+            <xsl:text> \\</xsl:text>
             <xsl:text>
 
 {\hrulefill \large \bfseries Ostatní informace\hrulefill}
@@ -243,8 +255,7 @@
 
 
         <xsl:text>
-\end{document}
-    </xsl:text>
+\end{document}</xsl:text>
 
     </xsl:template>
 </xsl:stylesheet>

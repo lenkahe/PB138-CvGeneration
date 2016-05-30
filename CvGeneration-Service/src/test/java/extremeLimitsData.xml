@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<person>
+    <personalInfo>
+        <firstName>Jano</firstName>
+        <lastName>Potočný</lastName>
+        <address>
+            <street>Hofman 21</street>
+            <city>Berlin</city>
+            <postalCode>970 51</postalCode>
+        </address>
+        <phones>
+            <phone>+42189465451</phone>
+        </phones>
+        <emails>
+            <email>jano.potocny@gmail.com</email>
+        </emails>
+    </personalInfo>
+    <employments>
+        <employment>
+            <company>Rybník s.r.o.</company>
+            <position>Vedúci rybár</position>
+            <dateStart>11.11.2015</dateStart>
+        </employment>
+    </employments>
+    <education>
+        <school>
+            <schoolName>Gymnázium Šurany</schoolName>
+            <fieldOfStudy>Rybárčenie</fieldOfStudy>
+            <dateStart>11.11.2011</dateStart>
+        </school>
+    </education>
+    <languages>
+        <language>
+            <languageName>English</languageName>
+            <level>basic</level>
+        </language>
+    </languages>
+</person>
