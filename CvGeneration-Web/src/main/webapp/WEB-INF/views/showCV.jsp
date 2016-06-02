@@ -64,7 +64,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <!-- **************************** Street ************************** -->
                 <div class="form-group" >
@@ -113,11 +112,52 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <h1>Education</h1>
+            </br>
+            <div ng-init="schools = [ [] ]; _c_name = []; _c_fieldOfStudy = []; _c_since = []; _c_to = []; _c_grade = []" class="row">
+                <div class="col-md-3">
+                    <label class="block">School</label>
+                </div>
+                <div class="col-md-3">
+                    <label class="block">Field of study</label>
+                </div>
+                <div class="col-md-2">
+                    <label class="block">Since</label>
+                </div>
+                <div class="col-md-2">
+                    <label class="block">To</label>
+                </div>
+                <div class="col-md-2">
+                    <label class="block">Grade</label>
+                </div>
+            </div>
+            <div class="both"></div>
+            <div ng-repeat="school in schools" class="row">
+                </br>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" name="c_name[]" ng-model="_c_name[ $index ]" placeholder="e.g. Masaryk University">
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" name="c_fieldOfStudy[]" ng-model="_c_fieldOfStudy[ $index ]" placeholder="e.g. Informatics">
+                </div>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="c_since[{{$index}}]" ng-model="_c_since[ $index ]" >
+                </div>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="c_to[{{$index}}]" ng-model="_c_to[ $index ]" ng-pattern="/^((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)$/" placeholder="e.g. 2012-07">
+                </div>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="c_grade[]" ng-model="_c_grade[ $index ]">
+                </div>
+            </div><a ng-click="schools.push([])" class="btn pull-right">Add education</a>
+            <div class="both"></div>
+            </br>
         </div>
-
-        <h1>Employment</h1>
-        </br></br>
-            <div ng-init="companies = [ [] ]; _c_name = []; _c_position = []; _c_since = []; _c_to = []" class="row">
+        <div class="row">
+            <h1>Employment</h1>
+            </br>
+            <div ng-init="companies = [ [] ]; _c_name = []; _c_position = []; _c_since = []; _c_to = []; _c_note = []" class="row">
                 <div class="col-md-3">
                     <label class="block">Company</label>
                 </div>
@@ -140,35 +180,106 @@
                 <div class="col-md-3">
                     <input class="form-control" type="text" name="c_name[]" ng-model="_c_name[ $index ]" placeholder="e.g. Nokia">
                 </div>
-
                 <div class="col-md-3">
                     <input class="form-control" type="text" name="c_position[]" ng-model="_c_position[ $index ]" placeholder="e.g. CEO">
                 </div>
-
                 <div class="col-md-2">
                     <input class="form-control" type="text" name="c_since[{{$index}}]" ng-model="_c_since[ $index ]" >
                 </div>
-
                 <div class="col-md-2">
                     <input class="form-control" type="text" name="c_to[{{$index}}]" ng-model="_c_to[ $index ]" ng-pattern="/^((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)$/" placeholder="e.g. 2012-07">
                 </div>
-
                 <div class="col-md-2">
                     <input class="form-control" type="text" name="c_note[]" ng-model="_c_note[ $index ]">
                 </div>
-
             </div><a ng-click="companies.push([])" class="btn pull-right">Add employment</a>
             <div class="both"></div>
         </div>
+        <!----------------------------------- Languages ----------------------->
+        <div id="languages "class="col-md-5">
+            <h1>Languages</h1>
+            <div ng-init="languages = [ [] ]; _l_language = []; _l_level = ['basic']" class="row">
+                <div class="col-xs-8">
+                    <label class="block">Language</label>
+                </div>
+                <div class="col-xs-4">
+                    <label class="block">Level</label>
+                </div>
+            </div>
+            <div class="both"></div>
+            <div ng-repeat="language in languages" class="row">
+                </br>
+                <div class="col-xs-8">
+                    <input class="form-control" type="text" name="l_language[]" ng-model="_l_language[$index]" placeholder="e.g. English">
+                </div>
+                <div class="col-xs-4">
+                    <select class="form-control" name="l_level[]" ng-model="_l_level[ $index ]">
+                        <option>basic</option>
+                        <option>intermediate</option>
+                        <option>advanced</option>
+                        <option>native speaker</option>
+                    </select>
+                </div>
+            </div><a ng-click="languages.push([]); _l_level[ _l_level.length ] = 'basic'" class="btn pull-right">Add language</a>
+        </div>
 
-    </div>
+        <div class="col-md-2"></div>
+        <!----------------------------------- Skills ----------------------->
+        <div id="skills "class="col-md-5">
+            <h1>Skills</h1>
+            <div ng-init="skills = [ [] ]; _l_skill = []; _l_level = ['basic']" class="row">
+                <div class="col-xs-8">
+                    <label class="block">Skill</label>
+                </div>
+                <div class="col-xs-4">
+                    <label class="block">Level</label>
+                </div>
+            </div>
+            <div class="both"></div>
+            <div ng-repeat="skill in skills" class="row">
+                </br>
+                <div class="col-xs-8">
+                    <input class="form-control" type="text" name="l_skill[]" ng-model="_l_skill[$index]" placeholder="e.g. Microsoft Excel">
+                </div>
+                <div class="col-xs-4">
+                    <select class="form-control" name="l_level[]" ng-model="_l_level[ $index ]">
+                        <option>basic</option>
+                        <option>intermediate</option>
+                        <option>advanced</option>
+                        <option>native speaker</option>
+                    </select>
+                </div>
+            </div><a ng-click="skills.push([]); _l_level[ _l_level.length ] = 'basic'" class="btn pull-right">Add skill</a>
+        </div>
+        <!----------------------------------- Certificates ----------------------->
+        <div id="certificates" class="col-xs-5">
+            <h1>Certificates</h1>
+            <div ng-init="certificates = [ [] ]; _c_certificate = []" class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="certificate in certificates" class="row">
+                        </br>
+                        <input class="form-control" type="text" name="certificates[]" ng-model="_c_certificates[$index]" placeholder="e.g. FCE">
+                    </div>
+                </div>
+            </div><a ng-click="certificates.push([])" class="btn pull-right">Add certificate</a>
+        </div>
+        <div class="col-xs-2"></div>
 
-
-
+        <!----------------------------------- Hobbies ----------------------->
+        <div id="hobbies" class="col-xs-5">
+            <h1>Hobbies</h1>
+            <div ng-init="hobbies = [ [] ]; _c_hobbies = []" class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="hobby in hobbies" class="row">
+                        </br>
+                        <input class="form-control" type="text" name="hobbies[]" ng-model="_c_hobbies[$index]" placeholder="e.g. Fishing">
+                    </div>
+                </div>
+            </div><a ng-click="hobbies.push([])" class="btn pull-right">Add hobbies</a>
+        </div>
+        </br>
+        <button type="save" class="btn btn-default">Save</button>
     </form>
 </div>
-
-
-
 </body>
 </html>
