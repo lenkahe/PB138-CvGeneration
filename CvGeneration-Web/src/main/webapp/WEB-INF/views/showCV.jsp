@@ -10,7 +10,7 @@
 <head>
     <%@include file="meta.html" %>
 </head>
-<body data-ng-controller="formController">
+<body>
 <div class="jumbotron">
     <div class="row">
         <div class="col-md-6">
@@ -39,7 +39,7 @@
                 <div class="form-group" >
                     <label for="pre-title" class="col-md-2">Pre-title</label>
                     <div class="col-md-9">
-                        <input type="text" name="pre-title" id="pre-title" class="form-control"/>
+                        <input type="text" name="pre-title" id="pre-title" class="form-control" placeholder="Ing.z"/>
                     </div>
                 </div>
                 <!-- **************************** First name ************************** -->
@@ -73,7 +73,7 @@
                         <input type="text" name="street" id="street" class="form-control"/>
                     </div>
                 </div>
-                <!-- **************************** Street ************************** -->
+                <!-- **************************** City ************************** -->
                 <div class="form-group" >
                     <label for="city" class="col-md-2">City</label>
                     <div class="col-md-9">
@@ -117,16 +117,56 @@
 
         <h1>Employment</h1>
         </br></br>
-           
+            <div ng-init="companies = [ [] ]; _c_name = []; _c_position = []; _c_since = []; _c_to = []" class="row">
+                <div class="col-md-3">
+                    <label class="block">Company</label>
+                </div>
+                <div class="col-md-3">
+                    <label class="block">Position</label>
+                </div>
+                <div class="col-md-2">
+                    <label class="block">Since</label>
+                </div>
+                <div class="col-md-2">
+                    <label class="block">To</label>
+                </div>
+                <div class="col-md-2">
+                    <label class="block">Note</label>
+                </div>
+            </div>
+            <div class="both"></div>
+            <div ng-repeat="company in companies" class="row">
+                </br>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" name="c_name[]" ng-model="_c_name[ $index ]" placeholder="e.g. Nokia">
+                </div>
+
+                <div class="col-md-3">
+                    <input class="form-control" type="text" name="c_position[]" ng-model="_c_position[ $index ]" placeholder="e.g. CEO">
+                </div>
+
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="c_since[{{$index}}]" ng-model="_c_since[ $index ]" >
+                </div>
+
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="c_to[{{$index}}]" ng-model="_c_to[ $index ]" ng-pattern="/^((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)$/" placeholder="e.g. 2012-07">
+                </div>
+
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="c_note[]" ng-model="_c_note[ $index ]">
+                </div>
+
+            </div><a ng-click="companies.push([])" class="btn pull-right">Add employment</a>
+            <div class="both"></div>
+        </div>
+
+    </div>
 
 
 
     </form>
 </div>
-
-
-
-
 
 
 
