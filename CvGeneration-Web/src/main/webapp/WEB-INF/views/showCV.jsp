@@ -39,28 +39,28 @@
                 <div class="form-group" >
                     <label for="pre-title" class="col-md-2">Pre-title</label>
                     <div class="col-md-9">
-                        <input type="text" name="pre-title" id="pre-title" class="form-control" placeholder="Ing.z"/>
+                        <input type="text" name="pre-title" id="pre-title" class="form-control" placeholder="e.g. Ing."/>
                     </div>
                 </div>
                 <!-- **************************** First name ************************** -->
                 <div class="form-group" >
                     <label for="first-name" class="col-md-2">Name*</label>
                     <div class="col-md-9">
-                        <input type="text" name="first-name" id="first-name" class="form-control" required />
+                        <input type="text" name="first-name" id="first-name" class="form-control" required placeholder="e.g. George"/>
                     </div>
                 </div>
                 <!-- **************************** Last name ************************** -->
                 <div class="form-group" >
                     <label for="last-name" class="col-md-2">Surname*</label>
                     <div class="col-md-9">
-                        <input type="text" name="last-name" id="last-name" class="form-control" required />
+                        <input type="text" name="last-name" id="last-name" class="form-control" required placeholder="e.g. Smith"/>
                     </div>
                 </div>
                 <!-- **************************** Post-title ************************** -->
                 <div class="form-group" >
                     <label for="post-title" class="col-md-2">Post-title</label>
                     <div class="col-md-9">
-                        <input type="text" name="post-title" id="post-title" class="form-control"/>
+                        <input type="text" name="post-title" id="post-title" class="form-control" placeholder="e.g. Ph.D."/>
                     </div>
                 </div>
             </div>
@@ -69,21 +69,21 @@
                 <div class="form-group" >
                     <label for="street" class="col-md-2">Street</label>
                     <div class="col-md-9">
-                        <input type="text" name="street" id="street" class="form-control"/>
+                        <input type="text" name="street" id="street" class="form-control" required placeholder="e.g. Masarykova 32"/>
                     </div>
                 </div>
                 <!-- **************************** City ************************** -->
                 <div class="form-group" >
                     <label for="city" class="col-md-2">City</label>
                     <div class="col-md-9">
-                        <input type="text" name="city" id="city" class="form-control"/>
+                        <input type="text" name="city" id="city" class="form-control" required placeholder="e.g. Banská Bystrica"/>
                     </div>
                 </div>
                 <!-- **************************** Postal code ************************** -->
                 <div class="form-group" >
                     <label for="postal-code" class="col-md-2">Postal code</label>
                     <div class="col-md-9">
-                        <input type="text" name="postal-code" id="postal-code" class="form-control"/>
+                        <input type="text" name="postal-code" id="postal-code" class="form-control" required placeholder="e.g. 974 01"/>
                     </div>
                 </div>
                 <!-- **************************** Phone numbers ************************** -->
@@ -91,7 +91,7 @@
                     <div ng-init="phones = []; _phone = []">
                         <label class="col-md-2">Phone number*</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="text" name="phone[0]" ng-model="_phone[0]" ng-required="true">
+                            <input class="form-control" type="text" name="phone[0]" ng-model="_phone[0]" required placeholder="e.g. +421914868497">
                             <div ng-repeat="phone in phones">
                                 </br>
                                 <input class="form-control" type="text" name="phone[{{$index + 1}}]" ng-model="_phone[ $index + 1 ]" >
@@ -104,7 +104,7 @@
                     <div ng-init="emails = []; _email = []">
                         <label class="col-md-2">Email*</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="text" name="email[0]" ng-model="_email[0]" ng-required="true">
+                            <input class="form-control" type="text" name="email[0]" ng-model="_email[0]" required placeholder="e.g. default@gmail.com">
                             <div ng-repeat="email in emails">
                                 </br>
                                 <input class="form-control" type="text" name="email[{{$index + 1}}]" ng-model="_email[ $index + 1 ]" >
@@ -142,13 +142,13 @@
                     <input class="form-control" type="text" name="c_fieldOfStudy[]" ng-model="_c_fieldOfStudy[ $index ]" placeholder="e.g. Informatics">
                 </div>
                 <div class="col-md-2">
-                    <input class="form-control" type="text" name="c_since[{{$index}}]" ng-model="_c_since[ $index ]" >
+                    <input class="form-control" type="text" name="c_since[{{$index}}]" ng-model="_c_since[ $index ]" placeholder="e.g. 1.1.2011">
                 </div>
                 <div class="col-md-2">
-                    <input class="form-control" type="text" name="c_to[{{$index}}]" ng-model="_c_to[ $index ]" ng-pattern="/^((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)$/" placeholder="e.g. 2012-07">
+                    <input class="form-control" type="text" name="c_to[{{$index}}]" ng-model="_c_to[ $index ]" placeholder="e.g. 1.1.2011" ng-pattern="/^((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)$/" placeholder="e.g. 2012-07">
                 </div>
                 <div class="col-md-2">
-                    <input class="form-control" type="text" name="c_grade[]" ng-model="_c_grade[ $index ]">
+                    <input class="form-control" type="text" name="c_grade[]" ng-model="_c_grade[ $index ]" placeholder="e.g. 4">
                 </div>
             </div><a ng-click="schools.push([])" class="btn pull-right">Add education</a>
             <div class="both"></div>
@@ -178,19 +178,19 @@
             <div ng-repeat="company in companies" class="row">
                 </br>
                 <div class="col-md-3">
-                    <input class="form-control" type="text" name="c_name[]" ng-model="_c_name[ $index ]" placeholder="e.g. Nokia">
+                    <input class="form-control" type="text" name="c_name[]" ng-model="_c_name[ $index ]" placeholder="e.g. Monitor s.r.o.">
                 </div>
                 <div class="col-md-3">
-                    <input class="form-control" type="text" name="c_position[]" ng-model="_c_position[ $index ]" placeholder="e.g. CEO">
+                    <input class="form-control" type="text" name="c_position[]" ng-model="_c_position[ $index ]" placeholder="e.g. tester">
                 </div>
                 <div class="col-md-2">
-                    <input class="form-control" type="text" name="c_since[{{$index}}]" ng-model="_c_since[ $index ]" >
+                    <input class="form-control" type="text" name="c_since[{{$index}}]" ng-model="_c_since[ $index ]" placeholder="e.g. 1.1.2011">
                 </div>
                 <div class="col-md-2">
-                    <input class="form-control" type="text" name="c_to[{{$index}}]" ng-model="_c_to[ $index ]" ng-pattern="/^((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)$/" placeholder="e.g. 2012-07">
+                    <input class="form-control" type="text" name="c_to[{{$index}}]" ng-model="_c_to[ $index ]" placeholder="e.g. 1.1.2011" ng-pattern="/^((19|20)[0-9]{2})\-(01|02|03|04|05|06|07|08|09|10|11|12)$/" placeholder="e.g. 2012-07">
                 </div>
                 <div class="col-md-2">
-                    <input class="form-control" type="text" name="c_note[]" ng-model="_c_note[ $index ]">
+                    <input class="form-control" type="text" name="c_note[]" ng-model="_c_note[ $index ]" placeholder="e.g. Testing monitors">
                 </div>
             </div><a ng-click="companies.push([])" class="btn pull-right">Add employment</a>
             <div class="both"></div>
@@ -210,7 +210,7 @@
             <div ng-repeat="language in languages" class="row">
                 </br>
                 <div class="col-xs-8">
-                    <input class="form-control" type="text" name="l_language[]" ng-model="_l_language[$index]" placeholder="e.g. English">
+                    <input class="form-control" type="text" name="l_language[]" ng-model="_l_language[$index]" placeholder="e.g. German">
                 </div>
                 <div class="col-xs-4">
                     <select class="form-control" name="l_level[]" ng-model="_l_level[ $index ]">
@@ -277,8 +277,10 @@
                 </div>
             </div><a ng-click="hobbies.push([])" class="btn pull-right">Add hobbies</a>
         </div>
-        </br>
-        <button type="save" class="btn btn-default">Save</button>
+        </br></br>
+
+        <button type="submitButton" class="btn btn-primary btn-lg btn-block">Save</button>
+
     </form>
 </div>
 </body>
