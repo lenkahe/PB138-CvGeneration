@@ -11,6 +11,7 @@ import cz.muni.fi.pb138.cvGeneration.service.entity.CvServiceImpl;
 import org.xmldb.api.base.XMLDBException;
 
 
+import javax.xml.bind.ValidationException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,7 +27,7 @@ import java.util.List;
 public class XMLTry {
 
 
-    public static void main(String[] args) throws ParseException, XMLDBException {
+    public static void main(String[] args) throws ParseException, XMLDBException, ValidationException {
 
 
 
@@ -198,8 +199,8 @@ public class XMLTry {
         //File lat = new File("projekt");
         //System.out.println(service.createPdf(person));
 
-        service.saveCvInformation(person,user1);
-        service.saveCvInformation(p2, user2);
+        service.saveCvInformation(person);
+        service.saveCvInformation(p2);
 
         System.out.println(service.getCvInformation(user1));
         System.out.println(service.getCvInformation(user2));

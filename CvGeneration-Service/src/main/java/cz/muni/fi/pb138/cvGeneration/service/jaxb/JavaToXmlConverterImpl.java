@@ -24,7 +24,7 @@ import java.io.IOException;
 public class JavaToXmlConverterImpl implements JavaToXmlConverter {
 
     @Override
-    public File createXML(Person person){
+    public File createXML(Person person) throws ValidationException {
 
 
         String fileName = Math.abs(person.getUserLogin().hashCode()) + ".xml";
@@ -46,7 +46,7 @@ public class JavaToXmlConverterImpl implements JavaToXmlConverter {
         }
 
         PersonSchemaValidator personSchemaValidator = new PersonSchemaValidator();
-        personSchemaValidator.validate(file);
+        if (!personSchemaValidator.validate(file)) throw new ValidationException("XML file is not valid!");
 
         return file;
     }

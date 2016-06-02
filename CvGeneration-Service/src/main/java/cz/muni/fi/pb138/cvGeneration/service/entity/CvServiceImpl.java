@@ -12,6 +12,7 @@ import cz.muni.fi.pb138.cvGeneration.service.converter.XmlToTexConverterImpl;
 import cz.muni.fi.pb138.cvGeneration.service.jaxb.JavaToXmlConverterImpl;
 import org.springframework.stereotype.Component;
 
+import javax.xml.bind.ValidationException;
 import java.io.File;
 
 
@@ -34,19 +35,27 @@ public class CvServiceImpl implements CvService{
     }
 
     @Override
-    public Person saveCvInformation(Person cv, User user) {
+    public Person saveCvInformation(Person cv) throws ValidationException {
 
+        //File xmlFile = null;
         File xmlFile = converter.createXML(cv);
         cvDao.saveResource(xmlFile);
         xmlFile.delete();
-
-        //user.setCvFileName(xmlFile.getName());
+        /*
+        try {
+            xmlFile = converter.createXML(cv);
+            cvDao.saveResource(xmlFile);
+        } catch (ValidationException e) {
+            e.printStackTrace();
+        } finally {
+            if(xmlFile != null) xmlFile.delete();
+        }*/
 
         return cv;
     }
 
     @Override
-    public File createPdf(Person person) {
+    public File createPdf(Person person) throws ValidationException {
 
         TexToPdfConverter texToPdfconv = new TexToPdfConverterImpl();
         XmlToTexConverter xmlToTexconv = new XmlToTexConverterImpl();

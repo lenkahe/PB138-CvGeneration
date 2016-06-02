@@ -21,7 +21,7 @@ public interface JavaToXmlConverter {
      * @return name of xml file in database
      *
      */
-    File createXML(Person person);
+    File createXML(Person person) throws ValidationException;
 
 
     /**
