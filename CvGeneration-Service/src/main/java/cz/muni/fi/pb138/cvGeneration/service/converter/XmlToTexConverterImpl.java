@@ -23,7 +23,7 @@ public class XmlToTexConverterImpl implements XmlToTexConverter{
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer xsltTrans;
         try {
-            xsltTrans = tf.newTransformer(new StreamSource(new File("src/main/java/cz/muni/fi/pb138/cvGeneration/service/xml2tex.xslt")));
+            xsltTrans = tf.newTransformer(new StreamSource(new File("CvGeneration-Service/src/main/java/cz/muni/fi/pb138/cvGeneration/service/xml2tex.xslt")));
             xsltTrans.transform(new StreamSource(xmlFile),
                     new StreamResult(texFile));
         } catch (TransformerConfigurationException ex) {
