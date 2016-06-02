@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<person>
+    <personalInfo>
+        <preTitle>Ing.</preTitle>
+        <firstName>Jozef</firstName>
+        <lastName>Blažko</lastName>
+        <postTitle>Ph.D.</postTitle>
+        <address>
+            <street>Kalinčiakova</street>
+            <city>Brno</city>
+            <postalCode>97405</postalCode>
+        </address>
+        <phones>
+            <phone>0918153578</phone>
+            <phone>+42191153578</phone>
+        </phones>
+        <emails>
+            <email>uml@xml.sk</email>
+            <email>popo@kate.petl</email>
+        </emails>
+    </personalInfo>
+    <employments>
+        <employment>
+            <company>Portos.sro</company>
+            <position>Tester</position>
+            <dateStart>12.11.1994</dateStart>
+            <dateEnd>1.1.1999</dateEnd>
+            <description>nic moc</description>
+        </employment>
+        <employment>
+            <company>Opera.as</company>
+            <position>Zámočník</position>
+            <dateStart>12.11.2000</dateStart>
+            <dateEnd>5.5.2001</dateEnd>
+            <description>bolo dobre ale dávno žil na svete Slovák slávno</description>
+        </employment>
+    </employments>
+    <education>
+        <school>
+            <schoolName>SOŠ Spišská Nová Ves</schoolName>
+            <fieldOfStudy>aplikovaná záhradkárčina</fieldOfStudy>
+            <grade>3</grade>
+            <dateStart>1.1.1994</dateStart>
+            <dateEnd>1.1.2000</dateEnd>
+        </school>
+        <school>
+            <schoolName>FI MUNI</schoolName>
+            <fieldOfStudy>Niečo dobrého</fieldOfStudy>
+            <grade>1</grade>
+            <dateStart>1.1.2011</dateStart>
+        </school>
+    </education>
+    <languages>
+        <language>
+            <languageName>English</languageName>
+            <level>advanced</level>
+        </language>
+        <language>
+            <languageName>Slovak</languageName>
+            <level>native</level>
+        </language>
+    </languages>
+    <skills>
+        <skill>
+            <skillName>XML</skillName>
+            <level>advanced</level>
+        </skill>
+        <skill>
+            <skillName>Windows</skillName>
+            <level>basic</level>
+        </skill>
+    </skills>
+    <certificates>
+        <certificate>ABC</certificate>
+        <certificate>CBA</certificate>
+        <certificate>Shhbc</certificate>
+        <certificate>Lečo</certificate>
+    </certificates>
+    <hobbies>
+        <hobby>eating</hobby>
+        <hobby>sleeping</hobby>
+    </hobbies>
+</person>
