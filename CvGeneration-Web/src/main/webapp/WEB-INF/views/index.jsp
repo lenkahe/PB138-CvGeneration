@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="form-bottom">
-                            <form:form role="form" action="login" method="post" class="login-form" modelAttribute="loginBean">
+                            <form:form role="form" action="editcv" method="post" class="login-form" modelAttribute="loginBean">
                                 <div class="form-group">
                                     <form:label cssClass="sr-only" for="form-username" path="username">Username</form:label>
                                     <form:input path="username" type="text" name="form-username" placeholder="Username..." cssClass="form-username form-control" id="form-username" required="required" />
