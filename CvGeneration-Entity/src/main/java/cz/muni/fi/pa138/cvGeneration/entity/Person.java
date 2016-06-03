@@ -1,5 +1,6 @@
 package cz.muni.fi.pa138.cvGeneration.entity;
 
+import com.sun.tracing.dtrace.Attributes;
 import cz.muni.fi.pa138.cvGeneration.entity.item.*;
 
 import javax.xml.bind.annotation.*;
@@ -33,7 +34,7 @@ public class Person {
         return userLogin;
     }
 
-    @XmlTransient
+    @XmlAttribute
     public void setUserLogin(String userLogin) {
         this.userLogin = userLogin;
     }

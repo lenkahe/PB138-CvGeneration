@@ -21,6 +21,7 @@
                 <xsd:element name="certificates" minOccurs="0"  type="certificatesType"/>
                 <xsd:element name="hobbies" minOccurs="0"  type="hobbiesType"/>
             </xsd:sequence>
+            <xsd:attribute name="userLogin" type="xsd:string"/>
         </xsd:complexType>
     </xsd:element>
     
