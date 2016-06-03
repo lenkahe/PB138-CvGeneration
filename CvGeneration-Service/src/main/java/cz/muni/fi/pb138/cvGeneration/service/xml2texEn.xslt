@@ -80,7 +80,7 @@
         <xsl:if test="education[count(*) &gt; 0]">
             <xsl:text>
 
-{\hrulefill \large \bfseries Vzdělání\hrulefill}
+{\hrulefill \large \bfseries Education\hrulefill}
 
 \vspace{0.2cm}</xsl:text>
             <xsl:for-each select="education/school">
@@ -93,19 +93,19 @@
                         <xsl:value-of select="dateEnd"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:text>dosud</xsl:text>
+                        <xsl:text>until now</xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:text>}\\</xsl:text>
                 <xsl:value-of select="schoolName"/>
                 <xsl:text>\\</xsl:text>
                 <xsl:if test="fieldOfStudy">
-                    <xsl:text>Obor: </xsl:text>
+                    <xsl:text>Field of Study: </xsl:text>
                     <xsl:value-of select="fieldOfStudy"/>
                     <xsl:text>\\</xsl:text>
                 </xsl:if>
                 <xsl:if test="grade">
-                    <xsl:text>Stupeň: </xsl:text>
+                    <xsl:text>Grade: </xsl:text>
                     <xsl:value-of select="grade"/>
                     <xsl:text>\\</xsl:text>
                 </xsl:if>
@@ -119,7 +119,7 @@
         <xsl:if test="employments[count(*) &gt; 0]">
             <xsl:text>
 
-{\hrulefill \large \bfseries Praxe\hrulefill}
+{\hrulefill \large \bfseries Employments\hrulefill}
 
 \vspace{0.2cm}</xsl:text>
             <xsl:for-each select="employments/employment">
@@ -132,15 +132,15 @@
                         <xsl:value-of select="dateEnd"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:text>dosud</xsl:text>
+                        <xsl:text>until now</xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:text>}\\</xsl:text>
                 <xsl:value-of select="company"/>
-                <xsl:text>\\ Pracovní pozice: </xsl:text>
+                <xsl:text>\\ Position: </xsl:text>
                 <xsl:value-of select="position"/>
                 <xsl:if test="description">
-                    <xsl:text>\\ Náplň práce: </xsl:text>
+                    <xsl:text>\\ Description: </xsl:text>
                     <xsl:value-of select="description"/>
                 </xsl:if>
                 <xsl:text>\\</xsl:text>
@@ -154,7 +154,7 @@
         <xsl:if test="languages or skills or certificates">
 
             <xsl:variable name="languages">
-                <xsl:text>{\bfseries Jazykové znalosti:}
+                <xsl:text>{\bfseries Languages:}
     \begin{itemize}[leftmargin=0.5cm,topsep=0cm]
     \setlength\itemsep{-0.2cm}</xsl:text>
                 <xsl:for-each select="languages/language">
@@ -167,7 +167,7 @@
             </xsl:variable>
 
             <xsl:variable name="skills">
-                <xsl:text>{\bfseries Zručnosti:}
+                <xsl:text>{\bfseries Skills:}
     \begin{itemize}[leftmargin=0.5cm,topsep=0cm]
     \setlength\itemsep{-0.2cm}</xsl:text>
                 <xsl:for-each select="skills/skill">
@@ -180,7 +180,7 @@
             </xsl:variable>
 
             <xsl:variable name="certificates">
-                <xsl:text>{\bfseries Certifikáty:}
+                <xsl:text>{\bfseries Certificates:}
     \begin{itemize}[leftmargin=0.5cm,topsep=0cm]
     \setlength\itemsep{-0.2cm}</xsl:text>
                 <xsl:for-each select="certificates/certificate">
@@ -192,7 +192,7 @@
 
             <xsl:text>
 
-{\hrulefill \large \bfseries Znalosti a dovednosti\hrulefill}
+{\hrulefill \large \bfseries Knowledge and Skills\hrulefill}
 
 \vspace{0.2cm}</xsl:text>
 
@@ -241,10 +241,10 @@
             <xsl:text> \\</xsl:text>
             <xsl:text>
 
-{\hrulefill \large \bfseries Ostatní informace\hrulefill}
+{\hrulefill \large \bfseries Other informations\hrulefill}
 
 \vspace{0.2cm}
-{\bfseries Záliby:} </xsl:text>
+{\bfseries Hobbis:} </xsl:text>
             <xsl:for-each select="hobbies/hobby">
                 <xsl:value-of select="text()"/>
                 <xsl:if test="position() != last()">
