@@ -25,8 +25,8 @@ public class XmlToTexConverterImpl implements XmlToTexConverter{
         try {
             File xslt;
             switch (language){
-                case "cz": xslt = new File("src/main/java/cz/muni/fi/pb138/cvGeneration/service/xml2texCz.xslt"); break;
-                case "en": xslt = new File("src/main/java/cz/muni/fi/pb138/cvGeneration/service/xml2texEn.xslt"); break;
+                case "cz": xslt = new File("..\\CvGeneration-Service\\src\\main\\java\\cz\\muni\\fi\\pb138\\cvGeneration\\service\\xml2texCz.xslt"); break;
+                case "en": xslt = new File("..\\CvGeneration-Service\\src\\main\\java\\cz\\muni\\fi\\pb138\\cvGeneration\\service\\xml2texEn.xslt"); break;
                 default: throw new IllegalArgumentException("Not valid language");
             }
 
