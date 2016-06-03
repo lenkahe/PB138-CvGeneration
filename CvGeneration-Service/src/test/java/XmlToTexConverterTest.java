@@ -1,5 +1,6 @@
 import cz.muni.fi.pb138.cvGeneration.api.converter.XmlToTexConverter;
 import cz.muni.fi.pb138.cvGeneration.persistence.configuration.AppConfiguration;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,6 +46,18 @@ public class XmlToTexConverterTest {
     }
 
     private void compareFiles(File a, File b) throws FileNotFoundException {
-        Assert.assertEquals(new Scanner(a).useDelimiter("\\Z").next(), new Scanner(b).useDelimiter("\\Z").next());
+        Scanner scannerA, scannerB;
+        scannerA = new Scanner(a);
+        scannerB = new Scanner(b);
+        Assert.assertEquals(scannerA.useDelimiter("\\Z").next(), scannerB.useDelimiter("\\Z").next());
+        scannerA.close();
+        scannerB.close();
+    }
+
+    @After
+    public void cleanUpFiles(){
+        (new File("/src/test/java/minData.tex")).delete();
+        (new File("/src/test/java/fullData.tex")).delete();
+        (new File("/src/test/java/extremeLimitsData.tex")).delete();
     }
 }
