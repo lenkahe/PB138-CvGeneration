@@ -167,7 +167,7 @@
             </xsl:variable>
 
             <xsl:variable name="skills">
-                <xsl:text>{\bfseries Znalosti na PC:}
+                <xsl:text>{\bfseries Zručnosti:}
     \begin{itemize}[leftmargin=0.5cm,topsep=0cm]
     \setlength\itemsep{-0.2cm}</xsl:text>
                 <xsl:for-each select="skills/skill">

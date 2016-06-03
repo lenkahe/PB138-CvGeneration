@@ -28,21 +28,18 @@ public class XmlToTexConverterTest {
     public void TestXmlToTexConverterMinData() throws FileNotFoundException {
         File texResult = xmlToTexConv.convertToTex(new File("src/test/java/minData.xml"));
         compareFiles(new File("src/test/java/minDataOrig.tex"), texResult);
-        texResult.delete();
     }
 
     @Test
     public void TestXmlToTexConverterFullData() throws FileNotFoundException {
         File texResult = xmlToTexConv.convertToTex(new File("src/test/java/fullData.xml"));
         compareFiles(new File("src/test/java/fullDataOrig.tex"), texResult);
-        texResult.delete();
     }
 
     @Test
     public void TestXmlToTexConverterExtremeLimitsData() throws FileNotFoundException {
         File texResult = xmlToTexConv.convertToTex(new File("src/test/java/extremeLimitsData.xml"));
         compareFiles(new File("src/test/java/extremeLimitsDataOrig.tex"), texResult);
-        texResult.delete();
     }
 
     private void compareFiles(File a, File b) throws FileNotFoundException {
