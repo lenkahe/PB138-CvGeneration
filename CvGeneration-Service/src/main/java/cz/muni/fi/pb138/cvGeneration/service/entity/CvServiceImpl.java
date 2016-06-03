@@ -51,11 +51,11 @@ public class CvServiceImpl implements CvService{
     }
 
     @Override
-    public File createPdf(Person person) throws ValidationException {
+    public File createPdf(Person person, String lang) throws ValidationException {
 
         File xmlFile = converter.createXML(person);
         cvDao.saveResource(xmlFile);
-        File texFile = xmlToTexConv.convertToTex(xmlFile);
+        File texFile = xmlToTexConv.convertToTex(xmlFile, lang);
         xmlFile.delete();
         String texName = texFile.getName();
         System.out.println(texName);

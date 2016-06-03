@@ -17,5 +17,5 @@ public interface CvService {
 
     Person saveCvInformation (Person cv) throws ValidationException;
 
-    File createPdf(Person person) throws ValidationException;
+    File createPdf(Person person, String lang) throws ValidationException;
 }
