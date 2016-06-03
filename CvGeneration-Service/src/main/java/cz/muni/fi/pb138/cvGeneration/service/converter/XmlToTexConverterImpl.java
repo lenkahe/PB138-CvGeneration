@@ -30,6 +30,7 @@ public class XmlToTexConverterImpl implements XmlToTexConverter{
                 default: throw new IllegalArgumentException("Not valid language");
             }
 
+            xsltTrans = tf.newTransformer(new StreamSource(xslt));
             xsltTrans.transform(new StreamSource(xmlFile),
                     new StreamResult(texFile));
         } catch (TransformerConfigurationException ex) {
