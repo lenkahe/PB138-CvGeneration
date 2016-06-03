@@ -1,7 +1,7 @@
 package cz.muni.fi.pb138.cvGeneration.service.entity;
 
 import cz.muni.fi.pb138.cvGeneration.api.service.UserService;
-import cz.muni.fi.pa138.cvGeneration.entity.User;
+import cz.muni.fi.pb138.cvGeneration.entity.User;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

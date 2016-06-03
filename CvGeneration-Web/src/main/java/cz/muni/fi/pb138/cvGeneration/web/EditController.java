@@ -1,8 +1,8 @@
 package cz.muni.fi.pb138.cvGeneration.web;
 
-import cz.muni.fi.pa138.cvGeneration.api.service.CvService;
-import cz.muni.fi.pa138.cvGeneration.entity.Person;
-import cz.muni.fi.pa138.cvGeneration.entity.item.PersonalInfo;
+import cz.muni.fi.pb138.cvGeneration.api.service.CvService;
+import cz.muni.fi.pb138.cvGeneration.entity.Person;
+import cz.muni.fi.pb138.cvGeneration.entity.item.PersonalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +44,6 @@ public class EditController {
         }
 
     }
-
-
+    
 
 }

@@ -1,7 +1,7 @@
-package cz.muni.fi.pa138.cvGeneration.entity.item;
+package cz.muni.fi.pb138.cvGeneration.entity.item;
 
 
-import cz.muni.fi.pa138.cvGeneration.entity.DateAdapter;
+import cz.muni.fi.pb138.cvGeneration.entity.DateAdapter;
 
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;

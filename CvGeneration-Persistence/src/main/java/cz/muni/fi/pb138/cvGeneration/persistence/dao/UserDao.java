@@ -1,6 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.persistence.dao;
 
-import cz.muni.fi.pa138.cvGeneration.entity.User;
+import cz.muni.fi.pb138.cvGeneration.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 

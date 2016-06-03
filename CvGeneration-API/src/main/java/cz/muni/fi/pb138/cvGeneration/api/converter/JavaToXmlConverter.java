@@ -1,6 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.api.converter;
 
-import cz.muni.fi.pa138.cvGeneration.entity.Person;
+import cz.muni.fi.pb138.cvGeneration.entity.Person;
 
 import javax.xml.bind.ValidationException;
 import java.io.File;

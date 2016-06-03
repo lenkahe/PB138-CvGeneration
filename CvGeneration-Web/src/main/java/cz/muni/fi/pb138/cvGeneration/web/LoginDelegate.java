@@ -1,6 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.web;
 
-import cz.muni.fi.pa138.cvGeneration.entity.User;
+import cz.muni.fi.pb138.cvGeneration.entity.User;
 import cz.muni.fi.pb138.cvGeneration.service.entity.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 

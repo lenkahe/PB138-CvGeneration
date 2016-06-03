@@ -1,11 +1,9 @@
-package cz.muni.fi.pa138.cvGeneration.entity;
+package cz.muni.fi.pb138.cvGeneration.entity;
 
-import com.sun.tracing.dtrace.Attributes;
-import cz.muni.fi.pa138.cvGeneration.entity.item.*;
+import cz.muni.fi.pb138.cvGeneration.entity.item.*;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Personal information
