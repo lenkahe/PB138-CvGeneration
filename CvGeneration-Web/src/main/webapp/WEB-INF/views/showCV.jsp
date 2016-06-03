@@ -253,7 +253,6 @@
                             <option>basic</option>
                             <option>intermediate</option>
                             <option>advanced</option>
-                            <option>native speaker</option>
                         </select>
                         </br>
                     </div>
