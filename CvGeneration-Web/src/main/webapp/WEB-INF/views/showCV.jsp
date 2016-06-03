@@ -29,7 +29,7 @@
 <div class="container">
     Welcome! You are logged in!
     <!----------------------------------------------- BEGINNING OF FORM ----------------------------------------->
-    <form action="${pageContext.request.contextPath}/editcv/save" class="form-horizontal" method="POST" name="userForm"
+    <form action="${pageContext.request.contextPath}/save" class="form-horizontal" method="POST" name="userForm"
           id="cvForm">
         <div class="row">
             <h1>Personal info</h1>
@@ -251,7 +251,7 @@
                 </div>
             </div><a ng-click="skills.push([]); _l_level[ _l_level.length ] = 'basic'" class="btn pull-right">Add skill</a>
         </div>
-        <!----------------------------------- Certificates ----------------------->
+        <!----------------------------------- Certificates --------------------------->
         <div id="certificates" class="col-xs-5">
             <h1>Certificates</h1>
             <div ng-init="certificates = [ [] ]; _c_certificate = []" class="row">
@@ -265,7 +265,7 @@
         </div>
         <div class="col-xs-2"></div>
 
-        <!----------------------------------- Hobbies ----------------------->
+        <!----------------------------------- Hobbies -------------------------->
         <div id="hobbies" class="col-xs-5">
             <h1>Hobbies</h1>
             <div ng-init="hobbies = [ [] ]; _c_hobbies = []" class="row">
@@ -278,7 +278,7 @@
             </div><a ng-click="hobbies.push([])" class="btn pull-right">Add hobbies</a>
         </div>
         </br>
-        <button type="save" class="btn btn-default">Save</button>
+        <button type="submit" class="btn btn-default">Save</button>
     </form>
 </div>
 </body>

@@ -3,7 +3,10 @@ package cz.muni.fi.pa138.cvGeneration.entity.item;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by galbavyj on 13.05.2016.
@@ -20,6 +23,24 @@ public class PersonalInfo {
     private List<String> phones;
     private List<String> emails;
 
+    public PersonalInfo() {
+    }
+
+
+    public PersonalInfo(Map<String, String[]> htmlParams) {
+        Address address = new Address();
+        address.setStreet(getStringValue(htmlParams, "street"));
+        address.setCity(getStringValue(htmlParams, "city"));
+        address.setPostalCode(getStringValue(htmlParams, "postal-code"));
+        this.setPreTitle(getStringValue(htmlParams, "pre-title"));
+        this.setFirstName(getStringValue(htmlParams, "first-name"));
+        this.setLastName(getStringValue(htmlParams, "last-name"));
+        this.setPostTitle(getStringValue(htmlParams, "post-title"));
+        this.setAddress(address);
+        this.setPhones(getListValue(htmlParams, "phone"));
+        this.setEmails(getListValue(htmlParams, "email"));
+    }
+
 
     public PersonalInfo(String preTitle, String firstName, String lastName, String postTitle,
                         Address address, List<String> phones, List<String> emails) {
@@ -33,8 +54,27 @@ public class PersonalInfo {
     }
 
 
-    public PersonalInfo() {
+    private String getStringValue(Map<String, String[]> params, String key){
+        if (params.containsKey(key)) {
+            return params.get(key)[0];
+        }
+        return null;
     }
+
+    private List<String> getListValue(Map<String, String[]> params, String partOfKey){
+        String[] values;
+        List<String> dataList = new ArrayList<String>();
+
+        for(String s: params.keySet()){
+            if(s.startsWith(partOfKey)){
+                values = params.get(s);
+                dataList.addAll(Arrays.asList(values));
+            }
+        }
+        return dataList;
+    }
+
+
 
     public String getPreTitle() {
         return preTitle;

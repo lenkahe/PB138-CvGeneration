@@ -77,7 +77,8 @@ public class LoginController {
                 user.setLogin(loginBean.getUsername());
                 user.setPassword(loginBean.getPassword());
                 loginDelegate.createNewUser(user);
-                System.out.println("New user registerd");
+                System.out.println("New user registred");
+                request.setAttribute("loggedInUser", loginBean.getUsername());
                 model = new ModelAndView("showCV");
             } else {
                 System.out.println("Registration unsucessful");

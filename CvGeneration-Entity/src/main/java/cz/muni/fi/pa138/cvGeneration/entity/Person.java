@@ -4,6 +4,7 @@ import cz.muni.fi.pa138.cvGeneration.entity.item.*;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Personal information
@@ -25,6 +26,8 @@ public class Person {
     private List<Skills> skills;
     private String userLogin;
 
+    public Person() {
+    }
 
     public String getUserLogin() {
         return userLogin;

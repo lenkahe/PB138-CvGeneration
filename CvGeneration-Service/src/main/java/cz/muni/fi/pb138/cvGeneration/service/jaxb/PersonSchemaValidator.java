@@ -23,7 +23,7 @@ public class PersonSchemaValidator {
     public PersonSchemaValidator(){
         try{
             SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            this.schema = factory.newSchema(new File("CvGeneration-Service\\src" +
+            this.schema = factory.newSchema(new File(System.getProperty("user.dir") + "CvGeneration-Service\\src" +
                     "\\main\\java\\cz\\muni\\fi\\pb138\\cvGeneration\\service\\person.xsd"));
         }catch(SAXException ex){
             System.err.println("Error at setting schema for validation: "+ex.getMessage());

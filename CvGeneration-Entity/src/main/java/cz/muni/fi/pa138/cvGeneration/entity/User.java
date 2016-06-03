@@ -46,5 +46,4 @@ public class User {
         this.cvFileName = cvFileName;
     }
 
-
 }
