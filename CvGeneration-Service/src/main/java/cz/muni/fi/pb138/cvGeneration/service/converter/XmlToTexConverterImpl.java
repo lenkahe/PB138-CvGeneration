@@ -1,6 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.service.converter;
 
-import cz.muni.fi.pa138.cvGeneration.api.converter.XmlToTexConverter;
+import cz.muni.fi.pb138.cvGeneration.api.converter.XmlToTexConverter;
 import org.springframework.stereotype.Component;
 
 import javax.xml.transform.Transformer;
