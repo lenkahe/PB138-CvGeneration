@@ -25,21 +25,39 @@ public class XmlToTexConverterTest {
     private XmlToTexConverter xmlToTexConv;
 
     @Test
-    public void TestXmlToTexConverterMinData() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/minData.xml"));
+    public void TestXmlToTexConverterMinDataCz() throws FileNotFoundException {
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/minData.xml"), "cz");
         compareFiles(new File("src/test/java/minDataOrig.tex"), texResult);
     }
 
     @Test
-    public void TestXmlToTexConverterFullData() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/fullData.xml"));
+    public void TestXmlToTexConverterFullDataCz() throws FileNotFoundException {
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/fullData.xml"), "cz");
         compareFiles(new File("src/test/java/fullDataOrig.tex"), texResult);
     }
 
     @Test
-    public void TestXmlToTexConverterExtremeLimitsData() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/extremeLimitsData.xml"));
+    public void TestXmlToTexConverterExtremeLimitsDataCz() throws FileNotFoundException {
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/extremeLimitsData.xml"), "cz");
         compareFiles(new File("src/test/java/extremeLimitsDataOrig.tex"), texResult);
+    }
+
+    @Test
+    public void TestXmlToTexConverterMinDataEn() throws FileNotFoundException {
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/minData.xml"), "en");
+        compareFiles(new File("src/test/java/minDataOrigEn.tex"), texResult);
+    }
+
+    @Test
+    public void TestXmlToTexConverterFullDataEn() throws FileNotFoundException {
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/fullData.xml"), "en");
+        compareFiles(new File("src/test/java/fullDataOrigEn.tex"), texResult);
+    }
+
+    @Test
+    public void TestXmlToTexConverterExtremeLimitsDataEn() throws FileNotFoundException {
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/extremeLimitsData.xml"), "en");
+        compareFiles(new File("src/test/java/extremeLimitsDataOrigEn.tex"), texResult);
     }
 
     private void compareFiles(File a, File b) throws FileNotFoundException {
