@@ -19,7 +19,7 @@ public interface UserService {
     /**
      * Create new user.
      * @param user
-     * @return
+     * @return User
      */
     User createNewUser(User user);
 }
