@@ -1,15 +1,16 @@
 package cz.muni.fi.pb138.cvGeneration.service.entity;
 
-import cz.muni.fi.pa138.cvGeneration.api.converter.JavaToXmlConverter;
-import cz.muni.fi.pa138.cvGeneration.api.converter.TexToPdfConverter;
-import cz.muni.fi.pa138.cvGeneration.api.converter.XmlToTexConverter;
-import cz.muni.fi.pa138.cvGeneration.api.service.CvService;
+import cz.muni.fi.pb138.cvGeneration.api.converter.JavaToXmlConverter;
+import cz.muni.fi.pb138.cvGeneration.api.converter.TexToPdfConverter;
+import cz.muni.fi.pb138.cvGeneration.api.converter.XmlToTexConverter;
+import cz.muni.fi.pb138.cvGeneration.api.service.CvService;
 import cz.muni.fi.pa138.cvGeneration.entity.Person;
 import cz.muni.fi.pa138.cvGeneration.entity.User;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
 import cz.muni.fi.pb138.cvGeneration.service.converter.TexToPdfConverterImpl;
 import cz.muni.fi.pb138.cvGeneration.service.converter.XmlToTexConverterImpl;
 import cz.muni.fi.pb138.cvGeneration.service.jaxb.JavaToXmlConverterImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.xml.bind.ValidationException;
@@ -24,9 +25,17 @@ import java.io.File;
 @Component
 public class CvServiceImpl implements CvService{
 
-    private JavaToXmlConverter converter = new JavaToXmlConverterImpl();
+    @Autowired
+    private JavaToXmlConverter converter;
 
-    CvDaoImpl cvDao = new CvDaoImpl();
+    @Autowired
+    private CvDaoImpl cvDao;
+
+    @Autowired
+    TexToPdfConverter texToPdfConv;
+
+    @Autowired
+    XmlToTexConverter xmlToTexConv;
 
     @Override
     public Person getCvInformation(User user) {
@@ -37,19 +46,9 @@ public class CvServiceImpl implements CvService{
     @Override
     public Person saveCvInformation(Person cv) throws ValidationException {
 
-        //File xmlFile = null;
         File xmlFile = converter.createXML(cv);
         cvDao.saveResource(xmlFile);
         xmlFile.delete();
-        /*
-        try {
-            xmlFile = converter.createXML(cv);
-            cvDao.saveResource(xmlFile);
-        } catch (ValidationException e) {
-            e.printStackTrace();
-        } finally {
-            if(xmlFile != null) xmlFile.delete();
-        }*/
 
         return cv;
     }
@@ -57,18 +56,14 @@ public class CvServiceImpl implements CvService{
     @Override
     public File createPdf(Person person) throws ValidationException {
 
-        TexToPdfConverter texToPdfconv = new TexToPdfConverterImpl();
-        XmlToTexConverter xmlToTexconv = new XmlToTexConverterImpl();
-
-
         File xmlFile = converter.createXML(person);
         cvDao.saveResource(xmlFile);
-        File texFile = xmlToTexconv.convertToTex(xmlFile);
+        File texFile = xmlToTexConv.convertToTex(xmlFile);
         xmlFile.delete();
         String texName = texFile.getName();
         System.out.println(texName);
 
-        String pdfFilePath = texToPdfconv.createPDF(new File(texName.replace(".tex","")));
+        String pdfFilePath = texToPdfConv.createPDF(new File(texName.replace(".tex","")));
 
         return new File(pdfFilePath);
     }

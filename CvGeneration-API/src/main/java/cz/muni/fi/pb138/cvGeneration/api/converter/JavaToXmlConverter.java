@@ -1,4 +1,4 @@
-package cz.muni.fi.pa138.cvGeneration.api.converter;
+package cz.muni.fi.pb138.cvGeneration.api.converter;
 
 import cz.muni.fi.pa138.cvGeneration.entity.Person;
 

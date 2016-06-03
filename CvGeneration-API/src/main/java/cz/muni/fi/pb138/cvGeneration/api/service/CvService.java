@@ -1,4 +1,4 @@
-package cz.muni.fi.pa138.cvGeneration.api.service;
+package cz.muni.fi.pb138.cvGeneration.api.service;
 
 import cz.muni.fi.pa138.cvGeneration.entity.Person;
 import cz.muni.fi.pa138.cvGeneration.entity.User;

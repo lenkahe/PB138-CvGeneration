@@ -1,4 +1,4 @@
-import cz.muni.fi.pa138.cvGeneration.api.converter.XmlToTexConverter;
+import cz.muni.fi.pb138.cvGeneration.api.converter.XmlToTexConverter;
 import cz.muni.fi.pb138.cvGeneration.persistence.configuration.AppConfiguration;
 import org.junit.Assert;
 import org.junit.Test;

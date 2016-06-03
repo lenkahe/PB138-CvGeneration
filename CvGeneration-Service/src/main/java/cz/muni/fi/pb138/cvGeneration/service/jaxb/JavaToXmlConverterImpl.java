@@ -1,6 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.service.jaxb;
 
-import cz.muni.fi.pa138.cvGeneration.api.converter.JavaToXmlConverter;
+import cz.muni.fi.pb138.cvGeneration.api.converter.JavaToXmlConverter;
 import cz.muni.fi.pa138.cvGeneration.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.persistence.dao.CvDaoImpl;
 import cz.muni.fi.pb138.cvGeneration.persistence.exception.DataAccessCvException;

@@ -1,6 +1,6 @@
 package cz.muni.fi.pb138.cvGeneration.service.converter;
 
-import cz.muni.fi.pa138.cvGeneration.api.converter.TexToPdfConverter;
+import cz.muni.fi.pb138.cvGeneration.api.converter.TexToPdfConverter;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
