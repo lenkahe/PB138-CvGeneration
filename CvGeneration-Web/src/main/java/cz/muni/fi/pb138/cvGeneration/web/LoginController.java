@@ -77,11 +77,11 @@ public class LoginController {
                 user.setLogin(loginBean.getUsername());
                 user.setPassword(loginBean.getPassword());
                 loginDelegate.createNewUser(user);
-                System.out.println("New user registred");
+                System.out.println("New user registered");
                 request.setAttribute("loggedInUser", loginBean.getUsername());
                 model = new ModelAndView("showCV");
             } else {
-                System.out.println("Registration unsucessful");
+                System.out.println("Registration unsuccessful");
                 model = new ModelAndView("index");
                 model.addObject("loginBean", loginBean);
                 request.setAttribute("message", "This username is already in use.");

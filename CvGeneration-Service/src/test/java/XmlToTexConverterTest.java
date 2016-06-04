@@ -26,53 +26,48 @@ public class XmlToTexConverterTest {
 
     @Test
     public void TestXmlToTexConverterMinDataCz() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/minData.xml"), "cz");
-        texResult.deleteOnExit();
-        compareFiles(new File("src/test/java/minDataOrig.tex"), texResult);
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/resources/minData.xml"), "cz");
+        compareFiles(new File("src/test/resources/minDataOrig.tex"), texResult);
     }
 
     @Test
     public void TestXmlToTexConverterFullDataCz() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/fullData.xml"), "cz");
-        texResult.deleteOnExit();
-        compareFiles(new File("src/test/java/fullDataOrig.tex"), texResult);
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/resources/fullData.xml"), "cz");
+        compareFiles(new File("src/test/resources/fullDataOrig.tex"), texResult);
     }
 
     @Test
     public void TestXmlToTexConverterExtremeLimitsDataCz() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/extremeLimitsData.xml"), "cz");
-        texResult.deleteOnExit();
-        compareFiles(new File("src/test/java/extremeLimitsDataOrig.tex"), texResult);
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/resources/extremeLimitsData.xml"), "cz");
+        compareFiles(new File("src/test/resources/extremeLimitsDataOrig.tex"), texResult);
     }
 
     @Test
     public void TestXmlToTexConverterMinDataEn() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/minData.xml"), "en");
-        texResult.deleteOnExit();
-        compareFiles(new File("src/test/java/minDataOrigEn.tex"), texResult);
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/resources/minData.xml"), "en");
+        compareFiles(new File("src/test/resources/minDataOrigEn.tex"), texResult);
     }
 
     @Test
     public void TestXmlToTexConverterFullDataEn() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/fullData.xml"), "en");
-        texResult.deleteOnExit();
-        compareFiles(new File("src/test/java/fullDataOrigEn.tex"), texResult);
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/resources/fullData.xml"), "en");
+        compareFiles(new File("src/test/resources/fullDataOrigEn.tex"), texResult);
     }
 
     @Test
     public void TestXmlToTexConverterExtremeLimitsDataEn() throws FileNotFoundException {
-        File texResult = xmlToTexConv.convertToTex(new File("src/test/java/extremeLimitsData.xml"), "en");
-        texResult.deleteOnExit();
-        compareFiles(new File("src/test/java/extremeLimitsDataOrigEn.tex"), texResult);
+        File texResult = xmlToTexConv.convertToTex(new File("src/test/resources/extremeLimitsData.xml"), "en");
+        compareFiles(new File("src/test/resources/extremeLimitsDataOrigEn.tex"), texResult);
     }
 
-    private void compareFiles(File a, File b) throws FileNotFoundException {
-        Scanner scannerA = new Scanner(a);
-        Scanner scannerB = new Scanner(b);
-        String stringA = scannerA.useDelimiter("\\Z").next();
-        String stringB = scannerB.useDelimiter("\\Z").next();
-        scannerA.close();
-        scannerB.close();
-        Assert.assertEquals(stringA, stringB);
+    private void compareFiles(File original, File testResult) throws FileNotFoundException {
+        Scanner scannerOrigin = new Scanner(original);
+        Scanner scannerTest = new Scanner(testResult);
+        String origin = scannerOrigin.useDelimiter("\\Z").next();
+        String test = scannerTest.useDelimiter("\\Z").next();
+        scannerOrigin.close();
+        scannerTest.close();
+        testResult.deleteOnExit();
+        Assert.assertEquals(origin, test);
     }
 }
