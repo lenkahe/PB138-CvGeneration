@@ -60,7 +60,7 @@
                                     <form:password path="password" name="form-password" placeholder="Password..." cssClass="form-password form-control" id="form-password" required="required"/>
                                 </div>
                                 <button type="submit" class="btn">Sign in!</button>
-                                <div id="message">${message}</div>
+                                <div id="message">${messageLogIn}</div>
                             </form:form>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                                     <input type="password" name="form-pass2-reg" placeholder="Password..." class="form-password form-control" id="form-pass2-reg" required>
                                 </div>
                                 <button type="submit" class="btn">Sign me up!</button>
-                                <div id="message">${message}</div>
+                                <div id="message">${messageRegister}</div>
                             </form:form>
                         </div>
                     </div>

@@ -60,13 +60,12 @@ public class PersonalInfo {
         }
         return null;
     }
-
-    private List<String> getListValue(Map<String, String[]> params, String partOfKey){
+    private List<String> getListValue(Map<String, String[]> params, String key){
         String[] values;
         List<String> dataList = new ArrayList<String>();
 
         for(String s: params.keySet()){
-            if(s.startsWith(partOfKey)){
+            if(s.startsWith(key)){
                 values = params.get(s);
                 dataList.addAll(Arrays.asList(values));
             }

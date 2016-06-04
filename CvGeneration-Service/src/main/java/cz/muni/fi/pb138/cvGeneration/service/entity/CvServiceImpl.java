@@ -35,9 +35,8 @@ public class CvServiceImpl implements CvService{
     XmlToTexConverter xmlToTexConv;
 
     @Override
-    public Person getCvInformation(User user) {
-
-        return converter.createPerson(user.getCvFileName());
+    public Person getCvInformation(String login) {
+        return converter.createPerson(login.hashCode() + ".xml");
     }
 
     @Override
@@ -46,7 +45,6 @@ public class CvServiceImpl implements CvService{
         File xmlFile = converter.createXML(cv);
         cvDao.saveResource(xmlFile);
         xmlFile.delete();
-
         return cv;
     }
 

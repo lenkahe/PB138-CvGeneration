@@ -13,7 +13,7 @@ import java.io.File;
  */
 public interface CvService {
 
-    Person getCvInformation (User user);
+    Person getCvInformation (String login);
 
     Person saveCvInformation (Person cv) throws ValidationException;
 

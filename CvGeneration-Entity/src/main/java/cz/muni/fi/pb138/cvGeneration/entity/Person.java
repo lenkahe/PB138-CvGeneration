@@ -3,7 +3,10 @@ package cz.muni.fi.pb138.cvGeneration.entity;
 import cz.muni.fi.pb138.cvGeneration.entity.item.*;
 
 import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Personal information
@@ -27,6 +30,7 @@ public class Person {
 
     public Person() {
     }
+
 
     public String getUserLogin() {
         return userLogin;
@@ -145,4 +149,48 @@ public class Person {
         result = 31 * result + (getSkills() != null ? getSkills().hashCode() : 0);
         return result;
     }
+
+    private List<String> getListValue(Map<String, String[]> params, String key){
+        String[] values;
+        List<String> dataList = new ArrayList<String>();
+
+        for(String s: params.keySet()){
+            if(s.startsWith(key)){
+                values = params.get(s);
+                dataList.addAll(Arrays.asList(values));
+            }
+        }
+        return dataList;
+    }
+
+    private List<Languages> getLangValue(Map<String, String[]> params,
+                                                    String key, String key2){
+
+        List<Languages> languages = new ArrayList<Languages>();
+
+        List<String> languageNames = getListValue(params, key);
+        List<String> levels = getListValue(params, key2);
+
+        for (int i = 0; i < languageNames.size(); i++ ) {
+            languages.add(new Languages(languageNames.get(i), levels.get(i)));
+        }
+
+        return languages;
+    }
+
+    private List<Skills> getSkillValue(Map<String, String[]> params,
+                                         String key, String key2){
+
+        List<Skills> skills = new ArrayList<Skills>();
+
+        List<String> skillNames = getListValue(params, key);
+        List<String> levels = getListValue(params, key2);
+
+        for (int i = 0; i < skillNames.size(); i++ ) {
+            skills.add(new Skills(skillNames.get(i), levels.get(i)));
+        }
+
+        return skills;
+    }
+
 }

@@ -84,3 +84,8 @@ hs_err_pid*
 
 # exist-db
 /exist/
+CvGeneration-Web/92668751.xml
+CvGeneration-Web/1422235918.xml
+CvGeneration-Web/1422235905.xml
+CvGeneration-Web/63116079.xml
+CvGeneration-Service/src/main/java/cz/muni/fi/pb138/cvGeneration/service/jaxb/PersonSchemaValidator.java

@@ -5,6 +5,7 @@ import cz.muni.fi.pb138.cvGeneration.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.entity.item.PersonalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,20 +25,22 @@ public class EditController {
     @Autowired
     CvService cvService;
 
+
     @RequestMapping(value="/save",method= RequestMethod.POST)
     public void saveCv(HttpServletRequest request, HttpServletResponse response) {
         Map htmlParams = request.getParameterMap();
         if(htmlParams != null){
 
             PersonalInfo personalInfo = new PersonalInfo(htmlParams);
-            Person person = new Person();
+            Person person = cvService.getCvInformation("admin");
             person.setPersonalInfo(personalInfo);
+
             //should be user login
-            person.setUserLogin("Admin");
+            person.setUserLogin("admin");
             try {
                 cvService.saveCvInformation(person);
             } catch (ValidationException ex) {
-                System.err.println("Could not save CV "+ ex.getMessage());
+                System.err.println("Could not save CV: "+ ex.getMessage());
 
             }
 
