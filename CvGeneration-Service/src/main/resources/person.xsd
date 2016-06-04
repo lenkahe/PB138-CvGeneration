@@ -32,8 +32,8 @@
             <xsd:element name="lastName"  type="xsd:string"/>
             <xsd:element name="postTitle" minOccurs="0" type="xsd:string"/>
             <xsd:element name="address" type="addressType"/>
-            <xsd:element name="phones" type="phonesType"/>
-            <xsd:element name="emails" type="emailsType"/>
+            <xsd:element name="phones" minOccurs="0" type="phonesType"/>
+            <xsd:element name="emails" minOccurs="0" type="emailsType"/>
         </xsd:sequence>
     </xsd:complexType>
     

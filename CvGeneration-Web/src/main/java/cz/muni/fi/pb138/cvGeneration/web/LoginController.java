@@ -55,8 +55,9 @@ public class LoginController {
             if(isValidUser)
             {
                 System.out.println("User Login Successful");
-                request.setAttribute("loggedInUser", loginBean.getUsername());
                 model = new ModelAndView("showCV");
+                Person person = cvService.getCvInformation(loginBean.getUsername());
+                model.addObject("person", person);
             }
             else
             {
@@ -94,29 +95,12 @@ public class LoginController {
 
                 //create blank person/cv for the username
                 Person person = new Person();
-
-                //must be filled for restrictions from here
-                PersonalInfo pi = new PersonalInfo();
-                pi.setFirstName("Jano");
-                pi.setLastName("Rochnyiak");
-                pi.setPostTitle("bla");
-                Address address = new Address ();
-                address.setCity("kosice");
-                address.setStreet("Masarykova");
-                address.setPostalCode("97654");
-                pi.setAddress(address);
-                person.setPersonalInfo(pi);
-                //to here
-
                 person.setUserLogin(loginBean.getUsername());
                 try {
                     cvService.saveCvInformation(person);
                 } catch (ValidationException ex) {
                     System.err.println("Could not save CV: "+ ex.getMessage());
                 }
-
-
-                System.out.println("New user registered");
 
                 request.setAttribute("loggedInUser", loginBean.getUsername());
                 model = new ModelAndView("showCV");

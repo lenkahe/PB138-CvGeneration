@@ -69,7 +69,11 @@ public class PersonalInfo {
         for(String s: params.keySet()){
             if(s.startsWith(key)){
                 values = params.get(s);
-                dataList.addAll(Arrays.asList(values));
+                for(String str : values) {
+                    if (str != null && str.length() > 0) {
+                        dataList.add(str);
+                    }
+                }
             }
         }
         return dataList;

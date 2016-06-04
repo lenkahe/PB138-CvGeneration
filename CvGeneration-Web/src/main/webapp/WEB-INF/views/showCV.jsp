@@ -97,19 +97,20 @@
                 </div>
                 <!-- **************************** Phone numbers ************************** -->
                 <div class="form-group" >
-                    <c:set var="phonesSize" value="${person.getPersonalInfo().getPhones().size()}"/>
-                    <div ng-init="phones = [[], <c:forEach items="${person.getPersonalInfo().getPhones()}">
+                    <div ng-init="phones = [<c:forEach items="${person.getPersonalInfo().getPhones()}">
                                                     <c:out value="${'[], '}"/>
-                                                </c:forEach>];
+                                                </c:forEach> ];
+
+
                                   _phone = [<c:forEach items="${person.getPersonalInfo().getPhones()}" var="phone">
                                                <c:out value="'${phone}'," />
                                             </c:forEach>]">
                         <label class="col-md-2">Phone number*</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="text" name="phone[0]" ng-model="_phone[0]" required placeholder="e.g. +421914868497">
+                            <input class="form-control" type="tel" name="phone[0]" ng-model="_phone[0]" required placeholder="e.g. +421914868497">
                             </br>
                             <div ng-repeat="phone in phones">
-                                <input class="form-control" type="text" name="phone[{{$index + 1}}]" ng-model="_phone[ $index + 1 ]" >
+                                <input class="form-control" type="tel" name="phone[{{$index + 1}}]" ng-model="_phone[ $index + 1 ]" >
                                 </br>
                             </div><a ng-click="phones.push([])" class="btn pull-right">Add phone number</a>
 
@@ -118,7 +119,7 @@
                 </div>
                 <!-- **************************** Emails ************************** -->
                 <div class="form-group" >
-                    <div ng-init="emails = [[], <c:forEach items="${person.getPersonalInfo().getEmails()}">
+                    <div ng-init="emails = [ <c:forEach items="${person.getPersonalInfo().getEmails()}">
                                                     <c:out value="${'[], '}"/>
                                                 </c:forEach>];
                                  _email = [ <c:forEach items="${person.getPersonalInfo().getEmails()}" var="email">
@@ -126,10 +127,10 @@
                                             </c:forEach>]">
                         <label class="col-md-2">Email*</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="text" name="email[0]" ng-model="_email[0]" required placeholder="e.g. default@gmail.com">
+                            <input class="form-control" type="email" name="email[0]" ng-model="_email[0]" required placeholder="e.g. default@gmail.com">
                             </br>
                             <div ng-repeat="email in emails">
-                                <input class="form-control" type="text" name="email[{{$index + 1}}]" ng-model="_email[ $index + 1 ]" >
+                                <input class="form-control" type="email" name="email[{{$index + 1}}]" ng-model="_email[ $index + 1 ]" >
                                 </br>
                             </div><a ng-click="emails.push([])" class="btn pull-right">Add email</a>
                         </div>
@@ -159,7 +160,6 @@
                                              </c:forEach>]" class="row">
 
             <hr>
-            <h1>Education</h1>
             </br>
 
             <div ng-init="schools = [ [] ]; _c_name = []; _c_fieldOfStudy = []; _c_since = []; _c_to = []; _c_grade = []" class="row">
@@ -388,8 +388,8 @@
                 </div><a ng-click="hobbies.push([])" class="btn pull-right">Add hobbies</a>
             </div>
         </div>
-
-        </br></br>
+            <input type="hidden" name="login" value="<c:out value="${person.getUserLogin()}"/>">
+            </br></br>
 
         <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
         </br>

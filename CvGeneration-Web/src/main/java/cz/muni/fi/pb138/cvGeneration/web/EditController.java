@@ -6,9 +6,9 @@ import cz.muni.fi.pb138.cvGeneration.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.entity.item.PersonalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,16 +27,16 @@ public class EditController {
 
 
     @RequestMapping(value="/save",method= RequestMethod.POST)
-    public void saveCv(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView saveCv(HttpServletRequest request, HttpServletResponse response) {
         Map htmlParams = request.getParameterMap();
-        if(htmlParams != null){
+        String login = request.getParameter("login").toString();
 
+        ModelAndView model = new ModelAndView("showCV");
+        if(htmlParams != null){
             PersonalInfo personalInfo = new PersonalInfo(htmlParams);
-            Person person = cvService.getCvInformation("admin");
+            Person person = cvService.getCvInformation(login);
             person.setPersonalInfo(personalInfo);
 
-            //should be user login
-            person.setUserLogin("admin");
             try {
                 cvService.saveCvInformation(person);
             } catch (ValidationException ex) {
@@ -44,8 +44,12 @@ public class EditController {
 
             }
 
+            model.addObject("person", person);
+
+
         }
 
+        return model;
     }
 
 
