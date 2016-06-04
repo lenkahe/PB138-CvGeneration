@@ -116,8 +116,10 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <h1>Education</h1>
             </br>
+
             <div ng-init="schools = [ [] ]; _c_name = []; _c_fieldOfStudy = []; _c_since = []; _c_to = []; _c_grade = []" class="row">
                 <div class="col-md-3">
                     <label class="block">School</label>
@@ -158,6 +160,7 @@
             <div class="both"></div>
             </br>
         </div>
+        <hr>
         <div class="row">
             <h1>Employments</h1>
             </br>
@@ -201,6 +204,7 @@
             <div class="both"></div>
         </div>
         <!----------------------------------- Languages ----------------------->
+        <hr>
         <div class="row">
             <div id="languages "class="col-md-5">
                 <h1>Languages</h1>
@@ -260,6 +264,7 @@
                 </div><a ng-click="skills.push([]); _l_level[ _l_level.length ] = 'basic'" class="btn pull-right">Add skill</a>
             </div>
         </div>
+        <hr>
         <!----------------------------------- Certificates ----------------------->
         <div class="row">
             <div id="certificates" class="col-xs-5">
@@ -290,6 +295,7 @@
                 </div><a ng-click="hobbies.push([])" class="btn pull-right">Add hobbies</a>
             </div>
         </div>
+
         </br></br>
 
         <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>

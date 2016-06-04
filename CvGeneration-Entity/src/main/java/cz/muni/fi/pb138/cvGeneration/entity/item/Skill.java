@@ -3,19 +3,21 @@ package cz.muni.fi.pb138.cvGeneration.entity.item;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Created by lenkahe on 12.5.2016.
+ * Skill of person
+ *
+ * @author Lenka Heldova, galbavyj
  */
 @XmlType(propOrder={"skillName", "level"})
-public class Skills {
+public class Skill {
     private String skillName;
     private String level;
 
-    public Skills(String skillName, String level) {
+    public Skill(String skillName, String level) {
         this.skillName = skillName;
         this.level = level;
     }
 
-    public Skills() {
+    public Skill() {
     }
 
     public String getSkillName() {
@@ -37,13 +39,13 @@ public class Skills {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Skills)) return false;
+        if (!(o instanceof Skill)) return false;
 
-        Skills skills = (Skills) o;
+        Skill skill = (Skill) o;
 
-        if (getSkillName() != null ? !getSkillName().equals(skills.getSkillName()) : skills.getSkillName() != null)
+        if (getSkillName() != null ? !getSkillName().equals(skill.getSkillName()) : skill.getSkillName() != null)
             return false;
-        return getLevel() != null ? getLevel().equals(skills.getLevel()) : skills.getLevel() == null;
+        return getLevel() != null ? getLevel().equals(skill.getLevel()) : skill.getLevel() == null;
 
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Personal information
  *
- * @author Lenka Heldova
+ * @author Lenka Heldova, galbavyj
  */
 
 @XmlRootElement
@@ -19,10 +19,10 @@ public class Person {
     private PersonalInfo personalInfo;
     private List<String> certificates;
     private List<String> hobbies;
-    private List<Employments> employments;
+    private List<Employment> employments;
     private List<Education> education;
-    private List<Languages> languages;
-    private List<Skills> skills;
+    private List<Language> languages;
+    private List<Skill> skills;
     private String userLogin;
 
     public Person() {
@@ -57,13 +57,13 @@ public class Person {
         this.hobbies = hobbies;
     }
 
-    public List<Employments> getEmployments() {
+    public List<Employment> getEmployments() {
         return employments;
     }
 
-    @XmlElementWrapper
+    @XmlElementWrapper(name = "employments")
     @XmlElement(name = "employment")
-    public void setEmployments(List<Employments> employments) {
+    public void setEmployments(List<Employment> employments) {
         this.employments = employments;
     }
 
@@ -77,23 +77,23 @@ public class Person {
         this.education = education;
     }
 
-    public List<Languages> getLanguages() {
+    public List<Language> getLanguages() {
         return languages;
     }
 
     @XmlElementWrapper
     @XmlElement(name = "language")
-    public void setLanguages(List<Languages> languages) {
+    public void setLanguages(List<Language> languages) {
         this.languages = languages;
     }
 
-    public List<Skills> getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
     @XmlElementWrapper
     @XmlElement(name = "skill")
-    public void setSkills(List<Skills> skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 

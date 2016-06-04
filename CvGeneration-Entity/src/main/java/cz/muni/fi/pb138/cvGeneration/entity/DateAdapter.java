@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 /**
  * This class is used to convert date in JAXB
  *
- * Created by galbavyj on 13.05.2016.
+ * @author galbavyj
  */
 public class DateAdapter extends XmlAdapter<String, Date> {
 
