@@ -5,7 +5,6 @@ import cz.muni.fi.pb138.cvGeneration.entity.Person;
 import cz.muni.fi.pb138.cvGeneration.entity.User;
 import cz.muni.fi.pb138.cvGeneration.entity.item.Address;
 import cz.muni.fi.pb138.cvGeneration.entity.item.PersonalInfo;
-import cz.muni.fi.pb138.cvGeneration.entity.item.Skills;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -90,6 +89,7 @@ public class LoginController {
 
                 //create user
                 loginDelegate.createNewUser(user);
+
                 System.out.println("New user registered: " + user.getLogin());
 
                 //create blank person/cv for the username
@@ -114,6 +114,9 @@ public class LoginController {
                 } catch (ValidationException ex) {
                     System.err.println("Could not save CV: "+ ex.getMessage());
                 }
+
+
+                System.out.println("New user registered");
 
                 request.setAttribute("loggedInUser", loginBean.getUsername());
                 model = new ModelAndView("showCV");
