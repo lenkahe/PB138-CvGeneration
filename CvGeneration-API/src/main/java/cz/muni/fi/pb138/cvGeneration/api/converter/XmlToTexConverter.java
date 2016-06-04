@@ -12,7 +12,8 @@ public interface XmlToTexConverter {
     /**
      * Method converts .xml file to .tex file.
      * @param xmlFile
+     * @param language
      * @return texFile
      */
-    File convertToTex(File xmlFile);
+    File convertToTex(File xmlFile, String language);
 }

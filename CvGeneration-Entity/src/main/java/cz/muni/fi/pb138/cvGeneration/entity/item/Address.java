@@ -4,7 +4,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Created by galbavyj on 13.05.2016.
+ * Address of person
+ *
+ * @author  galbavyj
  */
 @XmlType(propOrder={"street", "city", "postalCode"})
 public class Address {

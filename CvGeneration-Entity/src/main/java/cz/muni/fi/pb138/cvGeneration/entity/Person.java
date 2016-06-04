@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Personal information
  *
- * @author Lenka Heldova
+ * @author Lenka Heldova, galbavyj
  */
 
 @XmlRootElement
@@ -22,10 +22,10 @@ public class Person {
     private PersonalInfo personalInfo;
     private List<String> certificates;
     private List<String> hobbies;
-    private List<Employments> employments;
+    private List<Employment> employments;
     private List<Education> education;
-    private List<Languages> languages;
-    private List<Skills> skills;
+    private List<Language> languages;
+    private List<Skill> skills;
     private String userLogin;
 
     public Person() {
@@ -61,13 +61,13 @@ public class Person {
         this.hobbies = hobbies;
     }
 
-    public List<Employments> getEmployments() {
+    public List<Employment> getEmployments() {
         return employments;
     }
 
-    @XmlElementWrapper
+    @XmlElementWrapper(name = "employments")
     @XmlElement(name = "employment")
-    public void setEmployments(List<Employments> employments) {
+    public void setEmployments(List<Employment> employments) {
         this.employments = employments;
     }
 
@@ -81,23 +81,23 @@ public class Person {
         this.education = education;
     }
 
-    public List<Languages> getLanguages() {
+    public List<Language> getLanguages() {
         return languages;
     }
 
     @XmlElementWrapper
     @XmlElement(name = "language")
-    public void setLanguages(List<Languages> languages) {
+    public void setLanguages(List<Language> languages) {
         this.languages = languages;
     }
 
-    public List<Skills> getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
     @XmlElementWrapper
     @XmlElement(name = "skill")
-    public void setSkills(List<Skills> skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 
@@ -163,31 +163,31 @@ public class Person {
         return dataList;
     }
 
-    private List<Languages> getLangValue(Map<String, String[]> params,
+    private List<Language> getLangValue(Map<String, String[]> params,
                                                     String key, String key2){
 
-        List<Languages> languages = new ArrayList<Languages>();
+        List<Language> languages = new ArrayList<Language>();
 
         List<String> languageNames = getListValue(params, key);
         List<String> levels = getListValue(params, key2);
 
         for (int i = 0; i < languageNames.size(); i++ ) {
-            languages.add(new Languages(languageNames.get(i), levels.get(i)));
+            languages.add(new Language(languageNames.get(i), levels.get(i)));
         }
 
         return languages;
     }
 
-    private List<Skills> getSkillValue(Map<String, String[]> params,
+    private List<Skill> getSkillValue(Map<String, String[]> params,
                                          String key, String key2){
 
-        List<Skills> skills = new ArrayList<Skills>();
+        List<Skill> skills = new ArrayList<Skill>();
 
         List<String> skillNames = getListValue(params, key);
         List<String> levels = getListValue(params, key2);
 
         for (int i = 0; i < skillNames.size(); i++ ) {
-            skills.add(new Skills(skillNames.get(i), levels.get(i)));
+            skills.add(new Skill(skillNames.get(i), levels.get(i)));
         }
 
         return skills;

@@ -18,12 +18,19 @@ import java.io.File;
 public class XmlToTexConverterImpl implements XmlToTexConverter{
 
     @Override
-    public File convertToTex(File xmlFile){
+    public File convertToTex(File xmlFile, String language){
         File texFile = new File(xmlFile.getAbsolutePath().replace(".xml",".tex"));
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer xsltTrans;
         try {
-            xsltTrans = tf.newTransformer(new StreamSource(new File("src/main/java/cz/muni/fi/pb138/cvGeneration/service/xml2tex.xslt")));
+            File xslt;
+            switch (language){
+                case "cz": xslt = new File("..\\CvGeneration-Service\\src\\main\\resources\\xml2texCz.xslt"); break;
+                case "en": xslt = new File("..\\CvGeneration-Service\\src\\main\\resources\\xml2texEn.xslt"); break;
+                default: throw new IllegalArgumentException("Not valid language");
+            }
+
+            xsltTrans = tf.newTransformer(new StreamSource(xslt));
             xsltTrans.transform(new StreamSource(xmlFile),
                     new StreamResult(texFile));
         } catch (TransformerConfigurationException ex) {

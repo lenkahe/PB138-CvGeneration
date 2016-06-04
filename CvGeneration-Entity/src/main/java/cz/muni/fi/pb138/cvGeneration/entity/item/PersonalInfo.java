@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by galbavyj on 13.05.2016.
+ * Personal information of person
+ *
+ * @author galbavyj
  */
 
 @XmlType(propOrder={"preTitle", "firstName", "lastName", "postTitle", "address","phones", "emails"})

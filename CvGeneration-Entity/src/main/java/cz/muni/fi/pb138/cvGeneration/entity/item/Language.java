@@ -3,20 +3,22 @@ package cz.muni.fi.pb138.cvGeneration.entity.item;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * Created by lenkahe on 12.5.2016.
+ * Language
+ *
+ * @author Lenka Heldova, galbavyj
  */
 
 @XmlType(propOrder={"languageName", "level"})
-public class Languages {
+public class Language {
     private String languageName;
     private String level;
 
-    public Languages(String languageName, String level) {
+    public Language(String languageName, String level) {
         this.level = level;
         this.languageName = languageName;
     }
 
-    public Languages() {
+    public Language() {
     }
 
     public String getLanguageName() {
@@ -38,13 +40,13 @@ public class Languages {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Languages)) return false;
+        if (!(o instanceof Language)) return false;
 
-        Languages languages = (Languages) o;
+        Language language = (Language) o;
 
-        if (getLanguageName() != null ? !getLanguageName().equals(languages.getLanguageName()) : languages.getLanguageName() != null)
+        if (getLanguageName() != null ? !getLanguageName().equals(language.getLanguageName()) : language.getLanguageName() != null)
             return false;
-        return getLevel() != null ? getLevel().equals(languages.getLevel()) : languages.getLevel() == null;
+        return getLevel() != null ? getLevel().equals(language.getLevel()) : language.getLevel() == null;
 
     }
 

@@ -8,7 +8,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Date;
 
 /**
- * Created by lenkahe on 12.5.2016.
+ * Education of person
+ *
+ * @author Lenka Heldova, galbavyj
  */
 @XmlType(propOrder={"schoolName","fieldOfStudy", "grade", "dateStart", "dateEnd"})
 public class Education {

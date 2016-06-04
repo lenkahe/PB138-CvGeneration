@@ -12,10 +12,12 @@ import java.util.Date;
 
 
 /**
- * Created by lenkahe on 12.5.2016.
+ * Work experience of person
+ *
+ * @author Lenka Heldova, galbavyj
  */
 @XmlType(propOrder={"company", "position", "dateStart", "dateEnd", "description"})
-public class Employments {
+public class Employment {
 
     private String company;
     private Date dateStart;
@@ -23,7 +25,7 @@ public class Employments {
     private String position;
     private String description;
 
-    public Employments(String company, String position, Date dateStart, Date dateEnd, String description) {
+    public Employment(String company, String position, Date dateStart, Date dateEnd, String description) {
         this.dateStart = dateStart;
         if (dateEnd != null) this.dateEnd = dateEnd;
         this.company = company;
@@ -32,7 +34,7 @@ public class Employments {
     }
     SimpleDateFormat format = new SimpleDateFormat("d.M.yyyy");
 
-    public Employments() {
+    public Employment() {
     }
 
     public Date getDateStart() {
@@ -80,9 +82,9 @@ public class Employments {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employments)) return false;
+        if (!(o instanceof Employment)) return false;
 
-        Employments that = (Employments) o;
+        Employment that = (Employment) o;
 
         if (getDateStart() != null ? !getDateStart().equals(that.getDateStart()) : that.getDateStart() != null)
             return false;
