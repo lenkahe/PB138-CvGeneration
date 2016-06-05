@@ -3,4 +3,3 @@ Project to course PB138 at Masaryk University implementing web application for C
 
 [Wiki](https://github.com/lenkahe/PB138-CvGeneration/wiki)
 
-[Documentation](https://github.com/lenkahe/PB138-CvGeneration/wiki/Documentation)

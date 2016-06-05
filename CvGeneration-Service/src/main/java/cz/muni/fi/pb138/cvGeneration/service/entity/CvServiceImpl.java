@@ -15,7 +15,7 @@ import java.io.File;
 
 
 /**
- * Implementation for CvService.
+ * Implementation for {@link CvService}.
  *
  * @author galbavyj
  */

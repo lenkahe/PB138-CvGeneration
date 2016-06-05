@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implementation for TexToPdfConverter.
+ * Implementation for  {@link TexToPdfConverter}.
  *
  * @author Lenka Heldova
  */

@@ -1,0 +1,13 @@
+
+cz.muni.fi.pb138.cvGeneration.api.converter
+cz.muni.fi.pb138.cvGeneration.api.service
+cz.muni.fi.pb138.cvGeneration.entity
+cz.muni.fi.pb138.cvGeneration.entity.item
+cz.muni.fi.pb138.cvGeneration.persistence.configuration
+cz.muni.fi.pb138.cvGeneration.persistence.dao
+cz.muni.fi.pb138.cvGeneration.persistence.exception
+cz.muni.fi.pb138.cvGeneration.service.converter
+cz.muni.fi.pb138.cvGeneration.service.entity
+cz.muni.fi.pb138.cvGeneration.service.jaxb
+cz.muni.fi.pb138.cvGeneration.web
+cz.muni.fi.pb138.cvGeneration.web.utils

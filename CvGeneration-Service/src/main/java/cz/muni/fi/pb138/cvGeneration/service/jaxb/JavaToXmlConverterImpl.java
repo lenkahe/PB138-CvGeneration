@@ -16,7 +16,7 @@ import java.io.IOException;
 
 
 /**
- * This class convert Person object to XML file and back
+ * This class this class is implementation for {@link JavaToXmlConverter}
  *
  * Created by galbavyj on 13.05.2016.
  */

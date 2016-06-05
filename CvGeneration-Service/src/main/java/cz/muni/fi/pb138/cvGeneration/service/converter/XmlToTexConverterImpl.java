@@ -12,6 +12,7 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
 /**
+ * Implementation for {@link XmlToTexConverter}
  * @author Pavel Jezek
  */
 @Component
