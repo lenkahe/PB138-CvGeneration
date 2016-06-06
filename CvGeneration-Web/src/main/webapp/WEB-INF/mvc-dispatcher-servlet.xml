@@ -24,6 +24,7 @@
     <mvc:annotation-driven />
 
     <bean name="userService" class="cz.muni.fi.pb138.cvGeneration.service.entity.UserServiceImpl"/>
+    <bean name="cvService" class="cz.muni.fi.pb138.cvGeneration.service.entity.CvServiceImpl"/>
 
     <bean name="loginDelegate" class="cz.muni.fi.pb138.cvGeneration.web.LoginDelegate">
         <property name="userService" ref="userService"/>

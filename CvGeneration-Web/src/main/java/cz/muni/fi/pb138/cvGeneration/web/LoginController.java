@@ -26,17 +26,12 @@ import java.util.List;
 
 public class LoginController {
 
-/*    @RequestMapping(value = "/index")
-    public String root() {
-        return "index";
-    }*/
-
     @Autowired
     private LoginDelegate loginDelegate;
     @Autowired
     private CvService cvService;
 
-    @RequestMapping(value="/index",method= RequestMethod.GET)
+    @RequestMapping(value="",method= RequestMethod.GET)
     public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response)
     {
         ModelAndView model = new ModelAndView("index");

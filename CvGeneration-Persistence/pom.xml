@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>PB138-CvGeneration</artifactId>
-        <groupId>cz.muni.fi.pa138.cvGeneration</groupId>
+        <groupId>cz.muni.fi.pb138.cvGeneration</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>cz.muni.fi.pa138.cvGeneration</groupId>
+            <groupId>cz.muni.fi.pb138.cvGeneration</groupId>
             <artifactId>entity</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html ng-app>
 <head>
-    <%@include file="meta.html" %>
+    <%@include file="meta.jsp" %>
 </head>
 <body>
 <div class="jumbotron">
@@ -19,7 +19,7 @@
             <p>Create your resume here!</p>
         </div>
         <div class="col-md-2 col-md-offset-3">
-            <form action="${pageContext.request.contextPath}/index" method="GET">
+            <form action="${pageContext.request.contextPath}" method="GET">
                 <button class="btn btn-danger">
                     <span class="glyphicon glyphicon-off " aria-hidden="true"></span> Log out
                 </button>

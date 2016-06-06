@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="meta.html"%>
-    <link rel="stylesheet" href="css/signup.css">
+    <%@include file="meta.jsp"%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css">
 </head>
 <body>
 

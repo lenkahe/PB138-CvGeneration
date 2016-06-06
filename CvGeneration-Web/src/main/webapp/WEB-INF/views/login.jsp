@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="meta.html"%>
+    <%@include file="meta.jsp"%>
 </head>
 <body>
     Hello this is login

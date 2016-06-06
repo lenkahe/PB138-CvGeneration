@@ -1,7 +1,7 @@
 package cz.muni.fi.pb138.cvGeneration.web;
 
+import cz.muni.fi.pb138.cvGeneration.api.service.UserService;
 import cz.muni.fi.pb138.cvGeneration.entity.User;
-import cz.muni.fi.pb138.cvGeneration.service.entity.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class LoginDelegate {
 
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
 
-    public void setUserService(UserServiceImpl userService) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 

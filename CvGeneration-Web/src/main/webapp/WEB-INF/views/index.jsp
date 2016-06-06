@@ -12,8 +12,8 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%@include file="meta.html"%>
-    <link rel="stylesheet" href="../../resources/css/form-elements.css">
+    <%@include file="meta.jsp"%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/form-elements.css">
 </head>
 
 <body>
