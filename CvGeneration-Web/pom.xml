@@ -37,7 +37,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>cz.muni.fi.pa138.cvGeneration</groupId>
+            <groupId>cz.muni.fi.pb138.cvGeneration</groupId>
             <artifactId>service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

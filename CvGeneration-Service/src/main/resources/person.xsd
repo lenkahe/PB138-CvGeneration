@@ -47,13 +47,13 @@
 
     <xsd:complexType name="emailsType">
         <xsd:sequence>
-            <xsd:element name="email" maxOccurs="3" type="emailType"/>
+            <xsd:element name="email" maxOccurs="unbounded" type="emailType"/>
         </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="phonesType">
         <xsd:sequence>
-            <xsd:element name="phone" maxOccurs="3" type="phoneType"/>
+            <xsd:element name="phone" maxOccurs="unbounded" type="phoneType"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -80,7 +80,7 @@
                     <xsd:sequence>
                         <xsd:element name="schoolName" type="xsd:string"/>
                         <xsd:element name="fieldOfStudy" type="xsd:string"/>
-                        <xsd:element name="grade" minOccurs="0" type="xsd:int"/>
+                        <xsd:element name="grade" minOccurs="0" type="xsd:string"/>
                         <xsd:element name="dateStart" type="xsd:string"/>
                         <xsd:element name="dateEnd" minOccurs="0" type="xsd:string"/>
                     </xsd:sequence>
@@ -131,7 +131,7 @@
 
     <xsd:simpleType name="emailType">
         <xsd:restriction base="xsd:string">
-            <!--<xsd:pattern value="\S+@\S+\.\S+"/>-->
+            <xsd:pattern value="\S+@\S+\.\S+"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -139,7 +139,7 @@
 
     <xsd:simpleType name="phoneType">
         <xsd:restriction base="xsd:string">
-            <!--<xsd:pattern value="\+?(\(?[0-9]+)([\(\) 0-9]*)"/>-->
+            <xsd:pattern value="\+?(\(?[0-9]+)([\(\) 0-9]*)"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -155,7 +155,7 @@
 
     <xsd:simpleType name="typeLevel">
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="(basic|intermediate|advanced)"/>
+            <xsd:pattern value="(basic|intermediate|advanced|professional)"/>
         </xsd:restriction>
     </xsd:simpleType>
 </xsd:schema>

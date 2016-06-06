@@ -21,10 +21,13 @@ import java.util.List;
 
 /**
  * Created by Marek Perichta on 14.05.2016.
+ *
+ * Controller handling registration and login.
  */
 @Controller
 
 public class LoginController {
+
 
     @Autowired
     private LoginDelegate loginDelegate;
@@ -40,6 +43,9 @@ public class LoginController {
         return model;
     }
 
+    /**
+     *  Validates user. If valid, redirects to edit page with stored CV.
+     */
     @RequestMapping(value="/editcv",method=RequestMethod.POST)
     public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean)
     {
@@ -71,6 +77,9 @@ public class LoginController {
         return model;
     }
 
+    /**
+     *  Handles registration of new user.
+     */
     @RequestMapping(value="/register",method= RequestMethod.POST)
     public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean)
     {

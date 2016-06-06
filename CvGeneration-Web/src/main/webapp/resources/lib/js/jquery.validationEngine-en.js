@@ -78,8 +78,7 @@
                     "alertText": "* Invalid credit card number"
                 },
                 "phone": {
-                    // credit: jquery.h5validate.js / orefalo
-                    "regex": /^([\+][0-9]{1,3}([ \.\-])?)?([\(][0-9]{1,6}[\)])?([0-9 \.\-]{1,32})(([A-Za-z \:]{1,11})?[0-9]{1,4}?)$/,
+                    "regex": /^([\+][0-9]{1,3})?([ ]{1})?([0-9]{9})?$/,
                     "alertText": "* Invalid phone number"
                 },
                 "email": {
@@ -92,7 +91,7 @@
                     "alertText":"* Must be first and last name"
                 },
                 "zip": {
-                    "regex":/^\d{5}$|^\d{5}-\d{4}$/,
+                    "regex":/^\d{5}$/,
                     "alertText":"* Invalid zip format"
                 },
                 "integer": {

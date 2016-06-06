@@ -99,12 +99,12 @@
                 <xsl:text>}\\</xsl:text>
                 <xsl:value-of select="schoolName"/>
                 <xsl:text>\\</xsl:text>
-                <xsl:if test="fieldOfStudy">
+                <xsl:if test="fieldOfStudy and fieldOfStudy/text() != ''">
                     <xsl:text>Field of Study: </xsl:text>
                     <xsl:value-of select="fieldOfStudy"/>
                     <xsl:text>\\</xsl:text>
                 </xsl:if>
-                <xsl:if test="grade">
+                <xsl:if test="grade and grade/text() != ''">
                     <xsl:text>Grade: </xsl:text>
                     <xsl:value-of select="grade"/>
                     <xsl:text>\\</xsl:text>
@@ -139,7 +139,7 @@
                 <xsl:value-of select="company"/>
                 <xsl:text>\\ Position: </xsl:text>
                 <xsl:value-of select="position"/>
-                <xsl:if test="description">
+                <xsl:if test="description and description/text() != ''">
                     <xsl:text>\\ Description: </xsl:text>
                     <xsl:value-of select="description"/>
                 </xsl:if>

@@ -2,6 +2,8 @@ package cz.muni.fi.pb138.cvGeneration.web;
 
 /**
  * Created by Marek Perichta on 28.05.2016.
+ *
+ * Bean for retrieving username and password.
  */
 public class LoginBean {
     private String username;
