@@ -18,10 +18,10 @@ public class Education {
     private String schoolName;
     private String fieldOfStudy;
     private String grade;
-    private Date dateStart;
-    private Date dateEnd;
+    private String dateStart;
+    private String dateEnd;
 
-    public Education(String schoolName, String fieldOfStudy, String grade, Date dateStart, Date dateEnd) {
+    public Education(String schoolName, String fieldOfStudy, String grade, String dateStart, String dateEnd) {
         this.schoolName = schoolName;
         this.fieldOfStudy = fieldOfStudy;
         if (grade != null) this.grade = grade;
@@ -32,21 +32,19 @@ public class Education {
     public Education() {
     }
 
-    public Date getDateStart() {
+    public String getDateStart() {
         return dateStart;
     }
 
-    @XmlJavaTypeAdapter(DateAdapter.class)
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
     }
 
-    public Date getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    @XmlJavaTypeAdapter(DateAdapter.class)
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 

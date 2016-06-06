@@ -20,12 +20,12 @@ import java.util.Date;
 public class Employment {
 
     private String company;
-    private Date dateStart;
-    private Date dateEnd;
+    private String dateStart;
+    private String dateEnd;
     private String position;
     private String description;
 
-    public Employment(String company, String position, Date dateStart, Date dateEnd, String description) {
+    public Employment(String company, String position, String dateStart, String dateEnd, String description) {
         this.dateStart = dateStart;
         if (dateEnd != null) this.dateEnd = dateEnd;
         this.company = company;
@@ -37,21 +37,19 @@ public class Employment {
     public Employment() {
     }
 
-    public Date getDateStart() {
+    public String getDateStart() {
         return dateStart;
     }
 
-    @XmlJavaTypeAdapter(DateAdapter.class)
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(String dateStart) {
         this.dateStart = dateStart;
     }
 
-    public Date getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    @XmlJavaTypeAdapter(DateAdapter.class)
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 
