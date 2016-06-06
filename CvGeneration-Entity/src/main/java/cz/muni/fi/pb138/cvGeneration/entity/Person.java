@@ -3,6 +3,8 @@ package cz.muni.fi.pb138.cvGeneration.entity;
 import cz.muni.fi.pb138.cvGeneration.entity.item.*;
 
 import javax.xml.bind.annotation.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -107,6 +109,7 @@ public class Person {
     }
 
     public void setPersonalInfo(PersonalInfo personalInfo) {
+        System.out.println(String.valueOf(personalInfo));
         this.personalInfo = personalInfo;
     }
 
@@ -150,7 +153,7 @@ public class Person {
         return result;
     }
 
-    private List<String> getListValue(Map<String, String[]> params, String key){
+    private List<String> setListValueFromMap(Map<String, String[]> params, String key){
         String[] values;
         List<String> dataList = new ArrayList<String>();
 
@@ -163,34 +166,104 @@ public class Person {
         return dataList;
     }
 
-    private List<Language> getLangValue(Map<String, String[]> params,
-                                                    String key, String key2){
+    private void setLangValueFromMap(Map<String, String[]> params,
+                                     String key, String key2){
 
         List<Language> languages = new ArrayList<Language>();
 
-        List<String> languageNames = getListValue(params, key);
-        List<String> levels = getListValue(params, key2);
+        List<String> languageNames = setListValueFromMap(params, key);
+        List<String> levels = setListValueFromMap(params, key2);
 
         for (int i = 0; i < languageNames.size(); i++ ) {
-            languages.add(new Language(languageNames.get(i), levels.get(i)));
+            if (languageNames.get(i).length() > 0) {
+                languages.add(new Language(languageNames.get(i), levels.get(i)));
+            }
+
+        }
+        if (languages.size() > 0) {
+            this.setLanguages(languages);
         }
 
-        return languages;
     }
 
-    private List<Skill> getSkillValue(Map<String, String[]> params,
-                                         String key, String key2){
+    private void setSkillValueFromMap(Map<String, String[]> params,
+                                      String key, String key2){
 
         List<Skill> skills = new ArrayList<Skill>();
 
-        List<String> skillNames = getListValue(params, key);
-        List<String> levels = getListValue(params, key2);
+        List<String> skillNames = setListValueFromMap(params, key);
+        List<String> levels = setListValueFromMap(params, key2);
 
         for (int i = 0; i < skillNames.size(); i++ ) {
-            skills.add(new Skill(skillNames.get(i), levels.get(i)));
+            if (skillNames.get(i).length() > 0) {
+                skills.add(new Skill(skillNames.get(i), levels.get(i)));
+            }
+        }
+        if(skills.size() > 0) {
+            this.setSkills(skills);
         }
 
-        return skills;
+    }
+
+    private void setEducationValueFromMap (Map<String, String[]> params, String key) {
+        List<Education> edu = new ArrayList<>();
+
+        List<String> schools = setListValueFromMap(params, key + "name" );
+        List<String> fieldsOfStudy = setListValueFromMap(params, key + "fieldOfStudy" );
+        List<String> since = setListValueFromMap(params, key + "since" );
+        List<String> to = setListValueFromMap(params, key + "to" );
+        List<String> grades = setListValueFromMap(params, key + "grade" );
+
+
+        for (int i = 0; i < schools.size(); i++ ) {
+            if (schools.get(i).length() > 0) {
+                edu.add(new Education(schools.get(i), fieldsOfStudy.get(i), grades.get(i), since.get(i), to.get(i)));
+            }
+        }
+        if (edu.size() > 0) {
+            this.setEducation(edu);
+        }
+
+    }
+
+    private void setEmploymentValueFromMap (Map<String, String[]> params, String key) {
+        List<Employment> emp = new ArrayList<>();
+
+        List<String> companies  = setListValueFromMap(params, key + "nameC" );
+        List<String> positions = setListValueFromMap(params, key + "position" );
+        List<String> since = setListValueFromMap(params, key + "sinceC" );
+        List<String> to = setListValueFromMap(params, key + "toC" );
+        List<String> notes = setListValueFromMap(params, key + "note" );
+
+
+        for (int i = 0; i < companies.size(); i++ ) {
+            if (companies.get(i).length() > 0) {
+                emp.add(new Employment(companies.get(i), positions.get(i), since.get(i), to.get(i), notes.get(i)));
+            }
+        }
+        if (emp.size() > 0) {
+            this.setEmployments(emp);
+        }
+
+    }
+
+    public void setAdditionalInfo (Map <String, String[]> params) {
+        setSkillValueFromMap(params, "s_skill", "s_level");
+        setLangValueFromMap(params, "l_language", "l_level");
+        setEducationValueFromMap(params, "e_");
+        setEmploymentValueFromMap(params, "c_");
+
+        List <String> certificates = setListValueFromMap(params, "certificate");
+        certificates.removeAll(Arrays.asList("", null));
+        if (certificates.size() > 0) {
+            setCertificates(certificates);
+        }
+        List <String> hobbies = setListValueFromMap(params, "hobbies");
+        hobbies.removeAll(Arrays.asList("", null));
+        if (hobbies.size() > 0) {
+            setHobbies(hobbies);
+        }
+
     }
 
 }
