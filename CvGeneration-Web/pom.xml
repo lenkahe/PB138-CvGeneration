@@ -19,7 +19,7 @@
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
-                    <path>/cvGenerator</path>
+                    <path>/cvGeneration</path>
                     <port>8081</port>
                 </configuration>
             </plugin>

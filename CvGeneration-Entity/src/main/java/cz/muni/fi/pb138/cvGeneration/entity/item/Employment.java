@@ -2,13 +2,9 @@ package cz.muni.fi.pb138.cvGeneration.entity.item;
 
 
 
-import cz.muni.fi.pb138.cvGeneration.entity.DateAdapter;
-
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 /**

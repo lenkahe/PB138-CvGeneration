@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+        <title>CV Generator</title>
+
+        <author>
+            <firstname>Pavel</firstname>
+            <surname>Ježek</surname>
+        </author>
+
+        <pubdate>6.6.2016</pubdate>
+    </articleinfo>
+
+    <section>
+        <title>Finální zpráva</title>
+        <para>Mým úkolem v projektu bylo nasázet texový soubor, ze kterého se bude tvořit PDF. Dále vytvořit XSLT transformaci z formátu XML do formátu TeX. Napsat jUnit testy a zoptimalizovat webovou prezentaci.</para>
+    </section>
+    
+	<section>
+        <title>LaTeX</title>
+        <para>
+            Pro nasázení příkazů byl použit program MiKTeX verze 2.9.
+        </para>
+    </section>
+
+    <section>
+        <title>XSLT transformace</title>
+        <para>
+            XSLT transformace bere informace ze vstupního souboru v XML a převádí je do posloupnosti příkazů v TeXu.
+        </para>
+    </section>
+
+    <section>
+        <title>jUnit testy</title>
+        <para>
+               Testují se základní operace ve třídách, které přistupují do databází, dále se detailně testuje převod z XML do TeXu. 
+        </para>
+    </section>
+    
+    <section>
+        <title>Úprava webová prezentace</title>
+        <para>
+               Zde bylo mým cílem zoptimalizovat webovou prezentaci tak, aby vypadala dobře napříč všemi majoritními prohlížeči. 
+        </para>
+    </section>
+	
+	 <section>
+        <title>Skupinová práce</title>
+        <para>
+              Práci na projektu hodnotím vcelku v kladně, až na pár neshod ohledně dodržení termínů. Několikrát jsme se během realizace střetli a navzájem si plně pomáhali.
+        </para>
+    </section>
+ 
+</article>

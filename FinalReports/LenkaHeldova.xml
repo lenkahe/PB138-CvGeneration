@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+        <title>CV Generator</title>
+
+        <author>
+            <firstname>Lenka</firstname>
+            <surname>Heldová</surname>
+        </author>
+
+        <pubdate>6.6.2016</pubdate>
+    </articleinfo>
+
+    <section>
+        <title>Finálna správa</title>
+        <para>Ja, ako vedúca tímu som mala niekoľko úloh. Starala som sa celkovú štruktúru projektu, konfiguráciu a použitie databáz a vytvorenie príslušných DAO tried a v neposlednom rade transformáciu .tex súboru na PDF pomocou LaTeXu.</para>
+    </section>
+    
+	<section>
+        <title>Databázy</title>
+        <para>
+            Databázy používame v našom projekte dve. Pre ukladanie užívateľov a ich prihlasovacích údajov používame vloženú ("embedded") SQL databázu. Pre ukladanie informácií zo životopisu užívateľa používame eXist databázu, tieto informácie ukladáme pomocou XML súborov. EXist databáza beží ako samostatná aplikácia (localhost:8080, preto aplikácia beží na porte 8081).
+        </para>
+    </section>
+
+    <section>
+        <title>DAO triedy</title>
+        <para>
+            Pre SQL databázu využívame JpaRepository, keďže potrebujeme iba základné funkcie. Pre eXist databázu je vytvorená trieda na prístup k datám s funkciami: save, delete, get.
+        </para>
+    </section>
+
+    <section>
+        <title>PDF transformácia</title>
+
+        <para>
+               Pri generovaní životopisu sa na vytvorenie PDF dokumentu používa LaTeX. Ten je nutné mať nainštalovaný (konkrétne pdflatex nástroj). Je tak isto nutné do triedy TexToPdfConverterImpl zadať cestu k tomuto nástroju. Po vygenerovaní PDF súboru sa všetky pomocné súbory zmažú, tak isto ako sa zmaže aj PDF súbor po načítaní na stránku. Ukladá sa iba XML súbor. 
+        </para>
+    </section>
+	
+	 <section>
+        <title>Skupinová práca</title>
+
+        <para>
+              Práca na takomto projekte sa nedá úplne rozdeliť na samostatné úseky. Vždy sme si ako tím navzájom pomáhali, niekoľko krát sa stretli a snažili sa našu prácu čo najviac diskutovať. Až na malé nezhody a individuálne nedodržanie nami daných termínov na dokončenie práce, hodnotím našu tímovú spoluprácu kladne.
+        </para>
+    </section>
+ 
+</article>

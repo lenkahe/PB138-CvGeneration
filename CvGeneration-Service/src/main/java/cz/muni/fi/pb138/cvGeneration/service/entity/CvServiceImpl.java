@@ -56,8 +56,6 @@ public class CvServiceImpl implements CvService{
         File texFile = xmlToTexConv.convertToTex(xmlFile, lang);
         xmlFile.delete();
         String texName = texFile.getName();
-        System.out.println(texName);
-
         String pdfFilePath = texToPdfConv.createPDF(new File(texName.replace(".tex","")));
 
         return new File(pdfFilePath);

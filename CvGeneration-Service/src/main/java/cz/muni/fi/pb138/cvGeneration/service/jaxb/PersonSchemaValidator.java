@@ -45,7 +45,6 @@ public class PersonSchemaValidator {
 
             try {
                 validator.validate(xmlSource);
-                System.out.println(xmlFile.getName() + " is valid.");
                 return true;
             } catch (SAXException ex) {
                 System.err.println("XML document is not valid: " + ex.getMessage());

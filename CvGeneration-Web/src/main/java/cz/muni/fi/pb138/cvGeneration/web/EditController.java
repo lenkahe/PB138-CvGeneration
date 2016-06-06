@@ -96,7 +96,9 @@ public class EditController {
                 while ((bytesRead = inputStream.read(buffer)) != -1) {
                     outStream.write(buffer, 0, bytesRead);
                 }
-                pdf.deleteOnExit();
+                inputStream.close();
+                outStream.close();
+                pdf.delete();
             } catch (ValidationException e) {
                 e.printStackTrace();
             }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+        <title>CV Generator</title>
+
+        <author>
+            <firstname>Juraj</firstname>
+
+            <surname>Galbavý</surname>
+        </author>
+
+        <pubdate>6.6.2015</pubdate>
+    </articleinfo>
+
+    <section>
+        <title>Finálna správa</title>
+        <para>Mojou úlohou na projekte bolo vytvoriť triedu, ktorá namapuje Java objekt do XML súboru a naopak z XML súboru vytvorí Java objekt.
+ 
+	</para>
+    </section>
+    
+    <section>
+        <title>JavaToXmlConverter</title>
+        <para>
+	     V tejto triede som naimplementoval dve metódy, ktoré sa starajú o prevod Java objektu na XML a naspäť. Metóda createXML(Person person) berie ako vstupný parameter objekt typu Person, pomocou JAXB marshalleru následne konvertuje tento objekt do XML formátu a ukladá ho do súboru, ktorý je pred prepustením z funkcie zvalidovaný. Metóda createPerson(String fileName) berie ako vstupný parameter meno XML súboru v eXist databáze. Súbor je z databázy vytiahnutý a následne konvertovaný na do objektu typu Person.
+        </para>
+    </section>
+
+    <section>
+        <title>PersonSchemaValidator</title>
+        <para>
+	     Pomocou konštruktora triedy sa načíta XML schéma do premennej. Metóda validate(File xmlFile), validuje vstupný XML súbor. V prípade nevalídnosti vracia false.
+        </para>
+    </section>
+
+<section>
+        <title>CvService</title>
+        <para>
+	     Mojou ďalšou úlohou bolo implementovať metódy v triede CvService, ktoré sa starajú o prácu s objektom typu Person. Metóda saveCvInformation(Person cv) má za úlohu konvertovať objekt do XML súboru a ten uložiť do XML databázy. Metóda getCvInformation(String login) má za úlohu získať objekt Person z XML súboru v databáze. Hash loginu je unikátny názov XML súboru v databáze. Metóda createPdf(Person person, String lang) má za úlohu z objektu Person vytvoriť PDF súbor v jazyku, ktorý je určený parametrom lang(eng,cz). Aplikuje sa nasledujúca postupnosť Person -> XML -> TEX -> PDF.
+        </para>
+    </section>
+</article>

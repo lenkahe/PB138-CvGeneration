@@ -109,7 +109,6 @@ public class Person {
     }
 
     public void setPersonalInfo(PersonalInfo personalInfo) {
-        System.out.println(String.valueOf(personalInfo));
         this.personalInfo = personalInfo;
     }
 
