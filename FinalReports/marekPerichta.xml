@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+        <title>CV Generator</title>
+
+        <author>
+            <firstname>Marek</firstname>
+            <surname>Perichta</surname>
+        </author>
+
+        <pubdate>6.6.2016</pubdate>
+    </articleinfo>
+
+    <section>
+        <title>Finálna správa</title>
+        <para>Moja úloha spočívala v zostavení webového rozhrania s možnosťou registrácie, prihlásenia, vyplnenia formuláru a zobrazenia výsledného pdf s pomocou servletovej logiky.</para>
+    </section>
+    
+	<section>
+        <title>Konfigurácia webovej aplikácie a servlety</title>
+        <para>
+            Backend je písaný pomocou SpringMVC frameworku, ktorý pomocou volaní servisných tried pracuje s databázami užívateľov a životopisov. Ide teda o user management, ukladanie životopisov, ich generovanie a zobrazenie na webovom prehliadači. Použitý je webový kontajner Tomcat.
+        </para>
+    </section>
+
+    <section>
+        <title>Front-end</title>
+        <para>
+            Webové rozhranie tvoria dve stránky. Na jednej z nich, konkrétne login.jsp sa môže užívateľ zaregistrovať alebo prihlásiť k aplikácii. ShowCv.jsp sa na druhej strane stará o predvyplnenie formuláru pomocou JSTL. O pridávanie dynamických polí sa stará framework Angular. Bootstrap naformátoval stránky a pomohol k modernejšiemu vzhľadu.
+        </para>
+    </section>
+
+ 
+</article>
