@@ -26,4 +26,9 @@ public class UserServiceImpl implements UserService {
     public User createNewUser(User user) {
         return userDao.save(user);
     }
+
+    @Override
+    public boolean isLoginAlreadyUsed(String login) {
+        return (userDao.findByLogin(login) != null)? true : false;
+    }
 }

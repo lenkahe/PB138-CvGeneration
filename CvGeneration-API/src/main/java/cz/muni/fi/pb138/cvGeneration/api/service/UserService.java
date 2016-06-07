@@ -22,4 +22,11 @@ public interface UserService {
      * @return User
      */
     User createNewUser(User user);
+
+    /**
+     * Return true if login is already used.
+     *
+     *  @param login
+     */
+    boolean isLoginAlreadyUsed(String login);
 }

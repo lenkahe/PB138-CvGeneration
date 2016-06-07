@@ -95,7 +95,7 @@
                 <!-- **************************** Postal code ************************** -->
                 <div class="input-info">
                     <label for="postal-code" class="">Postal code*</label>
-                    <input type="text" name="postal-code" id="postal-code" class="form-control validate[required, custom[zip]]"
+                    <input type="text" name="postal-code" id="postal-code" class="form-control validate[required]"
                            placeholder="e.g. 974 01"
                            value="<c:out value="${person.getPersonalInfo().getAddress().getPostalCode()}"/>"/>
                     <div class="cleaner"></div>
@@ -427,13 +427,13 @@
         <input type="hidden" name="login" value="<c:out value="${person.getUserLogin()}"/>">
 
 
-        <button type="submit" class="btn btn-primary btn-lg btn-block btn-full" name="save">Save</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block btn-full" name="save" onclick="$('form').attr('target', '');">Save</button>
 
-        <button type="submit" class="btn btn-primary btn-lg btn-block btn-left" name="download" value="cz">Download pdf
+        <button type="submit" class="btn btn-primary btn-lg btn-block btn-left" name="download" value="cz" onclick="$('form').attr('target', '_blank');">Download pdf
             in CZ
         </button>
 
-        <button type="submit" class="btn btn-primary btn-lg btn-block btn-right" name="download" value="en">Download pdf
+        <button type="submit" class="btn btn-primary btn-lg btn-block btn-right" name="download" value="en" onclick="$('form').attr('target', '_blank');">Download pdf
             in EN
         </button>
         <div class="cleaner"></div>

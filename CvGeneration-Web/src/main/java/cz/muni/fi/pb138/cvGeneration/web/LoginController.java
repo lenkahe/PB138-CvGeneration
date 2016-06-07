@@ -85,9 +85,9 @@ public class LoginController {
     {
         ModelAndView model= null;
         try {
-            boolean isValidUser = loginDelegate.isValidUser(loginBean.getUsername(), loginBean.getPassword());
+            boolean isLoginUsed = loginDelegate.isLoginUsed(loginBean.getUsername());
             //if user not registered yet
-            if (!isValidUser) {
+            if (!isLoginUsed) {
                 User user = new User();
                 user.setLogin(loginBean.getUsername());
                 user.setPassword(loginBean.getPassword());

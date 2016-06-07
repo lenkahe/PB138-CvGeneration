@@ -181,6 +181,8 @@ public class Person {
         }
         if (languages.size() > 0) {
             this.setLanguages(languages);
+        } else{
+            this.setLanguages(null);
         }
 
     }
@@ -200,6 +202,8 @@ public class Person {
         }
         if(skills.size() > 0) {
             this.setSkills(skills);
+        } else{
+            this.setSkills(null);
         }
 
     }
@@ -221,6 +225,8 @@ public class Person {
         }
         if (edu.size() > 0) {
             this.setEducation(edu);
+        } else{
+            this.setEducation(null);
         }
 
     }
@@ -242,6 +248,8 @@ public class Person {
         }
         if (emp.size() > 0) {
             this.setEmployments(emp);
+        } else{
+            this.setEmployments(null);
         }
 
     }
@@ -256,11 +264,15 @@ public class Person {
         certificates.removeAll(Arrays.asList("", null));
         if (certificates.size() > 0) {
             setCertificates(certificates);
+        } else {
+            setCertificates(null);
         }
         List <String> hobbies = setListValueFromMap(params, "hobbies");
         hobbies.removeAll(Arrays.asList("", null));
         if (hobbies.size() > 0) {
             setHobbies(hobbies);
+        } else {
+            setHobbies(null);
         }
 
     }

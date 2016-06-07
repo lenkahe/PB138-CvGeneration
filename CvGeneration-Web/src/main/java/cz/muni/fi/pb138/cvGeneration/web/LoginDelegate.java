@@ -22,6 +22,10 @@ public class LoginDelegate {
 
     }
 
+    public boolean isLoginUsed(String login){
+        return userService.isLoginAlreadyUsed(login);
+    }
+
     public User createNewUser(User user) {
 
         return userService.createNewUser(user);
